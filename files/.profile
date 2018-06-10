@@ -16,22 +16,31 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-# set PATH so it includes user's private bin if it exists
+# user's private bin
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
+# user's private bin
 if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# set PATH so it includes go binaries if they exist
+# personal scripts
+if [ -d "$HOME/.config/scripts" ] ; then
+  PATH="$HOME/.config/scripts:$PATH"
+fi
+
+# go binaries
 if [ -d "$HOME/go/bin" ] ; then
   PATH="$HOME/go/bin:$PATH"
 fi
 
-PATH="$HOME/.config/scripts:$PATH"
+# arcanist
+if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
+  PATH="$HOME/apps/arcanist/bin:$PATH"
+fi
+
 export BROWSER=/usr/bin/chromium-browser
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim

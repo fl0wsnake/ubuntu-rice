@@ -116,7 +116,7 @@ bindsym $leader+s exec --no-startup-id $i3dir/init_layout $browser_workspace bro
 bindsym $leader+Shift+s move container to workspace $browser_workspace
 bindsym $leader+Control+Shift+s exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $browser_workspace
 set $chat_workspace 103:
-bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats telegram-desktop
+bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats telegram-desktop slack
 bindsym $leader+Shift+c move container to workspace $chat_workspace
 bindsym $leader+Control+Shift+c exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $chat_workspace
 set $music_workspace 104:♫
@@ -193,9 +193,9 @@ exec --no-startup-id setxkbmap -option grp:switch,grp:caps_toggle,grp_led:caps u
 bindsym $leader+Shift+comma exec --no-startup-id "setxkbmap us,ru"
 bindsym $leader+Shift+period exec --no-startup-id "setxkbmap us,ua"
 # screenshots
-bindsym Print exec --no-startup-id scrot ~/stuff/images/screenshots/%Y-%m-%d-%T-screenshot.png
-bindsym Shift+Print exec --no-startup-id sleep 0.5 && scrot -s ~/stuff/images/screenshots/%Y-%m-%d-%T-screenshot.png
-bindsym Control+Print exec --no-startup-id peek
+bindsym Print exec --no-startup-id shutter -f
+bindsym Shift+Print exec --no-startup-id shutter -s
+bindsym Control+Print exec --no-startup-id shutter -a
 # laptop fn key bindings
 # pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
