@@ -168,6 +168,8 @@ set $0_workspace 210:0
 bindsym $leader+0 workspace $0_workspace
 bindsym $leader+Shift+0 move container to workspace $0_workspace
 bindsym $leader+Control+Shift+0 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $0_workspace
+# workspace app assigns
+assign [class="Slack"] $chat_workspace
 # monitors/screens
 workspace $q_workspace output HDMI1
 workspace $1_workspace output eDP1
