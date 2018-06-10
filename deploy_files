@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source ./paths.sh
+
+for i in "${paths[@]}"
+do
+  cp -r $(realpath $backupdir/$i) ~/$(dirname $i)
+done

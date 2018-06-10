@@ -1,0 +1,24 @@
+#!/bin/bash
+
+source ./paths.sh
+rm -rf $backupdir
+
+for i in "${paths[@]}"
+do
+  dir=$(dirname $i)
+  mkdir -p $backupdir/$dir
+  cp -a ~/$i $backupdir/$dir 2>/dev/null
+done
+
+find ./files \( -type f -o -type d \) -name '*history*' -exec rm -rf {} +
+find ./files \( -type f -o -type d \) -name '*tagged*' -exec rm -rf {} +
+find ./files \( -type f -o -type d \) -name '*cache*' -exec rm -rf {} +
+
+# no ` and 0-9 bookmarks synced
+ranger_bookmarks=./files/.config/ranger/bookmarks
+if [ -f "$ranger_bookmarks" ]; then
+  grep '^[^0-9]' <"$ranger_bookmarks" > "$ranger_bookmarks.tmp" && mv "$ranger_bookmarks.tmp" "$ranger_bookmarks"
+fi
+
+# create directories per ranger bookmarks
+cat "$ranger_bookmarks" | sed 's/^.://' | xargs -L1 mkdir -p

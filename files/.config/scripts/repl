@@ -1,0 +1,21 @@
+#!/bin/bash
+
+command="$*"
+
+executable=$(echo $command | awk '{print $1}')
+if type $executable > /dev/null; then
+    dir=~/apps/repl/$executable
+    mkdir -p $dir
+
+    if [[ "$command" =~ ^trans.* ]]
+    then
+        command="$command -no-ansi"
+    fi
+
+    while read input; do
+        filepath=$dir/$(echo $input | tr ' ' _).txt
+        eval "$command $input" > $filepath
+        $EDITOR $filepath
+    done
+fi
+

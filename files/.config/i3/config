@@ -1,0 +1,237 @@
+set $i3dir ~/.config/i3/
+set $term st
+set $shell zsh
+set $leader Mod4
+set_from_resource $browser echo "${BROWSER:=google-chrome}"
+# default tab layout
+workspace_layout default
+# font
+font Open Sans Light 14
+# no mouse scroll action
+bindsym button4 nop
+bindsym button5 nop
+focus_follows_mouse no
+# use Mouse+$leader to drag floating windows to their wanted position
+floating_modifier $leader
+# system mode
+set $mode_system Touchpad, (c)reload, (C)restart, Lock, Exit, Shutdown, Reboot, (d)close all windows, (e)logout, (S)suspend, Hibernate
+mode "$mode_system" {
+  bindsym d [class=".*"] kill
+    bindsym t exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
+    bindsym p exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
+    bindsym c reload
+    bindsym Shift+c restart
+    bindsym l exec --no-startup-id i3lock-fancy, mode "default"
+    bindsym e [class=".*"] kill, exit, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl reboot, mode "default"
+# bindsym r [class=".*"] kill, exec systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl poweroff, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $leader+p mode "$mode_system"
+# terminal
+bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell "
+# program launcher
+bindsym $leader+Shift+Return exec --no-startup-id rofi -show run
+# text editor
+bindsym $leader+z exec --no-startup-id $term -e nvim -c "call ScratchBuffer() | cd `xcwd`"
+# file explorer
+bindsym $leader+x exec --no-startup-id $term -e ranger "`xcwd`"
+# browser
+bindsym $leader+Shift+x exec --no-startup-id $browser
+# toggle touchpad
+bindsym $leader+Shift+z exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
+# process manager
+bindsym $leader+Shift+p exec --no-startup-id $term -e htop
+# kill focused window
+bindsym $leader+d kill
+# bindsym $leader+Shift+d [class=".*"] kill
+# window finder
+bindsym $leader+Shift+o exec --no-startup-id rofi -show window
+# change focus
+bindsym $leader+h focus left
+bindsym $leader+j focus down
+bindsym $leader+k focus up
+bindsym $leader+l focus right
+# alternatively, you can use the cursor keys:
+bindsym $leader+Left focus left
+bindsym $leader+Down focus down
+bindsym $leader+Up focus up
+bindsym $leader+Right focus right
+# move focused window
+bindsym $leader+Shift+h move left
+bindsym $leader+Shift+j move down
+bindsym $leader+Shift+k move up
+bindsym $leader+Shift+l move right
+bindsym $leader+Shift+Left move left
+bindsym $leader+Shift+Down move down
+bindsym $leader+Shift+Up move up
+bindsym $leader+Shift+Right move right
+# split method
+bindsym $leader+period split h
+bindsym $leader+comma split v
+# enter fullscreen for the focused container
+bindsym $leader+f fullscreen toggle
+bindsym $leader+Shift+f fullscreen toggle global
+# change container layout
+bindsym $leader+b layout stacking
+bindsym $leader+n layout tabbed
+bindsym $leader+m layout toggle split
+# toggle tiling / floating
+bindsym $leader+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $leader+space focus mode_toggle
+# bindsym $leader+t focus parent
+# bindsym $leader+g focus child
+# alphabetic workspaces
+set $q_workspace 151:Q
+bindsym $leader+q workspace $q_workspace
+bindsym $leader+Shift+q move container to workspace $q_workspace
+bindsym $leader+Control+Shift+q exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $q_workspace
+set $w_workspace 152:W
+bindsym $leader+w workspace $w_workspace
+bindsym $leader+Shift+w move container to workspace $w_workspace
+bindsym $leader+Control+Shift+w exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $w_workspace
+set $e_workspace 153:E
+bindsym $leader+e workspace $e_workspace
+bindsym $leader+Shift+e move container to workspace $e_workspace
+bindsym $leader+Control+Shift+e exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $e_workspace
+set $r_workspace 154:R
+bindsym $leader+r workspace $r_workspace
+bindsym $leader+Shift+r move container to workspace $r_workspace
+bindsym $leader+Control+Shift+r exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $r_workspace
+set $t_workspace 155:T
+bindsym $leader+t workspace $t_workspace
+bindsym $leader+Shift+t move container to workspace $t_workspace
+bindsym $leader+Control+Shift+t exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $t_workspace
+set $todos_workspace 100:
+bindsym $leader+a exec --no-startup-id $i3dir/todos_init $todos_workspace todos $term
+bindsym $leader+Shift+a move container to workspace $todos_workspace
+bindsym $leader+Control+Shift+a exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $todos_workspace
+set $browser_workspace 102:
+bindsym $leader+s exec --no-startup-id $i3dir/init_layout $browser_workspace browser $browser
+bindsym $leader+Shift+s move container to workspace $browser_workspace
+bindsym $leader+Control+Shift+s exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $browser_workspace
+set $chat_workspace 103:
+bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats telegram-desktop
+bindsym $leader+Shift+c move container to workspace $chat_workspace
+bindsym $leader+Control+Shift+c exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $chat_workspace
+set $music_workspace 104:♫
+bindsym $leader+g exec --no-startup-id $i3dir/music_init $music_workspace music $term
+bindsym $leader+Shift+g move container to workspace $music_workspace
+bindsym $leader+Control+Shift+g exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $music_workspace
+set $translator_workspace 101:
+bindsym $leader+v exec --no-startup-id $i3dir/translators_init $translator_workspace translators $term
+bindsym $leader+Shift+v move container to workspace $translator_workspace
+bindsym $leader+Control+Shift+v exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $translator_workspace
+# numeric workspaces
+set $1_workspace 201:1
+bindsym $leader+1 workspace $1_workspace
+bindsym $leader+Shift+1 move container to workspace $1_workspace
+bindsym $leader+Control+Shift+1 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $1_workspace
+set $2_workspace 202:2
+bindsym $leader+2 workspace $2_workspace
+bindsym $leader+Shift+2 move container to workspace $2_workspace
+bindsym $leader+Control+Shift+2 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $2_workspace
+set $3_workspace 203:3
+bindsym $leader+3 workspace $3_workspace
+bindsym $leader+Shift+3 move container to workspace $3_workspace
+bindsym $leader+Control+Shift+3 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $3_workspace
+set $4_workspace 204:4
+bindsym $leader+4 workspace $4_workspace
+bindsym $leader+Shift+4 move container to workspace $4_workspace
+bindsym $leader+Control+Shift+4 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $4_workspace
+set $5_workspace 205:5
+bindsym $leader+5 workspace $5_workspace
+bindsym $leader+Shift+5 move container to workspace $5_workspace
+bindsym $leader+Control+Shift+5 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $5_workspace
+set $6_workspace 206:6
+bindsym $leader+6 workspace $6_workspace
+bindsym $leader+Shift+6 move container to workspace $6_workspace
+bindsym $leader+Control+Shift+6 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $6_workspace
+set $7_workspace 207:7
+bindsym $leader+7 workspace $7_workspace
+bindsym $leader+Shift+7 move container to workspace $7_workspace
+bindsym $leader+Control+Shift+7 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $7_workspace
+set $8_workspace 208:8
+bindsym $leader+8 workspace $8_workspace
+bindsym $leader+Shift+8 move container to workspace $8_workspace
+bindsym $leader+Control+Shift+8 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $8_workspace
+set $9_workspace 209:9
+bindsym $leader+9 workspace $9_workspace
+bindsym $leader+Shift+9 move container to workspace $9_workspace
+bindsym $leader+Control+Shift+9 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $9_workspace
+set $0_workspace 210:0
+bindsym $leader+0 workspace $0_workspace
+bindsym $leader+Shift+0 move container to workspace $0_workspace
+bindsym $leader+Control+Shift+0 exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $0_workspace
+# monitors/screens
+workspace $q_workspace output HDMI1
+workspace $1_workspace output eDP1
+exec --no-startup-id monitor
+# cycle workspaces
+# bindsym Mod1+Tab workspace next
+# bindsym Mod1+Shift+Tab workspace prev
+# workspace back and forth
+bindsym $leader+Tab workspace back_and_forth
+bindsym $leader+Shift+Tab move container to workspace back_and_forth
+# workspace app assignments
+assign [class="discord"] $chat_workspace
+assign [class="Telegram"] $chat_workspace
+assign [class="Skype"] $chat_workspace
+# resize
+bindsym $leader+y resize shrink width 10 px or 10 ppt
+bindsym $leader+u resize grow height 10 px or 10 ppt
+bindsym $leader+i resize shrink height 10 px or 10 ppt
+bindsym $leader+o resize grow width 10 px or 10 ppt
+# keyboard layout (input languages)
+# exec --no-startup-id xmodmap ~/.config/keymap
+exec --no-startup-id setxkbmap -option grp:switch,grp:caps_toggle,grp_led:caps us,ru
+bindsym $leader+Shift+comma exec --no-startup-id "setxkbmap us,ru"
+bindsym $leader+Shift+period exec --no-startup-id "setxkbmap us,ua"
+# screenshots
+bindsym Print exec --no-startup-id scrot ~/stuff/images/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Shift+Print exec --no-startup-id sleep 0.5 && scrot -s ~/stuff/images/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Control+Print exec --no-startup-id peek
+# laptop fn key bindings
+# pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+# sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+# borders
+hide_edge_borders smart
+default_border pixel 2
+default_floating_border pixel 2
+# gaps
+# smart_gaps on
+# gaps inner 5
+# colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #ffffff   #d97d19
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #999999
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+# startup commands
+exec_always --no-startup-id ~/.config/polybar/launch
+# no beep
+exec_always --no-startup-id xset -b
+exec --no-startup-id nm-applet
+exec --no-startup-id $i3dir/touchpad_disable
+exec --no-startup-id wallp
+exec --no-startup-id unclutter
+exec --no-startup-id compton
+exec --no-startup-id udiskie
+exec --no-startup-id transmission-daemon
+exec --no-startup-id dropbox start
+# exec --no-startup-id sudo dockerd
+
+exec i3-msg workspace $1_workspace

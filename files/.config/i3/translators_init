@@ -1,0 +1,11 @@
+#!/bin/bash
+
+I3_DIR=~/.config/i3
+WORKSPACENAME=$1
+LAYOUT=$2
+TERMINAL=$3
+
+nvim="$TERMINAL -e nvim -c ':e $APPDATA_SYNC/trans/index.md | setl spell'"
+
+$I3_DIR/init_layout "$WORKSPACENAME" "$LAYOUT" "$nvim"
+

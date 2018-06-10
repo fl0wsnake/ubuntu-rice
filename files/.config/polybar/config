@@ -1,0 +1,207 @@
+; vim:ft=dosini
+;=====================================================
+;       https://github.com/jaagr/polybar/wiki
+;=====================================================
+
+[colors]
+focused-foreground = #ffffff
+focused-background = #3f3f3f
+; focused-underline = #fba922
+focused-underline = #FF881E
+darkened-foreground = #404040
+orange = #ca6500
+pale-orange = #DE781e
+background = #1b1918
+background-alt = #444
+foreground = #a8a19f
+foreground-alt = #555
+primary = #d5911a
+secondary = #6666ea
+alert = #bd2c40
+col = #00f
+
+[bar/simple-bar]
+monitor = ${env:MONITOR:eDP}
+width = 100%
+height = 16
+bottom = true
+fixed-center = false
+
+background = #dd000000
+background-alt = #dd000000
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f22c40
+border-size = 0
+border-color = #00000000
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = "Roboto:size=11;3"
+font-1 = "FontAwesome:pixelsize=11;2"
+font-2 = "DejaVu Sans:size=11;2"
+
+modules-left = i3
+modules-center = cmus
+modules-right = downspeed_wlp2s0 downspeed_wlp3s0 xkeyboard battery_BAT1 battery_BAT0 volume backlight cpu memory date
+tray-position = right
+tray-padding = 1
+underline-size = 2
+
+[module/bspwm]
+type = internal/bspwm
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-padding = 0
+label-focused-underline= ${colors.primary}
+label-occupied = %index%
+label-occupied-padding = 0
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 0
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[module/cmus]
+type = custom/script
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+label-visible-underline = #555555
+click-left = cmus-remote --pause
+click-right = cmus-remote --stop
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+index-sort = true
+enable-scroll = false
+label-focused = %name%
+label-focused-foreground = ${colors.focused-foreground}
+label-focused-background = ${colors.focused-background}
+label-focused-underline = ${colors.focused-underline}
+label-focused-padding = 1
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 1
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 1
+
+[module/downspeed_wlp2s0]
+type = internal/network
+interface = wlp2s0
+accumulate-stats = true
+interval = 2.0
+label-connected = %downspeed%
+
+[module/downspeed_wlp3s0]
+type = internal/network
+interface = wlp3s0
+accumulate-stats = true
+interval = 2.0
+label-connected = %downspeed%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+blacklist-2 = caps lock
+format-prefix = %{F#9f54ff}%{F-}
+label-layout = %layout%
+label-indicator-padding = 0
+label-indicator-margin = 0
+label-indicator-background = ${colors.secondary}
+
+[module/battery_BAT1]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+format-charging = %{F#28a3ff}%{F-}<label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+label-charging = %percentage%
+label-discharging = %percentage%
+ramp-capacity-0 = %{F#28a3ff}%{F-}
+ramp-capacity-1 = %{F#28a3ff}%{F-}
+ramp-capacity-2 = %{F#28a3ff}%{F-}
+ramp-capacity-3 = %{F#28a3ff}%{F-}
+ramp-capacity-4 = %{F#28a3ff}%{F-}
+full-at = 100
+label-full = %{F#28a3ff}%{F-}100
+
+[module/battery_BAT0]
+type = internal/battery
+battery = BAT0
+adapter = ACO
+format-charging = %{F#28a3ff}%{F-}<label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+label-charging = %percentage%
+label-discharging = %percentage%
+ramp-capacity-0 = %{F#28a3ff}%{F-}
+ramp-capacity-1 = %{F#28a3ff}%{F-}
+ramp-capacity-2 = %{F#28a3ff}%{F-}
+ramp-capacity-3 = %{F#28a3ff}%{F-}
+ramp-capacity-4 = %{F#28a3ff}%{F-}
+full-at = 100
+label-full = %{F#28a3ff}%{F-}100
+
+[module/volume]
+type = internal/volume
+format-volume = <label-volume>
+label-volume = %{F#2bb52b}%{F-}%percentage%
+label-muted-foreground = ${colors.darkened-foreground}
+label-muted = %{F#005400}%{F-}
+
+[module/backlight]
+type = internal/xbacklight
+output = eDP1
+enable-scroll = false
+format = %{F#ffc008}%{F-}<label>
+label= %percentage%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label><ramp-coreload>
+label = %percentage%
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+format-prefix = %{F#ff771e}%{F-}
+
+[module/memory]
+type = internal/memory
+interval = 4
+format-prefix = %{F#db2828}%{F-}
+label = %mb_used%
+
+[module/date]
+type = internal/date
+interval = 8
+date = "%a %d %b"
+time = "%H:%M"
+format-prefix = %{F#e03997}%{F-}
+label = %date% %time%
