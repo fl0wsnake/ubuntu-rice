@@ -19,6 +19,3 @@ ranger_bookmarks=./files/.config/ranger/bookmarks
 if [ -f "$ranger_bookmarks" ]; then
   grep '^[^0-9]' <"$ranger_bookmarks" > "$ranger_bookmarks.tmp" && mv "$ranger_bookmarks.tmp" "$ranger_bookmarks"
 fi
-
-# create directories per ranger bookmarks
-cat "$ranger_bookmarks" | sed 's/^.://' | xargs -L1 mkdir -p
