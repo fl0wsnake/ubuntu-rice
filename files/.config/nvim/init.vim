@@ -198,7 +198,7 @@ noremap <silent> <leader>hH :exe 'tab h ' . expand("<cword>")<cr>
 noremap <silent> <leader>hb :map<space>
 noremap <silent> <leader>as :Snippets<cr>
 noremap <silent> <leader>hc :Commands<cr>
-noremap <silent> <leader><tab> :b#<cr>
+noremap <silent> <leader><tab> :silent b#<cr>
 noremap Y y$
 
 for i in range(1, 9)
