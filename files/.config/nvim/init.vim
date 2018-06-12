@@ -27,6 +27,7 @@ Plug 'tpope/vim-endwise'
 Plug 'Yggdroot/indentLine'
 Plug 'michaeljsmith/vim-indent-object'
 " javascript
+Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
 " typescript
@@ -500,8 +501,12 @@ vnoremap <silent> <leader>ae :Crunch<cr>
 let g:indentLine_enabled = 0
 " au FileType html,vue let g:indentLine_enabled = 1
 
+" linters/formatters
+" au BufWritePre * :Autoformat
+let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 1
 " languages
-au BufWritePre * :Autoformat
 " javascript
 let g:formatters_javascript = ['my_prettier']
 let g:formatters_typescript = ['my_prettier', 'tsfmt']
