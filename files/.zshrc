@@ -55,6 +55,8 @@ setopt nosharehistory
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+nvm
+nvm-auto
 npm
 git
 docker
@@ -123,5 +125,7 @@ alias hist='history | grep -iE -- '
 #   for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
 # fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+nvm_auto_switch
