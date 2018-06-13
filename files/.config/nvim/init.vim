@@ -504,8 +504,12 @@ let g:indentLine_enabled = 0
 " linters/formatters
 " au BufWritePre * :Autoformat
 let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_linters = {}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_set_highlights = 0
 " languages
 " javascript
 let g:formatters_javascript = ['my_prettier']
