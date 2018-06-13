@@ -4,10 +4,11 @@
 killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-# for i in $(polybar -m | awk -F: '{print $1}');
-# do
-#     MONITOR=$i polybar simple-bar &
-# done
-# echo "Bars launched"
+bar='simple-bar'
 
-echo "Bar launched"
+for i in $(xrandr --query | grep " connected" | cut -d" " -f1 | head -1);
+do
+    MONITOR=$i polybar $bar &
+done
+
+echo "bar launched"

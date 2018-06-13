@@ -44,4 +44,4 @@ fi
 export BROWSER=/usr/bin/chromium-browser
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
-export APPDATA_SYNC=~/Dropbox/appdata
+export APPDATA_SYNC=$HOME/sync/data/appdata

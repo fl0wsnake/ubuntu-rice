@@ -1,12 +1,12 @@
 <configuration version="28">
-    <folder id="n5wp6-0baz3" label="redmi-note4/screenshots" path="/home/kirill/Sync/devices/redmi-note4/screenshots" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="n5wp6-0baz3" label="redmi-note4/screenshots" path="/home/kirill/sync/devices/redmi-note4/screenshots" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning></versioning>
         <copiers>0</copiers>
-        <pullerMaxPendingKiB>0</pullerMaxPendingKiB>
+        <pullers>0</pullers>
         <hashers>0</hashers>
         <order>newestFirst</order>
         <ignoreDelete>false</ignoreDelete>
@@ -18,16 +18,15 @@
         <paused>false</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
-        <useLargeBlocks>false</useLargeBlocks>
     </folder>
-    <folder id="oca2x-uutw9" label="redmi-note4/camera" path="/home/kirill/Sync/devices/redmi-note4/camera" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="oca2x-uutw9" label="redmi-note4/camera" path="/home/kirill/sync/devices/redmi-note4/camera" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning></versioning>
         <copiers>0</copiers>
-        <pullerMaxPendingKiB>0</pullerMaxPendingKiB>
+        <pullers>0</pullers>
         <hashers>0</hashers>
         <order>newestFirst</order>
         <ignoreDelete>false</ignoreDelete>
@@ -39,7 +38,6 @@
         <paused>false</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
-        <useLargeBlocks>false</useLargeBlocks>
     </folder>
     <folder id="ruy65-pty99" label="data" path="/home/kirill/sync/data" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
@@ -48,7 +46,7 @@
         <minDiskFree unit="%">1</minDiskFree>
         <versioning></versioning>
         <copiers>0</copiers>
-        <pullerMaxPendingKiB>0</pullerMaxPendingKiB>
+        <pullers>0</pullers>
         <hashers>0</hashers>
         <order>smallestFirst</order>
         <ignoreDelete>false</ignoreDelete>
@@ -60,21 +58,16 @@
         <paused>false</paused>
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
-        <useLargeBlocks>false</useLargeBlocks>
     </folder>
     <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" name="redmi-note4" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>true</autoAcceptFolders>
-        <maxSendKbps>0</maxSendKbps>
-        <maxRecvKbps>0</maxRecvKbps>
     </device>
     <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" name="kirill-N501VW" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
-        <maxSendKbps>0</maxSendKbps>
-        <maxRecvKbps>0</maxRecvKbps>
     </device>
     <gui enabled="true" tls="false" debugging="false">
         <address>127.0.0.1:8384</address>
@@ -116,8 +109,16 @@
         <overwriteRemoteDeviceNamesOnConnect>false</overwriteRemoteDeviceNamesOnConnect>
         <tempIndexMinBlocks>10</tempIndexMinBlocks>
         <trafficClass>0</trafficClass>
+        <weakHashSelectionMethod>auto</weakHashSelectionMethod>
+        <stunServer>default</stunServer>
+        <stunKeepaliveSeconds>24</stunKeepaliveSeconds>
+        <kcpNoDelay>false</kcpNoDelay>
+        <kcpUpdateIntervalMs>25</kcpUpdateIntervalMs>
+        <kcpFastResend>false</kcpFastResend>
+        <kcpCongestionControl>true</kcpCongestionControl>
+        <kcpSendWindowSize>128</kcpSendWindowSize>
+        <kcpReceiveWindowSize>128</kcpReceiveWindowSize>
         <defaultFolderPath>~</defaultFolderPath>
-        <setLowPriority>true</setLowPriority>
         <minHomeDiskFreePct>0</minHomeDiskFreePct>
     </options>
 </configuration>
