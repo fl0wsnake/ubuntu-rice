@@ -73,6 +73,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" kotlin
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " leaders
@@ -200,6 +202,7 @@ noremap <silent> <leader>as :Snippets<cr>
 noremap <silent> <leader>hc :Commands<cr>
 noremap <silent> <leader><tab> :silent b#<cr>
 noremap Y y$
+noremap gf gf:cd .<cr>
 
 for i in range(1, 9)
   " <leader>{n} for window switching
@@ -235,8 +238,8 @@ function! s:my_cr_function() abort
 endfunction
 
 " apps
-" translator
 let g:appdata_sync = $APPDATA_SYNC
+" translator
 let g:trans_dir = g:appdata_sync . "/trans/"
 
 function! Trans()
@@ -392,13 +395,25 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_a = airline#section#create([])
 let g:airline_section_z = airline#section#create([])
+
+" function! Relpath(filename)
+"     let file = expand('%f')
+"     let cwd = getcwd()
+"     let s = substitute(l:file, l:cwd . "/" , "", "")
+"     return s
+" endfunction
+
+" let g:airline_section_c = airline#section#create(['%{:call Relpath()}'])
+" let g:airline_section_c = airline#section#create(['%<', 'path', ' ', 'readonly'])
+" let g:airline_section_c = airline#section#create(['%<', 'file', ' ', 'readonly'])
+" let g:airline_section_c = airline#section#create(['%t'])
+" let g:airline_section_c = airline#section#create(["%{expand('%:t:h')}"])
 " NERDTree
 let g:NERDTreeNotificationThreshold = 500
 let NERDTreeQuitOnOpen=1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 noremap <silent> <leader>ft :NERDTree<cr>
-" noremap <silent> <leader>pt :exe filereadable(expand('%')) ? 'NERDTreeFind' : 'NERDTree'<cr>
 noremap <silent> <leader>pt :exe filereadable(expand('%')) ? 'NERDTreeFind' : 'NERDTree'<cr>
 let g:NERDTreeMapOpenRecursively = "go"
 let g:NERDTreeMapPreview = "O"
