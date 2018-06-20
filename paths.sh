@@ -13,6 +13,7 @@ declare -a paths=(
 ".config/qutebrowser"
 ".config/zathura"
 
+".config/transmission/settings.json"
 ".config/syncthing/config.xml"
 ".config/vis/config"
 ".config/xylosper/bomi/pref.json"

@@ -60,7 +60,6 @@ Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 " markdown
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 " elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
@@ -202,7 +201,7 @@ noremap <silent> <leader>as :Snippets<cr>
 noremap <silent> <leader>hc :Commands<cr>
 noremap <silent> <leader><tab> :silent b#<cr>
 noremap Y y$
-noremap gf gf:cd .<cr>
+noremap <silent> gf gf:silent cd .<cr>
 
 for i in range(1, 9)
   " <leader>{n} for window switching
@@ -382,11 +381,13 @@ au FocusGained * silent! exe readOnFocusMode?'checkt':''
 " vim-rooter
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('around', 'rank', 20)
 call deoplete#custom#source('buffer', 'rank', 32)
 au FileType markdown,tex,vimwiki,text let b:deoplete_disable_auto_complete = 1
+
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -396,18 +397,6 @@ let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_a = airline#section#create([])
 let g:airline_section_z = airline#section#create([])
 
-" function! Relpath(filename)
-"     let file = expand('%f')
-"     let cwd = getcwd()
-"     let s = substitute(l:file, l:cwd . "/" , "", "")
-"     return s
-" endfunction
-
-" let g:airline_section_c = airline#section#create(['%{:call Relpath()}'])
-" let g:airline_section_c = airline#section#create(['%<', 'path', ' ', 'readonly'])
-" let g:airline_section_c = airline#section#create(['%<', 'file', ' ', 'readonly'])
-" let g:airline_section_c = airline#section#create(['%t'])
-" let g:airline_section_c = airline#section#create(["%{expand('%:t:h')}"])
 " NERDTree
 let g:NERDTreeNotificationThreshold = 500
 let NERDTreeQuitOnOpen=1
@@ -417,6 +406,7 @@ noremap <silent> <leader>ft :NERDTree<cr>
 noremap <silent> <leader>pt :exe filereadable(expand('%')) ? 'NERDTreeFind' : 'NERDTree'<cr>
 let g:NERDTreeMapOpenRecursively = "go"
 let g:NERDTreeMapPreview = "O"
+
 " fzf
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 noremap <silent> <leader>ww :Windows!<cr>
@@ -436,6 +426,7 @@ nnoremap <silent> <leader>/ :exe '/' . expand("<cword>")<cr>
 vnoremap / y/<C-R>"<CR>
 noremap <silent> <leader>fr :History!<cr>
 noremap <silent> <leader>fR :tabe<cr>:History!<cr>
+
 " easyclip
 let g:EasyClipUseSubstituteDefaults = 1
 let g:EasyClipUseCutDefaults = 0
@@ -525,6 +516,7 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_set_highlights = 0
+
 " languages
 " javascript
 let g:formatters_javascript = ['my_prettier']
