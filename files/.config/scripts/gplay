@@ -1,1 +1,3 @@
+#!/bin/bash
+
 "${BROWSER:=google-chrome}" --app=https://play.google.com/music/listen?u=0#/ap/auto-playlist-thumbs-up

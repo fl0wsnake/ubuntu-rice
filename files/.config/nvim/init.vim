@@ -8,6 +8,7 @@ Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 " syntax
+Plug 'tpope/vim-sleuth'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -74,6 +75,8 @@ Plug 'racer-rust/vim-racer'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " kotlin
 Plug 'udalov/kotlin-vim'
+" yaml
+Plug 'stephpy/vim-yaml'
 call plug#end()
 
 " leaders
@@ -110,10 +113,6 @@ set number
 set relativenumber
 set scrolloff=3
 set autoread
-" indentation
-set expandtab
-set shiftwidth=2
-set softtabstop=2
 " for termite/st
 set termguicolors
 " different cursors for different modes for VTE compatible terminals (urxvt, st, xterm, gnome-terminal 3.x and others)
