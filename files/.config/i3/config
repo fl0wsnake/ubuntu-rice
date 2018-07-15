@@ -37,7 +37,8 @@ bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\
 # program launcher
 bindsym $leader+Shift+Return exec --no-startup-id rofi -show run
 # text editor
-bindsym $leader+z exec --no-startup-id $term -e nvim -c "call ScratchBuffer() | cd `xcwd`"
+# bindsym $leader+z exec --no-startup-id $term -e nvim -c "call ScratchBuffer() | cd `xcwd`"
+bindsym $leader+z exec --no-startup-id $term -e nvim -c "cd `xcwd`"
 # file explorer
 bindsym $leader+x exec --no-startup-id $term -e ranger "`xcwd`"
 # browser

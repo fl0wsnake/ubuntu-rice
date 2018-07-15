@@ -77,6 +77,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'udalov/kotlin-vim'
 " yaml
 Plug 'stephpy/vim-yaml'
+" images preview
+Plug 'ashisha/image.vim'
 call plug#end()
 
 " leaders
@@ -120,29 +122,14 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
-" some functions
-function! ScratchBuffer()
-  if bufexists('Scratch')
-    b Scratch
-  else
-    enew
-    silent file Scratch
-    setl buftype=nofile
-    nnoremap <buffer> <silent> <leader>pt :e .<cr>
-  endif
-endfunction
-
 " keymaps
 nnoremap <silent> <C-c> :Commentary<cr>j
 nnoremap <silent> <leader>at a<C-R>=strftime('%Y-%m-%d')<cr><esc>
 vnoremap <silent> <leader>at c<C-R>=strftime('%Y-%m-%d')<cr><esc>
 nnoremap <silent> <leader>aT a<C-R>=strftime('%Y-%m-%dT%T%z')<cr><esc>
 vnoremap <silent> <leader>aT c<C-R>=strftime('%Y-%m-%dT%T%z')<cr><esc>
-noremap <silent> <leader>br :bufdo bd<cr>:call ScratchBuffer()<cr>
-noremap <silent> <leader>bs :call ScratchBuffer()<cr>
 noremap <silent> <leader>bd :bd!<cr>
 noremap <silent> <leader>bD :silent! w \| %bd \| e#<cr>
-noremap <silent> <leader>c :call ScratchBuffer()<cr>
 noremap <silent> <leader>wd :q<cr>
 noremap <silent> <leader>wD :q!<cr>
 noremap <silent> <leader>wv :vsplit<cr>
@@ -161,7 +148,7 @@ noremap <silent> <leader>fT :set filetype=
 noremap <silent> <leader>qq :qa<cr>
 noremap <silent> <leader>qQ :qa!<cr>
 noremap <silent> <leader>qw :wqa<cr>
-noremap <silent> <leader>qW :wqa!<cr>
+noremap <silent> <leader>qW :silent! :wa!<cr>:qa!<cr>
 noremap <silent> <leader>vD :tabe ~/.config/nvim/init.vim<cr>
 noremap <silent> <leader>vd :e ~/.config/nvim/init.vim<cr>
 noremap <silent> <leader>vs :so $MYVIMRC<cr>
