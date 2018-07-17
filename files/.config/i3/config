@@ -22,7 +22,7 @@ mode "$mode_system" {
     bindsym c reload
     bindsym Shift+c restart
     bindsym l exec --no-startup-id i3lock-fancy, mode "default"
-    bindsym e [class=".*"] kill, exit, mode "default"
+    bindsym e exec --no-startup-id i3-msg '[class=".*"] kill' && i3-msg 'exit, mode "default"'
     bindsym Shift+s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl reboot, mode "default"
