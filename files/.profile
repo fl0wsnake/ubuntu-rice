@@ -41,7 +41,7 @@ if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
   PATH="$HOME/apps/arcanist/bin:$PATH"
 fi
 
-export BROWSER=/usr/bin/chromium-browser
+export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export APPDATA_SYNC=$HOME/sync/data/appdata

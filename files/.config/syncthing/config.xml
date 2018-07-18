@@ -1,5 +1,5 @@
 <configuration version="28">
-    <folder id="n5wp6-0baz3" label="redmi-note4/screenshots" path="/home/kirill/sync/devices/redmi-note4/screenshots" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="qmyjw-lrpbf" label="apt" path="/etc/apt" type="readonly" rescanIntervalS="60" fsWatcherEnabled="false" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
@@ -8,7 +8,27 @@
         <copiers>0</copiers>
         <pullers>0</pullers>
         <hashers>0</hashers>
-        <order>newestFirst</order>
+        <order>random</order>
+        <ignoreDelete>false</ignoreDelete>
+        <scanProgressIntervalS>0</scanProgressIntervalS>
+        <pullerPauseS>0</pullerPauseS>
+        <maxConflicts>10</maxConflicts>
+        <disableSparseFiles>false</disableSparseFiles>
+        <disableTempIndexes>false</disableTempIndexes>
+        <paused>false</paused>
+        <weakHashThresholdPct>25</weakHashThresholdPct>
+        <markerName>.stfolder</markerName>
+    </folder>
+    <folder id="ruy65-pty99" label="data" path="/home/kirill/sync/data" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+        <filesystemType>basic</filesystemType>
+        <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
+        <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
+        <minDiskFree unit="%">1</minDiskFree>
+        <versioning></versioning>
+        <copiers>0</copiers>
+        <pullers>0</pullers>
+        <hashers>0</hashers>
+        <order>smallestFirst</order>
         <ignoreDelete>false</ignoreDelete>
         <scanProgressIntervalS>0</scanProgressIntervalS>
         <pullerPauseS>0</pullerPauseS>
@@ -39,7 +59,7 @@
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
     </folder>
-    <folder id="ruy65-pty99" label="data" path="/home/kirill/sync/data" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="n5wp6-0baz3" label="redmi-note4/screenshots" path="/home/kirill/sync/devices/redmi-note4/screenshots" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
@@ -48,7 +68,7 @@
         <copiers>0</copiers>
         <pullers>0</pullers>
         <hashers>0</hashers>
-        <order>smallestFirst</order>
+        <order>newestFirst</order>
         <ignoreDelete>false</ignoreDelete>
         <scanProgressIntervalS>0</scanProgressIntervalS>
         <pullerPauseS>0</pullerPauseS>

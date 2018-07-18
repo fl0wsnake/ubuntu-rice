@@ -2,7 +2,7 @@ set $i3dir ~/.config/i3/
 set $term st
 set $shell zsh
 set $leader Mod4
-set_from_resource $browser echo "${BROWSER:=google-chrome}"
+set_from_resource $browser echo "${BROWSER:=firefox}"
 # default tab layout
 workspace_layout default
 # font
