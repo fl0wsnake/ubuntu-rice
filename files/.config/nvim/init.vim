@@ -226,12 +226,13 @@ endfunction
 let g:appdata_sync = $APPDATA_SYNC
 " translator
 let g:trans_dir = g:appdata_sync . "/trans/"
+let g:trans_index = "index.md"
 
 function! Trans()
   exe system("mkdir -p " . g:trans_dir)
   let l:caption = expand("<cword>")
   if l:caption == ''
-    let l:word_path = g:trans_dir . "index.md"
+    let l:word_path = g:trans_dir . g:trans_index
   else
     let l:word = tolower(l:caption)
     let l:word_path = g:trans_dir . l:word . ".txt"
@@ -247,16 +248,17 @@ function! Trans()
 endfunction
 
 noremap <silent> <leader>ad :call Trans()<cr>
-noremap <silent> <leader>aD :tab sb<cr>:call Trans()<cr>
+noremap <silent> <leader>aD :exe "e" fnameescape(g:trans_dir . g:trans_index)<cr>
 
 " lyrics
 let g:lyrics_dir = g:appdata_sync . "/lyrics/"
+let g:lyrics_index = "index.md"
 
 function! Lyrics()
   exe system("mkdir -p " . g:lyrics_dir)
   let l:caption = getline('.')
   if l:caption == ''
-    let l:song_path = g:lyrics_dir . "index.md"
+    let l:song_path = g:lyrics_dir . g:lyrics_index
   else
     let l:song_name = substitute(tolower(l:caption), " ", "_", "g")
     let l:song_path = g:lyrics_dir . l:song_name . ".txt"
@@ -272,7 +274,7 @@ function! Lyrics()
 endfunction
 
 noremap <silent> <leader>al :call Lyrics()<cr>
-noremap <silent> <leader>aL :tab sb<cr>:call Lyrics()<cr>
+noremap <silent> <leader>aL :exe "e" fnameescape(g:lyrics_dir . g:lyrics_index)<cr>
 
 " modify selected text using combining diacritics
 command! -range -nargs=0 Overline        call s:CombineSelection(<line1>, <line2>, '0305')
