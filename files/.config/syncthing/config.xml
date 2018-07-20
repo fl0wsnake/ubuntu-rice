@@ -19,12 +19,14 @@
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
     </folder>
-    <folder id="ruy65-pty99" label="data" path="/home/kirill/sync/data" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="ruy65-pty99" label="data" path="/home/kirill/sync/data" type="readwrite" rescanIntervalS="60" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
         <minDiskFree unit="%">1</minDiskFree>
-        <versioning></versioning>
+        <versioning type="trashcan">
+            <param key="cleanoutDays" val="30"></param>
+        </versioning>
         <copiers>0</copiers>
         <pullers>0</pullers>
         <hashers>0</hashers>

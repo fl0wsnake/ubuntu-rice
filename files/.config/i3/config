@@ -37,7 +37,6 @@ bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\
 # program launcher
 bindsym $leader+Shift+Return exec --no-startup-id rofi -show run
 # text editor
-# bindsym $leader+z exec --no-startup-id $term -e nvim -c "call ScratchBuffer() | cd `xcwd`"
 bindsym $leader+z exec --no-startup-id $term -e nvim -c "cd `xcwd`"
 # file explorer
 bindsym $leader+x exec --no-startup-id $term -e ranger "`xcwd`"
@@ -117,7 +116,7 @@ bindsym $leader+s exec --no-startup-id $i3dir/init_layout $browser_workspace bro
 bindsym $leader+Shift+s move container to workspace $browser_workspace
 bindsym $leader+Control+Shift+s exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $browser_workspace
 set $chat_workspace 103:
-bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats telegram-desktop slack
+bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats telegram-desktop slack franz
 bindsym $leader+Shift+c move container to workspace $chat_workspace
 bindsym $leader+Control+Shift+c exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $chat_workspace
 set $music_workspace 104:♫

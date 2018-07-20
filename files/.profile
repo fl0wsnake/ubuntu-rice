@@ -41,6 +41,11 @@ if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
   PATH="$HOME/apps/arcanist/bin:$PATH"
 fi
 
+# temporary personal scripts
+if [ -x "$HOME/sync/data/scripts" ] ; then
+  PATH="$HOME/sync/data/scripts":$PATH
+fi
+
 export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
