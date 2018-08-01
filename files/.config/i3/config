@@ -120,7 +120,7 @@ bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats 
 bindsym $leader+Shift+c move container to workspace $chat_workspace
 bindsym $leader+Control+Shift+c exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $chat_workspace
 set $music_workspace 104:♫
-bindsym $leader+g exec --no-startup-id $i3dir/music_init $music_workspace music $term
+bindsym $leader+g exec --no-startup-id $i3dir/music_init $music_workspace music $term $shell
 bindsym $leader+Shift+g move container to workspace $music_workspace
 bindsym $leader+Control+Shift+g exec i3-msg rename workspace `$i3dir/get_current_workspace_name` to $music_workspace
 set $translator_workspace 101:

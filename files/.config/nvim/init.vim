@@ -129,7 +129,8 @@ vnoremap <silent> <leader>at c<C-R>=strftime('%Y-%m-%d')<cr><esc>
 nnoremap <silent> <leader>aT a<C-R>=strftime('%Y-%m-%dT%T%z')<cr><esc>
 vnoremap <silent> <leader>aT c<C-R>=strftime('%Y-%m-%dT%T%z')<cr><esc>
 noremap <silent> <leader>bd :bd!<cr>
-noremap <silent> <leader>bD :silent! w \| %bd \| e#<cr>
+" noremap <silent> <leader>bD :silent! w \| %bd \| e#<cr>
+noremap <silent> <leader>bD :bufdo bd!<cr>
 noremap <silent> <leader>wd :q<cr>
 noremap <silent> <leader>wD :q!<cr>
 noremap <silent> <leader>wv :vsplit<cr>

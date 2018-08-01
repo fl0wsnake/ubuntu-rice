@@ -100,7 +100,6 @@ alias trans='trans -no-ansi'
 alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 alias screen='import ~/stuff/images/screenshots/$(date +%Y-%m-%d-%T)-screenshot.png'
-alias fixcaps='xdotool key Caps_Lock'
 alias screen='tsnodemon -x "ts-node"'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 

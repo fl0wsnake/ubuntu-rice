@@ -1,86 +1,55 @@
+
 // vim:ts=4:sw=4:et
 {
-    // splitv split container with 2 children
+    // splith split container with 2 children
     "border": "pixel",
     "floating": "auto_off",
-    "layout": "splitv",
+    "layout": "splith",
     "percent": 1,
     "type": "con",
-    "nodes": [{
+    "nodes": [
+        {
             "border": "pixel",
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-                "height": 360,
-                "width": 560,
-                "x": 0,
-                "y": 0
+               "height": 408,
+               "width": 640,
+               "x": 0,
+               "y": 0
             },
-            "name": "~",
-            "percent": 0.2,
-            "swallows": [{
-                "class": "^visualizer$"
-            }],
+            "name": "pianobar",
+            "percent": 0.3,
+            "swallows": [
+               {
+               "class": "^st\\-256color$",
+               "instance": "^st\\-256color$",
+               "transient_for": "^$"
+               }
+            ],
             "type": "con"
         },
         {
-            // splith split container with 2 children
             "border": "pixel",
+            "current_border_width": 2,
             "floating": "auto_off",
-            "layout": "splith",
-            "percent": 0.8,
-            "type": "con",
-            "nodes": [{
-                    "border": "pixel",
-                    "current_border_width": 2,
-                    "floating": "auto_off",
-                    "geometry": {
-                        "height": 360,
-                        "width": 560,
-                        "x": 0,
-                        "y": 0
-                    },
-                    "name": "~",
-                    "percent": 0.3,
-                    "swallows": [{
-                        "class": "^subs$"
-                    }],
-                    "type": "con"
-                },
-                {
-                    // splith split container with 1 children
-                    "border": "pixel",
-                    "floating": "auto_off",
-                    "layout": "splith",
-                    "percent": 0.7,
-                    "type": "con",
-                    "nodes": [{
-                        // tabbed split container with 2 children
-                        "border": "pixel",
-                        "floating": "auto_off",
-                        "layout": "tabbed",
-                        "percent": 1,
-                        "type": "con",
-                        "nodes": [{
-                            "border": "pixel",
-                            "current_border_width": 2,
-                            "floating": "auto_off",
-                            "geometry": {
-                                "height": 360,
-                                "width": 560,
-                                "x": 0,
-                                "y": 0
-                            },
-                            "name": "i3-save-tree",
-                            "percent": 0.5,
-                            "swallows": [{
-                                "class": "^pianobar$"
-                            }],
-                            "type": "con"
-                        }]
-                    }]
-                }
-            ]
+            "geometry": {
+               "height": 1060,
+               "width": 956,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Thumbs up - Google Play Music - Mozilla Firefox",
+            "percent": 0.7,
+            "swallows": [
+               {
+               "class": "^Firefox$",
+               "title": "^Mozilla\\ Firefox$",
+               "transient_for": "^$",
+               "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
         }
     ]
 }
