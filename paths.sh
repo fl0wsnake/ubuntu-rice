@@ -20,6 +20,7 @@ declare -a paths=(
 ".config/compton.conf"
 ".config/keymap"
 ".config/wall.*"
+".mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
 
 ".bashrc"
 ".zshrc"

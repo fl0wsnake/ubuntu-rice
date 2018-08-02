@@ -8,12 +8,13 @@ SHELL=$4
 
 # visualizer="$TERMINAL -c visualizer -e cava"
 # lyrics="$TERMINAL -c subs -e nvim -c ':e $APPDATA_SYNC/lyrics/index.md | setl spell'"
-pandora="$TERMINAL -e $SHELL -c 'pianobar; $SHELL'"
+# pandora="$TERMINAL -e $SHELL -c 'pianobar; $SHELL'"
 player="gplay"
 focus="sleep 0.25 && i3 '[class=\"pianobar\"]' focus"
 
 echo $pandora >> /tmp/1.txt
-$I3_DIR/init_layout "$WORKSPACENAME" "$LAYOUT" "$player" "$pandora" 
+$I3_DIR/init_layout "$WORKSPACENAME" "$LAYOUT" "$player" 
+# "$pandora" 
 # "$visualizer" 
 # "$lyrics" 
 # "$focus"
