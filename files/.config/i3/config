@@ -48,6 +48,8 @@ bindsym $leader+Shift+z exec --no-startup-id $i3dir/touchpad_toggle, mode "defau
 bindsym $leader+Shift+p exec --no-startup-id $term -e htop
 # kill focused window
 bindsym $leader+d kill
+# show clipboard manager
+bindsym $leader+Shift+d exec --no-startup-id copyq show
 # bindsym $leader+Shift+d [class=".*"] kill
 # window finder
 bindsym $leader+Shift+o exec --no-startup-id rofi -show window
@@ -235,6 +237,7 @@ exec --no-startup-id udiskie
 exec --no-startup-id transmission-daemon
 exec --no-startup-id syncthing
 exec --no-startup-id blueman-applet
+exec --no-startup-id copyq
 # exec --no-startup-id sudo dockerd
 
 exec i3-msg workspace $1_workspace
