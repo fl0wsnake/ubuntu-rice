@@ -20,6 +20,7 @@ declare -a paths=(
 ".config/compton.conf"
 ".config/keymap"
 ".config/wall.*"
+".config/copyq/copyq.conf"
 ".mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
 
 ".bashrc"
