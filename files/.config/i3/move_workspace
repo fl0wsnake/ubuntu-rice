@@ -2,7 +2,7 @@
 
 w_subject=$1
 w_target=$2
-w_temp="0:temp"
+w_temp="0:"
 
 if i3-msg -t get_workspaces | jq ".[] | .name" | grep -q -w "$w_target"; then
   i3-msg rename workspace "$w_subject" to "$w_temp"
