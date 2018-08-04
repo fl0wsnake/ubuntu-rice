@@ -12,7 +12,6 @@ SHELL=$4
 player="gplay"
 focus="sleep 0.25 && i3 '[class=\"pianobar\"]' focus"
 
-echo $pandora >> /tmp/1.txt
 $I3_DIR/init_layout "$WORKSPACENAME" "$LAYOUT" "$player" 
 # "$pandora" 
 # "$visualizer" 
