@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
 " syntax
 Plug 'tpope/vim-sleuth'
 Plug 'Chiel92/vim-autoformat'

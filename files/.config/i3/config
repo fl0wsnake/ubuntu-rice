@@ -35,7 +35,7 @@ bindsym $leader+p mode "$mode_system"
 # terminal
 bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell "
 # program launcher
-bindsym $leader+Shift+Return exec --no-startup-id rofi -show run
+bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
 # text editor
 bindsym $leader+z exec --no-startup-id $term -e nvim -c "cd `xcwd`"
 # file explorer
@@ -52,7 +52,7 @@ bindsym $leader+d kill
 bindsym $leader+Shift+d exec --no-startup-id copyq show
 # bindsym $leader+Shift+d [class=".*"] kill
 # window finder
-bindsym $leader+Shift+o exec --no-startup-id rofi -show window
+# bindsym $leader+Shift+o exec --no-startup-id rofi -show window
 # change focus
 bindsym $leader+h focus left
 bindsym $leader+j focus down
@@ -117,10 +117,10 @@ set $browser_workspace 102:
 bindsym $leader+s exec --no-startup-id $i3dir/init_layout $browser_workspace browser $browser
 bindsym $leader+Shift+s move container to workspace $browser_workspace
 bindsym $leader+Control+Shift+s exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $browser_workspace
-set $chat_workspace 103:
-bindsym $leader+c exec --no-startup-id $i3dir/init_layout $chat_workspace chats telegram-desktop slack franz
-bindsym $leader+Shift+c move container to workspace $chat_workspace
-bindsym $leader+Control+Shift+c exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $chat_workspace
+set $app_workspace 103:
+bindsym $leader+c exec --no-startup-id $i3dir/init_layout $app_workspace apps franz slack
+bindsym $leader+Shift+c move container to workspace $app_workspace
+bindsym $leader+Control+Shift+c exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $app_workspace
 set $music_workspace 104:♫
 bindsym $leader+g exec --no-startup-id $i3dir/music_init $music_workspace music $term $shell
 bindsym $leader+Shift+g move container to workspace $music_workspace
@@ -170,8 +170,11 @@ set $0_workspace 210:0
 bindsym $leader+0 workspace $0_workspace
 bindsym $leader+Shift+0 move container to workspace $0_workspace
 bindsym $leader+Control+Shift+0 exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $0_workspace
-# workspace app assigns
-assign [class="Slack"] $chat_workspace
+# workspace app assignments
+assign [class="Slack"] $app_workspace
+assign [class="discord"] $app_workspace
+assign [class="Telegram"] $app_workspace
+assign [class="Skype"] $app_workspace
 # monitors/screens
 workspace $q_workspace output HDMI1
 workspace $1_workspace output eDP1
@@ -182,10 +185,6 @@ exec --no-startup-id monitor
 # workspace back and forth
 bindsym $leader+Tab workspace back_and_forth
 bindsym $leader+Shift+Tab move container to workspace back_and_forth
-# workspace app assignments
-assign [class="discord"] $chat_workspace
-assign [class="Telegram"] $chat_workspace
-assign [class="Skype"] $chat_workspace
 # resize
 bindsym $leader+y resize shrink width 10 px or 10 ppt
 bindsym $leader+u resize grow height 10 px or 10 ppt
@@ -225,7 +224,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # startup commands
-exec_always --no-startup-id ~/.config/polybar/launch
+exec_always --no-startup-id ~/.config/scripts/poly
 # no beep
 exec_always --no-startup-id xset -b
 exec --no-startup-id nm-applet

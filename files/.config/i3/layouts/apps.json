@@ -2,7 +2,7 @@
     "border": "pixel",
     "floating": "auto_off",
     "layout": "tabbed",
-    "percent": null,
+    "percent": 1,
     "type": "con",
     "nodes": [
         {
@@ -16,10 +16,10 @@
                 "y": 0
             },
             "name": "Telegram",
-            "percent": 0.333333333333333,
+            "percent": 1,
             "swallows": [
                 {
-                    "class": "^TelegramDesktop$",
+                    "class": "^Franz$",
                     "transient_for": "^$"
                 }
             ],
