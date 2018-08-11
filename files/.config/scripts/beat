@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import fileinput
+import time
+import os
+
+keyPressTotal = 0
+timeStart = 0
+
+for line in fileinput.input():
+    if timeStart is 0:
+        timeStart = time.time()
+
+    keyPressTotal += 1
+    os.system('clear')
+    print(keyPressTotal / (time.time() - timeStart) * 60)

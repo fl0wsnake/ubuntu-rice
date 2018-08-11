@@ -143,8 +143,9 @@ noremap <silent> <leader>fu :set undoreload=0<cr>:e<cr>
 noremap <silent> <leader>fe :e!<cr>
 noremap <silent> <leader>fE :silent! bufdo e!<cr>
 noremap <silent> <leader>fn :let @+ = expand('%')<cr>
-noremap <silent> <leader>fp :let @+ = expand('%:p:h')<cr>
-noremap <silent> <leader>fP :let @+ = expand('%:p')<cr>
+noremap <silent> <leader>fP :let @+ = expand('%:p:h')<cr>
+noremap <silent> <leader>fp :let @+ = expand('%:p')<cr>
+noremap <silent> <leader>fo :exe "e" @+<cr>
 noremap <silent> <leader>fc :execute 'e' expand('%:r').'_.'.expand('%:e')<cr>
 noremap <silent> <leader>fT :set filetype=
 noremap <silent> <leader>qq :qa<cr>
@@ -372,8 +373,11 @@ let readOnFocusMode = 1
 nnoremap <silent> <leader>mr :let readOnFocusMode=ToggleVar(readOnFocusMode, 'read on focus')<cr>
 au FocusGained * silent! exe readOnFocusMode?'checkt':''
 
-" vim-rooter
-let g:rooter_change_directory_for_non_project_files = 'current'
+" autochdir
+let g:rooter_manual_only = 1
+let g:rooter_silent_chdir = 1
+autocmd BufEnter * silent! lcd %:p:h
+let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 
 " deoplete
@@ -389,6 +393,7 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_a = airline#section#create([])
+let g:airline_section_b = airline#section#create([])
 let g:airline_section_z = airline#section#create([])
 
 " NERDTree
@@ -396,8 +401,13 @@ let g:NERDTreeNotificationThreshold = 500
 let NERDTreeQuitOnOpen=1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
-noremap <silent> <leader>ft :NERDTree<cr>
-noremap <silent> <leader>pt :exe filereadable(expand('%')) ? 'NERDTreeFind' : 'NERDTree'<cr>
+noremap <silent> <leader>ft :exe 'NERDTree' FindRootDirectory()<cr>
+noremap <silent> <leader>pt :call NERDTreeRootFind()<cr>
+function! NERDTreeRootFind()
+  let l:pwd = expand('%:p')
+  exe 'NERDTree' FindRootDirectory()
+  exe 'NERDTreeFind' l:pwd
+endfunction
 let g:NERDTreeMapOpenRecursively = "go"
 let g:NERDTreeMapPreview = "O"
 
