@@ -234,7 +234,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id compton
 exec --no-startup-id udiskie
 exec --no-startup-id transmission-daemon
-exec --no-startup-id syncthing
+exec --no-startup-id syncthing -no-browser
 exec --no-startup-id blueman-applet
 exec --no-startup-id copyq
 # exec --no-startup-id sudo dockerd
