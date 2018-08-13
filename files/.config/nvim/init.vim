@@ -173,6 +173,7 @@ noremap <silent> <leader>fm :Rename<space>
 noremap <silent> <M-h> :bprevious<cr>
 noremap <silent> <M-l> :bnext<cr>
 noremap <silent> <leader>gs :MagitOnly<cr>
+noremap <silent> <leader>gb :Gblame<cr>
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -387,6 +388,11 @@ call deoplete#custom#source('buffer', 'rank', 32)
 au FileType markdown,tex,vimwiki,text let b:deoplete_disable_auto_complete = 1
 
 " airline
+function! ProjectPath(filename)
+    let rootDirPath = FindRootDirectory()
+    let s = substitute(a:filename, l:rootDirPath . "/" , "", "")
+    return s
+endfunction
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tabs = 1
@@ -394,6 +400,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_section_a = airline#section#create([])
 let g:airline_section_b = airline#section#create([])
+let g:airline_section_c = "%{ProjectPath(expand('%:p'))}"
 let g:airline_section_z = airline#section#create([])
 
 " NERDTree

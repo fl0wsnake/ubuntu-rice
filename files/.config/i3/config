@@ -2,6 +2,8 @@ set $i3dir ~/.config/i3/
 set $term st
 set $shell zsh
 set $leader Mod4
+set $explorer ranger
+set_from_resource $editor echo "${EDITOR:=nvim}"
 set_from_resource $browser echo "${BROWSER:=firefox}"
 # default tab layout
 workspace_layout default
@@ -33,13 +35,13 @@ mode "$mode_system" {
 }
 bindsym $leader+p mode "$mode_system"
 # terminal
-bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell "
+bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell"
 # program launcher
 bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
 # text editor
-bindsym $leader+z exec --no-startup-id $term -e nvim -c "cd `xcwd`"
+bindsym $leader+z exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $editor"
 # file explorer
-bindsym $leader+x exec --no-startup-id $term -e ranger "`xcwd`"
+bindsym $leader+x exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $explorer"
 # browser
 bindsym $leader+Shift+x exec --no-startup-id $browser
 # toggle touchpad
