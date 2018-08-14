@@ -389,6 +389,9 @@ au FileType markdown,tex,vimwiki,text let b:deoplete_disable_auto_complete = 1
 
 " airline
 function! ProjectPath(filename)
+  if a:filename == ''
+    return '[New file]'
+  endif
     let rootDirPath = FindRootDirectory()
     let s = substitute(a:filename, l:rootDirPath . "/" , "", "")
     return s
