@@ -429,8 +429,8 @@ noremap <silent> <leader>sf :call fzf#vim#ag_raw(". --hidden -U --ignore '.git*'
 noremap <silent> <leader>ff :FZF!<cr>
 nmap <silent> <leader>fs <leader>ff
 noremap <silent> <leader>fa :FZF! -x ~<cr>
-noremap <silent> <leader>sp :call fzf#vim#ag_raw(FindRootDirectory() . " --hidden --ignore '.git*'", {'options': '--delimiter : --nth 4..'}, 1)<cr>
-noremap <silent> <leader>sP :call fzf#vim#ag_raw(FindRootDirectory() . " --hidden --ignore '.git*'", {}, 1)<cr>
+noremap <silent> <leader>sp :call fzf#vim#ag_raw(". --hidden --ignore '.git*'" . FindRootDirectory(), {'options': '--delimiter : --nth 4..'}, 1)<cr>
+noremap <silent> <leader>sP :call fzf#vim#ag_raw(". --hidden --ignore '.git*'" . FindRootDirectory(), {}, 1)<cr>
 noremap <silent> <leader>ss :BLines!<cr>
 nmap <silent> <leader>sl <leader>ss
 noremap <silent> <leader>s: :History:!<cr>

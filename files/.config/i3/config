@@ -218,9 +218,9 @@ default_floating_border pixel 2
 # gaps inner 5
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #ffffff   #d97d19
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #999999
+client.focused          #4c7899 #285577 #ffffff #ffffff   #d97100
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #143c68
+client.unfocused        #333333 #222222 #888888 #292d2e   #0a1f36
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
