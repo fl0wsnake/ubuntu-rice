@@ -35,6 +35,7 @@ Plug 'pangloss/vim-javascript'
 " typescript
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
 " elm
 Plug 'pbogut/deoplete-elm'
 Plug 'ElmCast/elm-vim'
@@ -422,15 +423,21 @@ let g:NERDTreeMapOpenRecursively = "go"
 let g:NERDTreeMapPreview = "O"
 
 " fzf
+function! s:with_git_root()
+  let root = systemlist('git rev-parse --show-toplevel')[0]
+  return v:shell_error ? {} : {'dir': root}
+endfunction
+
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 noremap <silent> <leader>ww :Windows!<cr>
 noremap <silent> <leader>pf :GFiles!<cr>
-noremap <silent> <leader>sf :call fzf#vim#ag_raw(". --hidden -U --ignore '.git*'", {'options': '--delimiter : --nth 4..'}, 1)<cr>
+noremap <silent> <leader>sf :call fzf#vim#ag_raw(" . ", {'options': '--delimiter : --nth 4..'}, 1)<cr>
+noremap <silent> <leader>sF :call fzf#vim#ag_raw(" . ", {}, 1)<cr>
 noremap <silent> <leader>ff :FZF!<cr>
 nmap <silent> <leader>fs <leader>ff
 noremap <silent> <leader>fa :FZF! -x ~<cr>
-noremap <silent> <leader>sp :call fzf#vim#ag_raw(". --hidden --ignore '.git*'" . FindRootDirectory(), {'options': '--delimiter : --nth 4..'}, 1)<cr>
-noremap <silent> <leader>sP :call fzf#vim#ag_raw(". --hidden --ignore '.git*'" . FindRootDirectory(), {}, 1)<cr>
+noremap <silent> <leader>sp :call fzf#vim#ag_raw(" . " . FindRootDirectory(), {'options': '--delimiter : --nth 4..'}, 1)<cr>
+noremap <silent> <leader>sP :call fzf#vim#ag_raw(" . " . FindRootDirectory(), {}, 1)<cr>
 noremap <silent> <leader>ss :BLines!<cr>
 nmap <silent> <leader>sl <leader>ss
 noremap <silent> <leader>s: :History:!<cr>
@@ -440,6 +447,7 @@ nnoremap <silent> <leader>/ :exe '/' . expand("<cword>")<cr>
 vnoremap / y/<C-R>"<CR>
 noremap <silent> <leader>fr :History!<cr>
 noremap <silent> <leader>fR :tabe<cr>:History!<cr>
+noremap <silent> <leader>hm :Maps<cr>
 
 " easyclip
 let g:EasyClipUseSubstituteDefaults = 1
@@ -538,7 +546,7 @@ let g:formatters_typescript = ['my_prettier', 'tsfmt']
 let g:formatters_json = ['my_prettier']
 let g:formatdef_my_prettier = '"prettier --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")'
 " typescript
-let g:nvim_typescript#type_info_on_hold=1
+" let g:nvim_typescript#type_info_on_hold=1
 au FileType typescript noremap <buffer> K :TSDoc<cr>
 au FileType typescript noremap <buffer> <M-cr> :TSImport<cr>
 au FileType typescript noremap <buffer> <C-b> :TSDef<cr>

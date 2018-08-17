@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo $* | nvim - -c 'exe Trans(0)'
+st -e nvim -c ':e $APPDATA_SYNC/trans/index.md | setl spell'

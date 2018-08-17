@@ -22,6 +22,7 @@ declare -a paths=(
 ".config/wall.*"
 ".config/copyq/copyq.conf"
 ".mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
+".config/bookmarks.txt"
 
 ".bashrc"
 ".zshrc"
