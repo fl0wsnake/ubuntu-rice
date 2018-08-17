@@ -104,22 +104,16 @@ alias screen='tsnodemon -x "ts-node"'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 
 alias f='rifle $(fd -Hi --type f | fzf)'
-alias d='cd $(fd -Hi --type d | fzf)'
 alias F='rifle $(fd -Hi --type f . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf); exit'
-alias D='cd $(fd -Hi --type d . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf)'
 
-all-files_widget() zle -M "$(rifle $(fd -Hi --type f | fzf) >/dev/null 2>&1; exit)"
-all-directories_widget() zle -M "$(cd $(fd -Hi --type d | fzf))"
-bookmarked-files_widget() zle -M "$(rifle $(fd -Hi --type f . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf) >/dev/null 2>&1; exit)"
-bookmarked-directories_widget() zle -M "$(cd $(fd -Hi --type d . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf))"
+all-paths_widget() zle -M "$(rifle $(fd -Hi --type f --type d | fzf) >/dev/null 2>&1; exit)"
+bookmarked-paths_widget() zle -M "$(rifle $(fd -Hi --type f --type d . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf) >/dev/null 2>&1; exit)"
 
-zle -N all-files_widget
-zle -N all-directories_widget
-zle -N bookmarked-files_widget
-zle -N bookmarked-directories_widget
+zle -N all-paths_widget
+zle -N bookmarked-paths_widget
 
-bindkey '^f' all-files_widget
-bindkey '^v' bookmarked-files_widget
+# bindkey '^f' all-paths_widget
+bindkey '^f' bookmarked-paths_widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
