@@ -36,6 +36,8 @@ mode "$mode_system" {
 bindsym $leader+p mode "$mode_system"
 # terminal
 bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell"
+# editor
+bindsym $leader+Shift+o exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $editor"
 # program launcher
 bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
 # toggle touchpad
