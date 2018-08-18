@@ -119,6 +119,8 @@ alias t='trash'
 alias e="$EDITOR"
 alias x="ranger"
 
+export FZF_DEFAULT_COMMAND='fd -Hi --type f'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source /usr/share/nvm/init-nvm.sh
