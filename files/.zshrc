@@ -103,10 +103,11 @@ alias screen='import ~/stuff/images/screenshots/$(date +%Y-%m-%d-%T)-screenshot.
 alias screen='tsnodemon -x "ts-node"'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 
+alias activities='cat /home/kirill/.config/activities.txt | paste -sd " " -'
 alias find-shot='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias find-shot-exit='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias activities-shot='target=$(shot $(cat /home/kirill/.config/activities.txt | paste -sd " " -)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
-alias activities-shot-exit='target=$(fd -Hi -t f . $(cat /home/kirill/.config/activities.txt | paste -sd " " -) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
+alias activities-shot='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias activities-shot-exit='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias trash='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
 
 alias s='shot'

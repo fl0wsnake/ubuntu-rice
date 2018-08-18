@@ -5,3 +5,4 @@
 /home/kirill/stuff/
 /home/kirill/ws/
 /etc/apt
+/usr/local/share/texmf
