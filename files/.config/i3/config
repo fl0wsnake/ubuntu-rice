@@ -38,14 +38,10 @@ bindsym $leader+p mode "$mode_system"
 bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell"
 # program launcher
 bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
-# text editor
-bindsym $leader+z exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $editor"
-# file explorer
-bindsym $leader+x exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $explorer"
-# browser
-bindsym $leader+Shift+x exec --no-startup-id $browser
 # toggle touchpad
-bindsym $leader+Shift+z exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
+bindsym $leader+z exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
+# browser
+bindsym $leader+Shift+z exec --no-startup-id $browser
 # process manager
 bindsym $leader+Shift+p exec --no-startup-id $term -e htop
 # kill focused window
@@ -81,7 +77,7 @@ bindsym $leader+comma split v
 bindsym $leader+f fullscreen toggle
 bindsym $leader+Shift+f fullscreen toggle global
 # change container layout
-bindsym $leader+b layout stacking
+bindsym $leader+Shift+n layout stacking
 bindsym $leader+n layout tabbed
 bindsym $leader+m layout toggle split
 # toggle tiling / floating
@@ -119,18 +115,26 @@ set $browser_workspace 102:
 bindsym $leader+s exec --no-startup-id $i3dir/init_layout $browser_workspace browser $browser
 bindsym $leader+Shift+s move container to workspace $browser_workspace
 bindsym $leader+Control+Shift+s exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $browser_workspace
-set $app_workspace 103:
-bindsym $leader+c exec --no-startup-id $i3dir/init_layout $app_workspace apps franz slack
-bindsym $leader+Shift+c move container to workspace $app_workspace
-bindsym $leader+Control+Shift+c exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $app_workspace
 set $music_workspace 104:♫
 bindsym $leader+g exec --no-startup-id $i3dir/music_init $music_workspace music $term $shell
 bindsym $leader+Shift+g move container to workspace $music_workspace
 bindsym $leader+Control+Shift+g exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $music_workspace
-set $translator_workspace 101:
-bindsym $leader+v workspace $translator_workspace
-bindsym $leader+Shift+v move container to workspace $translator_workspace
-bindsym $leader+Control+Shift+v exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $translator_workspace
+set $x_workspace 171:X
+bindsym $leader+x exec --no-startup-id $i3dir/init_layout $x_workspace apps franz slack
+bindsym $leader+Shift+x move container to workspace $x_workspace
+bindsym $leader+Control+Shift+x exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $x_workspace
+set $c_workspace 172:C
+bindsym $leader+c workspace $c_workspace
+bindsym $leader+Shift+c move container to workspace $c_workspace
+bindsym $leader+Control+Shift+c exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $c_workspace
+set $v_workspace 173:V
+bindsym $leader+v workspace $v_workspace
+bindsym $leader+Shift+v move container to workspace $v_workspace
+bindsym $leader+Control+Shift+v exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $v_workspace
+set $b_workspace 174:B
+bindsym $leader+b workspace $b_workspace
+bindsym $leader+Shift+b move container to workspace $b_workspace
+bindsym $leader+Control+Shift+b exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $b_workspace
 # numeric workspaces
 set $1_workspace 201:1
 bindsym $leader+1 workspace $1_workspace
@@ -173,10 +177,10 @@ bindsym $leader+0 workspace $0_workspace
 bindsym $leader+Shift+0 move container to workspace $0_workspace
 bindsym $leader+Control+Shift+0 exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $0_workspace
 # workspace app assignments
-assign [class="Slack"] $app_workspace
-assign [class="discord"] $app_workspace
-assign [class="Telegram"] $app_workspace
-assign [class="Skype"] $app_workspace
+assign [class="Slack"] $x_workspace
+assign [class="discord"] $x_workspace
+assign [class="Telegram"] $x_workspace
+assign [class="Skype"] $x_workspace
 # monitors/screens
 workspace $q_workspace output HDMI1
 workspace $1_workspace output eDP1
