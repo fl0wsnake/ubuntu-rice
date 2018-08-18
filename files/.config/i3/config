@@ -50,9 +50,6 @@ bindsym $leader+Shift+p exec --no-startup-id $term -e htop
 bindsym $leader+d kill
 # show clipboard manager
 bindsym $leader+Shift+d exec --no-startup-id copyq show
-# bindsym $leader+Shift+d [class=".*"] kill
-# window finder
-# bindsym $leader+Shift+o exec --no-startup-id rofi -show window
 # change focus
 bindsym $leader+h focus left
 bindsym $leader+j focus down
