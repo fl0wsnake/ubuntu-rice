@@ -104,12 +104,16 @@ alias screen='tsnodemon -x "ts-node"'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 
 alias find-shot='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias find-shot-exit='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias activities-shot='target=$(shot $(cat /home/kirill/.config/activities.txt | paste -sd " " -)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias activities-shot-exit='target=$(fd -Hi -t f . $(cat /home/kirill/.config/activities.txt | paste -sd " " -) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias trash='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
 
 alias s='shot'
 alias f='find-shot'
+alias fe='find-shot-exit'
 alias a='activities-shot'
+alias ae='activities-shot-exit'
 alias t='trash'
 alias e="$EDITOR"
 alias x="ranger"
