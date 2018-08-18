@@ -103,17 +103,16 @@ alias screen='import ~/stuff/images/screenshots/$(date +%Y-%m-%d-%T)-screenshot.
 alias screen='tsnodemon -x "ts-node"'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 
-alias f='rifle $(fd -Hi --type f | fzf)'
-alias F='rifle $(fd -Hi --type f . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf); exit'
+alias find-shot='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias activities-shot='target=$(shot $(cat /home/kirill/.config/activities.txt | paste -sd " " -)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias trash='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
 
-all-paths_widget() zle -M "$(rifle $(fd -Hi --type f --type d | fzf) >/dev/null 2>&1; exit)"
-bookmarked-paths_widget() zle -M "$(rifle $(fd -Hi --type f --type d . $(cat /home/kirill/.config/bookmarks.txt | paste -sd " " -) | fzf) >/dev/null 2>&1; exit)"
-
-zle -N all-paths_widget
-zle -N bookmarked-paths_widget
-
-# bindkey '^f' all-paths_widget
-bindkey '^f' bookmarked-paths_widget
+alias s='shot'
+alias f='find-shot'
+alias a='activities-shot'
+alias t='trash'
+alias e="$EDITOR"
+alias x="ranger"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -141,7 +140,7 @@ bindkey '^f' bookmarked-paths_widget
 
 nvm_auto_switch
 
-# The next line updates PATH for the Google Cloud SDK.
+
 if [ -f '/home/kirill/apps/google-cloud-sdk/path.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc'; fi

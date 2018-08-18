@@ -1,8 +1,7 @@
-/home/kirill/apps/
 /home/kirill/sync/data/
 /home/kirill/.config/
 /home/kirill/Downloads/
 /media/kirill/
 /home/kirill/stuff/
-/home/kirill/Downloads/repos/
-/home/kirill/workspace/
+/home/kirill/ws/
+/etc/apt

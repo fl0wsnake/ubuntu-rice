@@ -417,7 +417,9 @@ noremap <silent> <leader>pt :call NERDTreeRootFind()<cr>
 function! NERDTreeRootFind()
   let l:pwd = expand('%:p')
   exe 'NERDTree' FindRootDirectory()
-  exe 'NERDTreeFind' l:pwd
+  if l:pwd != ''
+    exe 'NERDTreeFind' l:pwd
+  endif
 endfunction
 let g:NERDTreeMapOpenRecursively = "go"
 let g:NERDTreeMapPreview = "O"
