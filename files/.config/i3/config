@@ -39,7 +39,7 @@ bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\
 # editor
 bindsym $leader+Shift+o exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $editor"
 # program launcher
-bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
+bindsym $leader+Shift+Return exec --no-startup-id "rofi -show run"
 # toggle touchpad
 bindsym $leader+z exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
 # browser

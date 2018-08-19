@@ -62,6 +62,7 @@ git
 docker
 sudo
 git-open
+zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,6 +120,9 @@ alias ae='activities-shot-exit'
 alias t='trash'
 alias e="$EDITOR"
 alias x="ranger"
+
+bindkey '^ ' forward-word
+bindkey '^l' end-of-line
 
 export FZF_DEFAULT_COMMAND='fd -Hi --type f'
 

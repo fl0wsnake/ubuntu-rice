@@ -124,6 +124,13 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
+" no ShaDa error
+if !has('nvim')
+  set viminfo+=n~/vim/viminfo
+else
+  set viminfo+=n~/.shada
+endif
+
 " keymaps
 nnoremap <silent> <C-c> :Commentary<cr>j
 nnoremap <silent> <leader>at a<C-R>=strftime('%Y-%m-%d')<cr><esc>
@@ -438,15 +445,15 @@ endfunction
 "   \   <bang>0)
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:file_contents_command = 'ag --nogroup --color --column --color-match "1;37" .'
+let g:file_contents_command = 'ag --nogroup --color --color-match "1;37" .+'
 noremap <silent> <leader>ww :Windows!<cr>
 noremap <silent> <leader>pf :call fzf#vim#files(FindRootDirectory(), {}, 1)<cr>
 noremap <silent> <leader>ff :call fzf#vim#files(getcwd(), {}, 1)<cr>
-noremap <silent> <leader>sf :call fzf#vim#grep(g:ag_command, {'options': '--delimiter : --nth 4..'}, 1)<cr>
-noremap <silent> <leader>sF :call fzf#vim#grep(g:ag_command, 1)<cr>
+noremap <silent> <leader>sf :call fzf#vim#grep(g:file_contents_command, 1, {'options': '--delimiter : --nth 3..'}, 1)<cr>
+noremap <silent> <leader>sF :call fzf#vim#grep(g:file_contents_command, 1, {}, 1)<cr>
 nmap <silent> <leader>fs <leader>ff
-noremap <silent> <leader>sp :call fzf#vim#grep(g:ag_command . ' ' . FindRootDirectory(), {'options': '--delimiter : --nth 4..'}, 1)<cr>
-noremap <silent> <leader>sP :call fzf#vim#grep(g:ag_command . ' ' . FindRootDirectory(), {}, 1)<cr>
+noremap <silent> <leader>sp :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {'options': '--delimiter : --nth 4..'}, 1)<cr>
+noremap <silent> <leader>sP :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {}, 1)<cr>
 noremap <silent> <leader>fa :FZF! -x ~<cr>
 noremap <silent> <leader>ss :BLines!<cr>
 nmap <silent> <leader>sl <leader>ss

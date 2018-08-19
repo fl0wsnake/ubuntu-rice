@@ -1,3 +1,10 @@
 #!/bin/bash
 
-st -e nvim -c ':e $APPDATA_SYNC/trans/index.md | setl spell'
+index="$APPDATA_SYNC/trans/index.md"
+tmp="/tmp/tra-tmp"
+
+first_line=$(head -n 1 "$index")
+if [ ! -z "$first_line" ]; then
+  { echo; cat "$index"; } > "$tmp" && mv "$tmp" "$index"
+fi
+st -e nvim -c ":e "$index" | setl spell"
