@@ -128,7 +128,7 @@ let &t_EI = "\<Esc>[2 q"
 if !has('nvim')
   set viminfo+=n~/vim/viminfo
 else
-  set viminfo+=n~/.shada
+  set viminfo+=n~/.vim/.shada
 endif
 
 " keymaps

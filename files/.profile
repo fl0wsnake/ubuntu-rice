@@ -36,6 +36,11 @@ if [ -d "$HOME/go/bin" ] ; then
   PATH="$HOME/go/bin:$PATH"
 fi
 
+# cargo binaries
+if [ -x "$HOME/.cargo/bin" ] ; then
+  PATH="$HOME/.cargo/bin":$PATH
+fi
+
 # arcanist
 if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
   PATH="$HOME/apps/arcanist/bin:$PATH"
