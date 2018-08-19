@@ -97,29 +97,30 @@ source $ZSH/oh-my-zsh.sh
 
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
-alias trans='trans -no-ansi'
 alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
-alias screen='import ~/stuff/images/screenshots/$(date +%Y-%m-%d-%T)-screenshot.png'
-alias screen='tsnodemon -x "ts-node"'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
-alias ls='ls -1 --color=always'
 
 alias activities='cat /home/kirill/.config/activities.txt | paste -sd " " -'
-alias find-shot='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
-alias find-shot-exit='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias activities-shot='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
-alias activities-shot-exit='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias trash='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
-
+alias ls='ls -1 --color=always'
 alias s='shot'
-alias f='find-shot'
-alias fe='find-shot-exit'
-alias a='activities-shot'
-alias ae='activities-shot-exit'
-alias t='trash'
+alias f='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias fe='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
+alias a='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
+alias ae='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
+alias t='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
 alias e="$EDITOR"
 alias x="ranger"
+# git
+alias g='git'
+alias gs='git status'
+alias gl='git l'
+alias gck='git checkout'
+alias gp='git pull'
+# git pull all branches
+alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
+# Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
+alias gbd='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
 
 bindkey '^ ' forward-word
 bindkey '^l' end-of-line
