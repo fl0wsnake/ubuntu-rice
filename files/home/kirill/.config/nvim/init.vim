@@ -452,7 +452,7 @@ noremap <silent> <leader>ff :call fzf#vim#files(getcwd(), {}, 1)<cr>
 noremap <silent> <leader>sf :call fzf#vim#grep(g:file_contents_command, 1, {'options': '--delimiter : --nth 3..'}, 1)<cr>
 noremap <silent> <leader>sF :call fzf#vim#grep(g:file_contents_command, 1, {}, 1)<cr>
 nmap <silent> <leader>fs <leader>ff
-noremap <silent> <leader>sp :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {'options': '--delimiter : --nth 4..'}, 1)<cr>
+noremap <silent> <leader>sp :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {'options': '--delimiter : --nth 3..'}, 1)<cr>
 noremap <silent> <leader>sP :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {}, 1)<cr>
 noremap <silent> <leader>fa :FZF! -x ~<cr>
 noremap <silent> <leader>ss :BLines!<cr>

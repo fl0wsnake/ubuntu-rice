@@ -101,6 +101,7 @@ alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 
+# everyday stuff
 alias activities='cat /home/kirill/.config/activities.txt | paste -sd " " -'
 alias ls='ls -1 --color=always'
 alias s='shot'
@@ -118,10 +119,13 @@ alias gl='git l'
 alias gck='git checkout'
 alias gp='git pull'
 alias ga='git commit --amend --no-edit'
-# git pull all branches
+## git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
-# Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
+## Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
 alias gbd='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
+# other utilities
+alias nrt='npm run test'
+
 
 bindkey '^ ' forward-word
 bindkey '^l' end-of-line
