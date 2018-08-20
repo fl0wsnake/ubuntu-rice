@@ -50,6 +50,8 @@ bindsym $leader+z exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
 bindsym $leader+Shift+z exec --no-startup-id $browser
 # process manager
 bindsym $leader+Shift+p exec --no-startup-id $term -e htop
+# todos
+bindsym $leader+Shift+u exec --no-startup-id $term -e $editor -c VimwikiIndex
 # kill focused window
 bindsym $leader+d kill
 # show clipboard manager

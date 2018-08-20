@@ -6,8 +6,8 @@ rm -rf $backupdir
 for i in "${paths[@]}"
 do
   dir=$(dirname $i)
-  mkdir -p $backupdir/$dir
-  cp -a ~/$i $backupdir/$dir 2>/dev/null
+  mkdir -p "$backupdir/$dir"
+  cp -a "$i" "$backupdir/$dir" 2>/dev/null
 done
 
 find ./files \( -type f -o -type d \) -name '*history*' -exec rm -rf {} +

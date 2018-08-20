@@ -242,13 +242,13 @@ endfunction
 let g:appdata_sync = $APPDATA_SYNC
 " translator
 let g:trans_dir = g:appdata_sync . "/trans/"
-let g:trans_index = "index.md"
+let g:trans_index = g:trans_dir . "index.md"
 
 function! Trans()
   exe system("mkdir -p " . g:trans_dir)
   let l:caption = expand("<cword>")
   if l:caption == ''
-    let l:word_path = g:trans_dir . g:trans_index
+    let l:word_path = g:trans_index
   else
     let l:word = tolower(l:caption)
     let l:word_path = g:trans_dir . l:word . ".txt"
@@ -264,7 +264,7 @@ function! Trans()
 endfunction
 
 noremap <silent> <leader>ad :call Trans()<cr>
-noremap <silent> <leader>aD :exe "e" fnameescape(g:trans_dir . g:trans_index)<cr>
+noremap <silent> <leader>aD :exe "e" fnameescape(g:trans_index)<cr>
 
 " lyrics
 let g:lyrics_dir = g:appdata_sync . "/lyrics/"
@@ -512,6 +512,8 @@ let g:vdiary.diary_header = 'Diary'
 let g:vdiary.template_path = g:vimwiki_template_path
 let g:vdiary.template_ext = g:vimwiki_template_ext
 let g:vimwiki_list = [g:vjournal, g:vdiary]
+nmap <silent> <leader>at :exe 'e' g:trans_index<cr>
+nmap <silent> <leader>aw <plug>VimwikiIndex
 nmap <silent> <leader>ow <plug>VimwikiIndex
 nmap <silent> <leader>oW <plug>VimwikiTabIndex
 nmap <silent> <leader>os <plug>VimwikiUISelect
@@ -532,7 +534,6 @@ nmap <silent> <leader>og <plug>VimwikiDiaryGenerateLinks
 nmap <silent> <leader>or <plug>VimwikiRenameLink
 nmap <silent> <leader>oq <plug>VimwikiDeleteLink
 nmap <silent> <leader>ot :VimwikiTOC<cr>
-nmap <silent> <leader>on :exe "e" g:vimwiki_main.path . '/notes.md'<cr>
 " markdown
 set conceallevel=2
 let g:vim_markdown_folding_disabled = 1

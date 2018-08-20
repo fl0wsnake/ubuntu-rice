@@ -117,6 +117,7 @@ alias gs='git status'
 alias gl='git l'
 alias gck='git checkout'
 alias gp='git pull'
+alias ga='git commit --amend --no-edit'
 # git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
 # Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed

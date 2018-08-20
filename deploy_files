@@ -4,8 +4,8 @@ source ./paths.sh
 
 for i in "${paths[@]}"
 do
-  mkdir -p ~/$(dirname $i)
-  cp -r $(realpath $backupdir/$i) ~/$(dirname $i)
+  mkdir -p $(dirname "$i")
+  cp -r $(realpath "$backupdir/$i") $(dirname "$i")
 done
 
 # create directories per ranger bookmarks
