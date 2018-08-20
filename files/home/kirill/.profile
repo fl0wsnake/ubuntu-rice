@@ -37,18 +37,18 @@ if [ -d "$HOME/go/bin" ] ; then
 fi
 
 # cargo binaries
-if [ -x "$HOME/.cargo/bin" ] ; then
+if [ -d "$HOME/.cargo/bin" ] ; then
   PATH="$HOME/.cargo/bin":$PATH
+fi
+
+# temporary personal scripts
+if [ -d "$HOME/sync/data/scripts" ] ; then
+  PATH="$HOME/sync/data/scripts":$PATH
 fi
 
 # arcanist
 if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
   PATH="$HOME/apps/arcanist/bin:$PATH"
-fi
-
-# temporary personal scripts
-if [ -x "$HOME/sync/data/scripts" ] ; then
-  PATH="$HOME/sync/data/scripts":$PATH
 fi
 
 export BROWSER=/usr/bin/firefox
