@@ -111,12 +111,14 @@ alias a='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then c
 alias ae='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias t='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
 alias e="$EDITOR"
-alias x="ranger"
+alias x='ranger'
+alias c='clear'
 # git
 alias g='git'
 alias gs='git status'
 alias gl='git l'
-alias gck='git checkout'
+alias gc='git checkout'
+alias gcl='git clone'
 alias gp='git pull'
 alias ga='git commit --amend --no-edit'
 ## git pull all branches
@@ -124,13 +126,12 @@ alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --tr
 ## Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
 alias gbd='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
 # other utilities
+alias nr='npm run'
 alias nrt='npm run test'
 
 
 bindkey '^ ' forward-word
 bindkey '^l' end-of-line
-
-export FZF_DEFAULT_COMMAND='fd -Hi --type f'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -139,3 +140,5 @@ nvm_auto_switch
 if [ -f '/home/kirill/apps/google-cloud-sdk/path.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc'; fi
+
+PATH=$HOME/.cargo/bin:$PATH

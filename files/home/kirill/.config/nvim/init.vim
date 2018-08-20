@@ -437,23 +437,20 @@ function! s:with_git_root()
   return v:shell_error ? {} : {'dir': root}
 endfunction
 
-" command! -bang -nargs=* Fd
-"   \ call fzf#vim#grep(
-"   \   'fd -Hi -t f '.shellescape(<q-args>), 1,
-"   \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"   \   <bang>0)
-
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:file_contents_command = 'ag --nogroup --color --color-match "1;37" .+'
+command! -nargs=* Ag
+  \ call fzf#vim#grep('ag --nogroup --color --color-match "1;37" .+ '.shellescape(<q-args>), 0, {'options': '--delimiter : --nth 3..'}, 1) 
+command! -nargs=* AgFilenames
+  \ call fzf#vim#grep('ag --nogroup --color --color-match "1;37" .+ '.shellescape(<q-args>), 0, {}, 1)
+
 noremap <silent> <leader>ww :Windows!<cr>
 noremap <silent> <leader>pf :call fzf#vim#files(FindRootDirectory(), {}, 1)<cr>
 noremap <silent> <leader>ff :call fzf#vim#files(getcwd(), {}, 1)<cr>
-noremap <silent> <leader>sf :call fzf#vim#grep(g:file_contents_command, 1, {'options': '--delimiter : --nth 3..'}, 1)<cr>
-noremap <silent> <leader>sF :call fzf#vim#grep(g:file_contents_command, 1, {}, 1)<cr>
+noremap <silent> <leader>sf :exe 'Ag' '.'<cr>
+noremap <silent> <leader>sF :exe 'AgFilenames' '.'<cr>
 nmap <silent> <leader>fs <leader>ff
-noremap <silent> <leader>sp :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {'options': '--delimiter : --nth 3..'}, 1)<cr>
-noremap <silent> <leader>sP :call fzf#vim#grep(g:file_contents_command . ' ' . FindRootDirectory(), 1, {}, 1)<cr>
+noremap <silent> <leader>sp :exe 'Ag' FindRootDirectory()<cr>
+noremap <silent> <leader>sP :exe 'AgFilenames' FindRootDirectory()<cr>
 noremap <silent> <leader>fa :FZF! -x ~<cr>
 noremap <silent> <leader>ss :BLines!<cr>
 nmap <silent> <leader>sl <leader>ss
