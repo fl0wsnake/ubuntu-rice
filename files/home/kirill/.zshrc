@@ -115,11 +115,11 @@ alias x='ranger'
 alias c='clear'
 # git
 alias g='git'
+alias go='git open'
 alias gs='git status'
 alias gl='git l'
 alias gc='git checkout'
 alias gcl='git clone'
-alias gp='git pull'
 alias ga='git commit --amend --no-edit'
 ## git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
@@ -128,6 +128,9 @@ alias gbd='git checkout -q master && git remote prune origin && git for-each-ref
 # other utilities
 alias nr='npm run'
 alias nrt='npm run test'
+alias nu='npm-upgrade'
+alias plw='pdflatexwatch'
+alias es='edit-script'
 
 
 bindkey '^ ' forward-word

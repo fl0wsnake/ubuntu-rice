@@ -53,5 +53,6 @@ fi
 
 export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/nvim
+export TERMINAL=/usr/local/bin/st
 export VISUAL=/usr/bin/nvim
 export APPDATA_SYNC=$HOME/sync/data/appdata

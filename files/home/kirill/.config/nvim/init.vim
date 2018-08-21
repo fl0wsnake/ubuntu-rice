@@ -52,7 +52,7 @@ Plug 'tpope/vim-speeddating'
 " python
 Plug 'python-mode/python-mode'
 " c++
-Plug 'Rip-Rip/clang_complete'
+Plug 'JBakamovic/yavide'
 " i3
 Plug 'PotatoesMaster/i3-vim-syntax'
 " xml

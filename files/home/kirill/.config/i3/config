@@ -16,20 +16,16 @@ focus_follows_mouse no
 # use Mouse+$leader to drag floating windows to their wanted position
 floating_modifier $leader
 # system mode
-set $mode_system Touchpad, (c)reload, (C)restart, Lock, Exit, Shutdown, Reboot, (d)close all windows, (e)logout, (S)suspend, Hibernate
+set $mode_system (c)reload, (C)restart, Exit, Shutdown, Reboot, Suspend, Hibernate
 mode "$mode_system" {
   bindsym d [class=".*"] kill
-    bindsym t exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
-    bindsym p exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
     bindsym c reload
     bindsym Shift+c restart
-    bindsym l exec --no-startup-id i3lock-fancy, mode "default"
     bindsym e exec [class=".*"] kill, exit, mode "default"
+    bindsym s exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl poweroff, mode "default"
+    bindsym r exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl reboot, mode "default"
-# bindsym r [class=".*"] kill, exec systemctl reboot, mode "default"
-    bindsym s exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl poweroff, mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -45,13 +41,9 @@ bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -
 # program launching
 bindsym $leader+Shift+i exec --no-startup-id "rofi -show run"
 # toggle touchpad
-bindsym $leader+z exec --no-startup-id $i3dir/touchpad_toggle, mode "default"
-# browser
-bindsym $leader+Shift+z exec --no-startup-id $browser
+bindsym $leader+z exec --no-startup-id touchpad_toggle, mode "default"
 # process manager
 bindsym $leader+Shift+p exec --no-startup-id $term -e htop
-# todos
-bindsym $leader+Shift+u exec --no-startup-id $term -e $editor -c VimwikiIndex
 # kill focused window
 bindsym $leader+d kill
 # show clipboard manager
@@ -239,7 +231,7 @@ exec_always --no-startup-id ~/.config/scripts/poly
 # no beep
 exec_always --no-startup-id xset -b
 exec --no-startup-id nm-applet
-exec --no-startup-id $i3dir/touchpad_disable
+exec --no-startup-id touchpad_disable
 exec --no-startup-id wallp
 exec --no-startup-id unclutter
 exec --no-startup-id compton
