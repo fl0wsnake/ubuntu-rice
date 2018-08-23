@@ -545,8 +545,16 @@ let g:indentLine_enabled = 0
 " au FileType html,vue let g:indentLine_enabled = 1
 
 " linters/formatters
-" au BufWritePre * :Autoformat
-let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_fixers = {
+      \ 'javascript': 
+        \ [
+          \ 'eslint'
+        \ ], 
+      \ 'python': 
+        \ [
+          \ 'black'
+        \ ]
+      \ }
 let g:ale_linters = {}
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
@@ -556,10 +564,10 @@ let g:ale_set_highlights = 0
 
 " languages
 " javascript
-let g:formatters_javascript = ['my_prettier']
-let g:formatters_typescript = ['my_prettier', 'tsfmt']
-let g:formatters_json = ['my_prettier']
-let g:formatdef_my_prettier = '"prettier --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")'
+" let g:formatters_javascript = ['my_prettier']
+" let g:formatters_typescript = ['my_prettier', 'tsfmt']
+" let g:formatters_json = ['my_prettier']
+" let g:formatdef_my_prettier = '"prettier --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")'
 " typescript
 " let g:nvim_typescript#type_info_on_hold=1
 au FileType typescript noremap <buffer> K :TSDoc<cr>

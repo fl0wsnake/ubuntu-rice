@@ -1,0 +1,8 @@
+#!/bin/bash
+
+_script_completions()
+{
+  COMPREPLY+=$(compgen -c)
+}
+
+complete -F _script_completions edit-script

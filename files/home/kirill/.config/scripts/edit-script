@@ -1,3 +1,15 @@
 #!/bin/bash
 
-$EDITOR `which "$1"`
+COMPREPLY=$(compgen -c)
+
+path=$(which "$1")
+
+if [ ! "$path" ]; then
+  echo no "'$1'" in path
+elif [ ! -x "$path" ]; then
+  echo "'$1'" is not executable
+elif [ -n "$(isutf8 "$path")" ]; then
+  echo "'$path'" is not an utf8 executable
+else
+  $EDITOR `which "$1"`
+fi

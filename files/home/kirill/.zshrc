@@ -63,6 +63,7 @@ docker
 sudo
 git-open
 zsh-autosuggestions
+zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,11 +100,11 @@ alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
 alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
-alias hist='history | cut -c 8- | tac | nvim -c "BLines!" -'
 
+# flags
+alias ag="ag --color-match '1;37'"
 # everyday stuff
 alias activities='cat /home/kirill/.config/activities.txt | paste -sd " " -'
-alias ls='ls -1 --color=always'
 alias s='shot'
 alias f='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias fe='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
@@ -120,17 +121,22 @@ alias gs='git status'
 alias gl='git l'
 alias gc='git checkout'
 alias gcl='git clone'
-alias ga='git commit --amend --no-edit'
+alias gcm='git commit -m .'
+alias gca='git commit --amend --no-edit'
+alias ga='git add .'
 ## git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
 ## Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
 alias gbd='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
 # other utilities
 alias nr='npm run'
-alias nrt='npm run test'
+alias nt='npm test'
+alias ns='npm start'
 alias nu='npm-upgrade'
 alias plw='pdflatexwatch'
 alias es='edit-script'
+# python
+alias pua='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
 
 
 bindkey '^ ' forward-word
@@ -143,3 +149,5 @@ nvm_auto_switch
 if [ -f '/home/kirill/apps/google-cloud-sdk/path.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc'; fi
+
+source ${HOME}/.config/scripts/completions
