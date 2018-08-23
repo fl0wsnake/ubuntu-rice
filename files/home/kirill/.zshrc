@@ -114,6 +114,7 @@ alias t='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" &
 alias e="$EDITOR"
 alias x='ranger'
 alias c='clear'
+alias i='noh sxiv .; exit'
 # git
 alias g='git'
 alias go='git open'
@@ -142,12 +143,16 @@ alias pua='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 
 bindkey '^ ' forward-word
 bindkey '^l' end-of-line
 
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 nvm_auto_switch
+
 
 if [ -f '/home/kirill/apps/google-cloud-sdk/path.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc'; fi
+
 
 source ${HOME}/.config/scripts/completions
