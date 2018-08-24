@@ -137,6 +137,7 @@ alias ns='npm start'
 alias nu='npm-upgrade'
 alias plw='pdflatexwatch'
 alias es='edit-script'
+alias pj='gc|jq .|sc'
 # python
 alias pua='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
 

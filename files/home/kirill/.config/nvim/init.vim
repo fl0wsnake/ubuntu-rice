@@ -89,6 +89,7 @@ let maplocalleader=","
 " sets
 filetype plugin on
 syntax on
+set expandtab
 set breakindent
 set mouse=a
 set timeoutlen=1500
@@ -145,7 +146,7 @@ noremap <silent> <leader>wD :q!<cr>
 noremap <silent> <leader>wv :vsplit<cr>
 noremap <silent> <leader>wt :tabe<cr>
 noremap <silent> <leader>wm :only<cr>
-noremap <silent> <leader>fw :silent! w<cr>
+noremap <silent> <leader>fw :SaveBuffer<space>
 noremap <silent> <leader>fW :silent! wa<cr>
 noremap <silent> <leader>fu :set undoreload=0<cr>:e<cr>
 noremap <silent> <leader>fe :e!<cr>
@@ -240,6 +241,28 @@ endfunction
 
 " apps
 let g:appdata_sync = $APPDATA_SYNC
+
+" scratches
+let g:scratches_dir = g:appdata_sync . "/scratches/"
+function! SaveBuffer(name)
+  if expand('%') == ''
+    let l:dir_path = g:scratches_dir . system('dmy')
+    exe system('mkdir -p ' . l:dir_path)
+    let l:label = a:name != '' ? '_' . a:name : ''
+    let l:filetype = getbufvar(bufnr("%"), '&filetype')
+    if l:filetype == ''
+      let l:filetype = 'txt'
+    endif
+    let l:file_name = system('hms') . l:label . '.' . (l:filetype == '' ? 'txt' : l:filetype)
+    let l:file_path = l:dir_path . '/' . l:file_name
+    exe 'w' l:file_path
+  else
+    exe 'w'
+  endif
+endfunction
+command! -nargs=* SaveBuffer
+      \ call SaveBuffer(<q-args>)
+
 " translator
 let g:trans_dir = g:appdata_sync . "/trans/"
 let g:trans_index = g:trans_dir . "index.md"
@@ -458,11 +481,15 @@ command! -nargs=* AgFilenames
       \ 1
       \ )
 command! -nargs=* AgFiles
-      \ call fzf#run({
-      \ 'source': 'ag -g .',
+      \ call fzf#vim#grep(
+      \ 'ag -g .',
+      \ 1,
+      \ {
       \ 'dir': <q-args>,
       \ 'sink': 'e'
-      \ })
+      \ },
+      \ 1
+      \ )
 noremap <silent> <leader>ww :Windows!<cr>
 noremap <silent> <leader>pf :exe 'AgFiles' FindRootDirectory()<cr>
 noremap <silent> <leader>ff :exe 'AgFiles' '.'<cr>

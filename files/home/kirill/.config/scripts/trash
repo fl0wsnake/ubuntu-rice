@@ -1,6 +1,6 @@
 #!/bin/bash
 
-time=%d.%m.%Y-%H:%M:%S
+time=$(dmy)-$(hms)
 dir=~/trash/$(date +$time)
 mkdir -p "$dir"
 mv -t "$dir" $@
