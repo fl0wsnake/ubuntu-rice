@@ -231,7 +231,7 @@ inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " completion selection keys
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <C-l> pumvisible() ? "\<cr>" : "\<S-Tab>"
+inoremap <expr> <C-l> pumvisible() ? deoplete#mappings#close_popup() : "\<S-Tab>"
 " completion enter behaviour
 inoremap <silent> <cr> <C-r>=<SID>my_cr_function()<cr>
 function! s:my_cr_function() abort
@@ -442,10 +442,16 @@ command! -nargs=* Ag
   \ call fzf#vim#grep('ag --nogroup --color --color-match "1;37" .+ '.shellescape(<q-args>), 0, {'options': '--delimiter : --nth 3..'}, 1) 
 command! -nargs=* AgFilenames
   \ call fzf#vim#grep('ag --nogroup --color --color-match "1;37" .+ '.shellescape(<q-args>), 0, {}, 1)
+command! -nargs=* AgFiles 
+      \ call fzf#run({
+      \ 'source': 'ag -g . '.shellescape(<q-args>),
+      \ 'sink': 'e'
+      \ })
 
 noremap <silent> <leader>ww :Windows!<cr>
-noremap <silent> <leader>pf :call fzf#vim#files(FindRootDirectory(), {}, 1)<cr>
-noremap <silent> <leader>ff :call fzf#vim#files(getcwd(), {}, 1)<cr>
+" noremap <silent> <leader>pf :call fzf#vim#files(FindRootDirectory(), {}, 1)<cr>
+noremap <silent> <leader>pf :exe 'AgFiles' FindRootDirectory()<cr>
+noremap <silent> <leader>ff :exe 'AgFiles' '.'<cr>
 noremap <silent> <leader>sf :exe 'Ag' '.'<cr>
 noremap <silent> <leader>sF :exe 'AgFilenames' '.'<cr>
 nmap <silent> <leader>fs <leader>ff

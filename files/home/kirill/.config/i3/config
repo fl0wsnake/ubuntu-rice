@@ -42,12 +42,12 @@ bindsym $leader+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -
 bindsym $leader+Shift+i exec --no-startup-id "rofi -show run"
 # toggle touchpad
 bindsym $leader+z exec --no-startup-id touchpad_toggle, mode "default"
+# show clipboard manager
+bindsym $leader+Shift+z exec --no-startup-id copyq show
 # process manager
 bindsym $leader+Shift+p exec --no-startup-id $term -e htop
 # kill focused window
 bindsym $leader+d kill
-# show clipboard manager
-bindsym $leader+Shift+d exec --no-startup-id copyq show
 # change focus
 bindsym $leader+h focus left
 bindsym $leader+j focus down

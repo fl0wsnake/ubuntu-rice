@@ -96,8 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # bash vi mode
 # set -o vi
 
-alias setclip='xclip -selection c'
-alias getclip='xclip -selection c -o'
+alias sc='xclip -selection c'
+alias gc='xclip -selection c -o'
 alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 
@@ -110,17 +110,18 @@ alias f='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; e
 alias fe='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias a='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias ae='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias t='time=%d.%m.%Y-%H:%M:%S; dir=~/trash/$(date +$time) && mkdir -p "$dir" && mv -t "$dir"'
+alias t='trash'
 alias e="$EDITOR"
 alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'
+alias v='noh vlc .; exit'
 # git
 alias g='git'
 alias go='git open'
 alias gs='git status'
 alias gl='git l'
-alias gc='git checkout'
+alias gch='git checkout'
 alias gcl='git clone'
 alias gcm='git commit -m .'
 alias gca='git commit --amend --no-edit'

@@ -2,7 +2,7 @@
 
 import fileinput
 import time
-    import os
+import os
 
 keyPressTotal = 0
 timeStart = 0

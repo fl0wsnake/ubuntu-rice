@@ -1,0 +1,6 @@
+#!/bin/bash
+
+time=%d.%m.%Y-%H:%M:%S
+dir=~/trash/$(date +$time)
+mkdir -p "$dir"
+mv -t "$dir" $@
