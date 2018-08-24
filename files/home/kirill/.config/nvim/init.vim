@@ -400,9 +400,9 @@ function! ProjectPath(filename)
   if a:filename == ''
     return '[New file]'
   endif
-    let rootDirPath = FindRootDirectory()
-    let s = substitute(a:filename, l:rootDirPath . "/" , "", "")
-    return s
+  let rootDirPath = FindRootDirectory()
+  let s = substitute(a:filename, l:rootDirPath . "/" , "", "")
+  return s
 endfunction
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -439,17 +439,31 @@ endfunction
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 command! -nargs=* Ag
-  \ call fzf#vim#grep('ag --nogroup --color --color-match "1;37" .+ '.shellescape(<q-args>), 0, {'options': '--delimiter : --nth 3..'}, 1) 
+      \ call fzf#vim#grep(
+      \ 'ag --nogroup --color --color-match "1;37" .+',
+      \ 0,
+      \ {
+      \ 'options': '--delimiter : --nth 3..',
+      \ 'dir': <q-args>
+      \ },
+      \ 1
+      \ )
 command! -nargs=* AgFilenames
-  \ call fzf#vim#grep('ag --nogroup --color --color-match "1;37" .+ '.shellescape(<q-args>), 0, {}, 1)
-command! -nargs=* AgFiles 
+      \ call fzf#vim#grep(
+      \ 'ag --nogroup --color --color-match "1;37" .+',
+      \ 0,
+      \ {
+      \ 'dir': <q-args>
+      \ },
+      \ 1
+      \ )
+command! -nargs=* AgFiles
       \ call fzf#run({
-      \ 'source': 'ag -g . '.shellescape(<q-args>),
+      \ 'source': 'ag -g .',
+      \ 'dir': <q-args>,
       \ 'sink': 'e'
       \ })
-
 noremap <silent> <leader>ww :Windows!<cr>
-" noremap <silent> <leader>pf :call fzf#vim#files(FindRootDirectory(), {}, 1)<cr>
 noremap <silent> <leader>pf :exe 'AgFiles' FindRootDirectory()<cr>
 noremap <silent> <leader>ff :exe 'AgFiles' '.'<cr>
 noremap <silent> <leader>sf :exe 'Ag' '.'<cr>
@@ -552,14 +566,14 @@ let g:indentLine_enabled = 0
 
 " linters/formatters
 let g:ale_fixers = {
-      \ 'javascript': 
-        \ [
-          \ 'eslint'
-        \ ], 
-      \ 'python': 
-        \ [
-          \ 'black'
-        \ ]
+      \ 'javascript':
+      \ [
+      \ 'eslint'
+      \ ],
+      \ 'python':
+      \ [
+      \ 'black'
+      \ ]
       \ }
 let g:ale_linters = {}
 let g:ale_lint_on_text_changed = 'never'
