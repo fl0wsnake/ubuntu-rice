@@ -1,4 +1,4 @@
-'all plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 Plug 'neomake/neomake'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
