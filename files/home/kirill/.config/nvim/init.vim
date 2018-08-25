@@ -146,7 +146,7 @@ noremap <silent> <leader>wD :q!<cr>
 noremap <silent> <leader>wv :vsplit<cr>
 noremap <silent> <leader>wt :tabe<cr>
 noremap <silent> <leader>wm :only<cr>
-noremap <silent> <leader>fw :call SaveBuffer()<cr>
+noremap <silent> <leader>fw :silent! call SaveBuffer()<cr>
 noremap <silent> <leader>fW :silent! wa<cr>
 noremap <silent> <leader>fu :set undoreload=0<cr>:e<cr>
 noremap <silent> <leader>fe :e!<cr>
