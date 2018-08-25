@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+'all plug#begin('~/.vim/plugged')
 Plug 'neomake/neomake'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -146,7 +146,7 @@ noremap <silent> <leader>wD :q!<cr>
 noremap <silent> <leader>wv :vsplit<cr>
 noremap <silent> <leader>wt :tabe<cr>
 noremap <silent> <leader>wm :only<cr>
-noremap <silent> <leader>fw :SaveBuffer<space>
+noremap <silent> <leader>fw :call SaveBuffer()<cr>
 noremap <silent> <leader>fW :silent! wa<cr>
 noremap <silent> <leader>fu :set undoreload=0<cr>:e<cr>
 noremap <silent> <leader>fe :e!<cr>
@@ -156,7 +156,7 @@ noremap <silent> <leader>fP :let @+ = expand('%:p:h')<cr>
 noremap <silent> <leader>fp :let @+ = expand('%:p')<cr>
 noremap <silent> <leader>fo :exe "e" @+<cr>
 noremap <silent> <leader>fc :execute 'e' expand('%:r').'_.'.expand('%:e')<cr>
-noremap <silent> <leader>fT :set filetype=
+noremap <silent> <leader>fT :exe 'set' 'filetype='.input('Filetype: ')<cr>
 noremap <silent> <leader>qq :qa<cr>
 noremap <silent> <leader>qQ :qa!<cr>
 noremap <silent> <leader>qw :wqa<cr>
@@ -194,7 +194,7 @@ nnoremap <silent> <leader>V ggvG$<cr>
 noremap <silent> <leader>au :MundoToggle<cr>
 noremap <silent> <leader>r :reg<cr>
 noremap <silent> <leader>hh :tab h<space>
-noremap <silent> <leader>hH :exe 'tab h ' . expand("<cword>")<cr>
+noremap <silent> <leader>hH :exe 'tab h '.expand("<cword>")<cr>
 noremap <silent> <leader>hb :map<space>
 noremap <silent> <leader>as :Snippets<cr>
 noremap <silent> <leader>hc :Commands<cr>
@@ -204,10 +204,10 @@ noremap <silent> gf gf:silent cd .<cr>
 
 for i in range(1, 9)
   " <leader>{n} for window switching
-  execute "noremap <silent> <leader>" . i . " :" . i . "wincmd W<cr>"
+  execute "noremap <silent> <leader>".i." :".i."wincmd W<cr>"
   " g{n} and M-{n} for tab switch
-  execute "noremap g" . i . " " . i . "gt"
-  execute "noremap <m-" . i . "> " . i . "gt"
+  execute "noremap g".i." ".i."gt"
+  execute "noremap <m-".i."> ".i."gt"
 endfor
 
 nnoremap <C-e> 2<C-e>
@@ -236,50 +236,49 @@ inoremap <expr> <C-l> pumvisible() ? deoplete#mappings#close_popup() : "\<S-Tab>
 " completion enter behaviour
 inoremap <silent> <cr> <C-r>=<SID>my_cr_function()<cr>
 function! s:my_cr_function() abort
-  return deoplete#mappings#smart_close_popup() . "\<cr>"
+  return deoplete#mappings#smart_close_popup()."\<cr>"
 endfunction
 
 " apps
 let g:appdata_sync = $APPDATA_SYNC
 
 " scratches
-let g:scratches_dir = g:appdata_sync . "/scratches/"
-function! SaveBuffer(name)
+let g:scratches_dir = g:appdata_sync."/scratches/"
+function! SaveBuffer()
   if expand('%') == ''
-    let l:dir_path = g:scratches_dir . system('dmy')
-    exe system('mkdir -p ' . l:dir_path)
-    let l:label = a:name != '' ? '_' . a:name : ''
+    let l:name = input('Label: ')
+    let l:dir_path = g:scratches_dir.system('dmy')
+    exe system('mkdir -p '.l:dir_path)
+    let l:label = l:name != '' ? '_'.l:name : ''
     let l:filetype = getbufvar(bufnr("%"), '&filetype')
     if l:filetype == ''
       let l:filetype = 'txt'
     endif
-    let l:file_name = system('hms') . l:label . '.' . (l:filetype == '' ? 'txt' : l:filetype)
-    let l:file_path = l:dir_path . '/' . l:file_name
+    let l:file_name = system('hms').l:label.'.'.(l:filetype == '' ? 'txt' : l:filetype)
+    let l:file_path = l:dir_path.'/'.l:file_name
     exe 'w' l:file_path
   else
     exe 'w'
   endif
 endfunction
-command! -nargs=* SaveBuffer
-      \ call SaveBuffer(<q-args>)
 
 " translator
-let g:trans_dir = g:appdata_sync . "/trans/"
-let g:trans_index = g:trans_dir . "index.md"
+let g:trans_dir = g:appdata_sync."/trans/"
+let g:trans_index = g:trans_dir."index.md"
 
 function! Trans()
-  exe system("mkdir -p " . g:trans_dir)
+  exe system("mkdir -p ".g:trans_dir)
   let l:caption = expand("<cword>")
   if l:caption == ''
     let l:word_path = g:trans_index
   else
     let l:word = tolower(l:caption)
-    let l:word_path = g:trans_dir . l:word . ".txt"
+    let l:word_path = g:trans_dir.l:word.".txt"
     if !filereadable(expand(l:word_path))
       if system("command -v trans") == ''
         echo("No trans executeble found.")
       else
-        exe system("trans -no-ansi en: " . l:word . ">" . l:word_path)
+        exe system("trans -no-ansi en: ".l:word.">".l:word_path)
       endif
     endif
   endif
@@ -290,22 +289,22 @@ noremap <silent> <leader>ad :call Trans()<cr>
 noremap <silent> <leader>aD :exe "e" fnameescape(g:trans_index)<cr>
 
 " lyrics
-let g:lyrics_dir = g:appdata_sync . "/lyrics/"
+let g:lyrics_dir = g:appdata_sync."/lyrics/"
 let g:lyrics_index = "index.md"
 
 function! Lyrics()
-  exe system("mkdir -p " . g:lyrics_dir)
+  exe system("mkdir -p ".g:lyrics_dir)
   let l:caption = getline('.')
   if l:caption == ''
-    let l:song_path = g:lyrics_dir . g:lyrics_index
+    let l:song_path = g:lyrics_dir.g:lyrics_index
   else
     let l:song_name = substitute(tolower(l:caption), " ", "_", "g")
-    let l:song_path = g:lyrics_dir . l:song_name . ".txt"
+    let l:song_path = g:lyrics_dir.l:song_name.".txt"
     if !filereadable(expand(l:song_path))
       if system("command -v clyrics") == ''
         echo("No clyrics executeble found.")
       else
-        exe system("clyrics " . l:song_name . ">" . l:song_path)
+        exe system("clyrics ".l:song_name.">".l:song_path)
       endif
     endif
   endif
@@ -313,7 +312,7 @@ function! Lyrics()
 endfunction
 
 noremap <silent> <leader>al :call Lyrics()<cr>
-noremap <silent> <leader>aL :exe "e" fnameescape(g:lyrics_dir . g:lyrics_index)<cr>
+noremap <silent> <leader>aL :exe "e" fnameescape(g:lyrics_dir.g:lyrics_index)<cr>
 
 " modify selected text using combining diacritics
 command! -range -nargs=0 Overline        call s:CombineSelection(<line1>, <line2>, '0305')
@@ -424,7 +423,7 @@ function! ProjectPath(filename)
     return '[New file]'
   endif
   let rootDirPath = FindRootDirectory()
-  let s = substitute(a:filename, l:rootDirPath . "/" , "", "")
+  let s = substitute(a:filename, l:rootDirPath."/" , "", "")
   return s
 endfunction
 let g:airline#extensions#tabline#enabled = 1
@@ -504,7 +503,7 @@ nmap <silent> <leader>sl <leader>ss
 noremap <silent> <leader>s: :History:!<cr>
 noremap <silent> <leader>sc :History:!<cr>
 noremap <silent> <leader>s/ :History/!<cr>
-nnoremap <silent> <leader>/ :exe '/' . expand("<cword>")<cr>
+nnoremap <silent> <leader>/ :exe '/'.expand("<cword>")<cr>
 vnoremap / y/<C-R>"<CR>
 noremap <silent> <leader>fr :History!<cr>
 noremap <silent> <leader>fR :tabe<cr>:History!<cr>
@@ -529,9 +528,9 @@ vmap s S
 
 " vimwiki
 let g:vimwiki_global_ext = 0
-let g:vimwiki_path = g:appdata_sync . '/vimwiki'
-let g:vimwiki_path_html = g:vimwiki_path . '/html'
-let g:vimwiki_template_path = g:vimwiki_path . '/templates'
+let g:vimwiki_path = g:appdata_sync.'/vimwiki'
+let g:vimwiki_path_html = g:vimwiki_path.'/html'
+let g:vimwiki_template_path = g:vimwiki_path.'/templates'
 let g:vimwiki_template_ext = '.html'
 let g:vimwiki_syntax = 'markdown'
 let g:vimwiki_ext = '.md'
