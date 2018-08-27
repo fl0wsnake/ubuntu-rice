@@ -104,18 +104,21 @@ alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 # flags
 alias ag="ag --color-match '1;37'"
 # everyday stuff
+alias t='touch'
+alias e='echo'
+alias md='mkdir'
+alias w='which'
 alias activities='cat /home/kirill/.config/activities.txt | paste -sd " " -'
 alias s='shot'
 alias f='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias fe='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias a='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias ae='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias t='trash'
+alias tr='trash'
 alias e="$EDITOR"
 alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'
-alias v='noh vlc .; exit'
 # git
 alias g='git'
 alias go='git open'
@@ -126,11 +129,13 @@ alias gcl='git clone'
 alias gcm='git commit -m .'
 alias gca='git commit --amend --no-edit'
 alias ga='git add .'
+alias gd='git diff --cached'
 ## git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
 ## Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
 alias gbd='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
 # other utilities
+alias nm='nodemon'
 alias nr='npm run'
 alias nt='npm test'
 alias ns='npm start'
@@ -143,7 +148,7 @@ alias pua='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 
 
 
 bindkey '^ ' forward-word
-bindkey '^l' end-of-line
+bindkey '^o' end-of-line
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

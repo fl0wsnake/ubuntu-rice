@@ -1,6 +1,9 @@
 #!/bin/bash
 
+trash_dir=~/trash
 time=$(dmy)-$(hms)
-dir=~/trash/$(date +$time)
-mkdir -p "$dir"
-mv -t "$dir" $@
+dmy_dir=$trash_dir/$(dmy)
+mkdir -p "$dmy_dir"
+hms_dir=$dmy_dir/$(hms)
+mkdir -p "$hms_dir"
+mv -t "$hms_dir" $@

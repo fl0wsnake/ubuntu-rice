@@ -232,7 +232,7 @@ inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " completion selection keys
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <C-l> pumvisible() ? deoplete#mappings#close_popup() : "\<S-Tab>"
+inoremap <expr> <C-o> pumvisible() ? deoplete#mappings#close_popup() : "\<S-Tab>"
 " completion enter behaviour
 inoremap <silent> <cr> <C-r>=<SID>my_cr_function()<cr>
 function! s:my_cr_function() abort

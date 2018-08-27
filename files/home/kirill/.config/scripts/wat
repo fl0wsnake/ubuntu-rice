@@ -1,0 +1,7 @@
+#!/bin/bash
+
+inotifywait "$1" -rqm -e modify --format %f | while read f
+do
+  echo "$f modified"
+  ${@:2}
+done
