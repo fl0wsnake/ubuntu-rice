@@ -108,7 +108,7 @@ set $todos_workspace 100:
 bindsym $leader+a exec --no-startup-id $i3dir/todos_init $todos_workspace todos $term
 bindsym $leader+Shift+a move container to workspace $todos_workspace
 bindsym $leader+Control+Shift+a exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $todos_workspace
-set $browser_workspace 102:
+set $browser_workspace 102:
 bindsym $leader+s exec --no-startup-id $i3dir/init_layout $browser_workspace browser $browser
 bindsym $leader+Shift+s move container to workspace $browser_workspace
 bindsym $leader+Control+Shift+s exec $i3dir/move_workspace `$i3dir/get_current_workspace_name` $browser_workspace

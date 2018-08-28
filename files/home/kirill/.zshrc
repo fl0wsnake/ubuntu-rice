@@ -120,6 +120,9 @@ alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'
 # git
+alias gbr='git branch'
+alias gcp='git cherry-pick'
+alias gtree='git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"'
 alias g='git'
 alias go='git open'
 alias gs='git status'
@@ -130,6 +133,7 @@ alias gcm='git commit -m .'
 alias gca='git commit --amend --no-edit'
 alias ga='git add .'
 alias gd='git diff --cached'
+alias gco='git commit -m'
 ## git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
 ## Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
