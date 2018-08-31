@@ -156,7 +156,7 @@ noremap <silent> <leader>fP :let @+ = expand('%:p:h')<cr>
 noremap <silent> <leader>fp :let @+ = expand('%:p')<cr>
 noremap <silent> <leader>fo :exe "e" @+<cr>
 noremap <silent> <leader>fc :execute 'e' expand('%:r').'_.'.expand('%:e')<cr>
-noremap <silent> <leader>fT :exe 'set' 'filetype='.input('Filetype: ')<cr>
+noremap <silent> <leader>ft :exe 'set' 'filetype='.input('Filetype: ')<cr>
 noremap <silent> <leader>qq :qa<cr>
 noremap <silent> <leader>qQ :qa!<cr>
 noremap <silent> <leader>qw :wqa<cr>
@@ -441,7 +441,6 @@ let g:NERDTreeNotificationThreshold = 500
 let NERDTreeQuitOnOpen=1
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
-noremap <silent> <leader>ft :exe 'NERDTree' FindRootDirectory()<cr>
 noremap <silent> <leader>pt :call NERDTreeRootFind()<cr>
 function! NERDTreeRootFind()
   let l:pwd = expand('%:p')
