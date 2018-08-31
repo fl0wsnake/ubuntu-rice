@@ -63,7 +63,7 @@ docker
 sudo
 git-open
 zsh-autosuggestions
-zsh-completions
+# zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,7 +114,6 @@ alias f='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; e
 alias fe='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias a='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias ae='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias tr='trash'
 alias e="$EDITOR"
 alias x='ranger'
 alias c='clear'

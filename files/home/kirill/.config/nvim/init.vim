@@ -3,7 +3,7 @@ Plug 'neomake/neomake'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
