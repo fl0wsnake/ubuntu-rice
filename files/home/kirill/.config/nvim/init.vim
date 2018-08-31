@@ -156,7 +156,7 @@ noremap <silent> <leader>fP :let @+ = expand('%:p:h')<cr>
 noremap <silent> <leader>fp :let @+ = expand('%:p')<cr>
 noremap <silent> <leader>fo :exe "e" @+<cr>
 noremap <silent> <leader>fc :execute 'e' expand('%:r').'_.'.expand('%:e')<cr>
-noremap <silent> <leader>ft :exe 'set' 'filetype='.input('Filetype: ')<cr>
+noremap <silent> <leader>ft :Filetypes!<cr>
 noremap <silent> <leader>qq :qa<cr>
 noremap <silent> <leader>qQ :qa!<cr>
 noremap <silent> <leader>qw :wqa<cr>
