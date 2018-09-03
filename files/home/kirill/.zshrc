@@ -55,15 +55,12 @@ setopt nosharehistory
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-nvm
-nvm-auto
 npm
 git
 docker
 sudo
 git-open
 zsh-autosuggestions
-# zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,6 +99,7 @@ alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 
 # flags
+alias ls='ls -a1tr --color=always'
 alias ag="ag --color-match '1;37'"
 # everyday stuff
 alias t='touch'
@@ -149,23 +147,35 @@ alias nu='npm-upgrade'
 alias plw='pdflatexwatch'
 alias es='edit-script'
 alias pj='gc|jq .|sc'
+alias debug-zsh='time  zsh -i -c exit'
 # python
 alias pua='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
-
 
 bindkey '^ ' forward-word
 bindkey '^o' end-of-line
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-nvm_auto_switch
-
+# Defer initialization of nvm until nvm, node or a node-dependent command is
+# run. Ensure this block is only run once if .bashrc gets sourced multiple times
+# by checking whether __init_nvm is a function.
+if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -f __init_nvm)" = function ]; then
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+	declare -a __node_commands=(nvm $(find -L $NVM_DIR/versions/*/*/bin -type f -exec basename {} \; | sort -u))
+	function __init_nvm() {
+		for i in "${__node_commands[@]}"; do unalias $i; done
+		. "$NVM_DIR"/nvm.sh
+		unset __node_commands
+		unset -f __init_nvm
+	}
+	for i in "${__node_commands[@]}"; do alias $i="__init_nvm 2>/dev/null && nvm use --silent 2>/dev/null; $i"; done
+fi
 
 if [ -f '/home/kirill/apps/google-cloud-sdk/path.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc'; fi
 
-
+autoload bashcompinit
+bashcompinit
 source ${HOME}/.config/scripts/completions

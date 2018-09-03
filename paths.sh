@@ -19,7 +19,8 @@ declare -a paths=(
 "$HOME/.config/xylosper/bomi/pref.json"
 "$HOME/.config/compton.conf"
 "$HOME/.config/keymap"
-"$HOME/.config/wall.*"
+"$HOME/.config/wall.jpg"
+"$HOME/.config/wall.png"
 "$HOME/.config/copyq/copyq.conf"
 "$HOME/.mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
 "$HOME/.config/activities.txt"
@@ -40,8 +41,5 @@ declare -a paths=(
 # ubuntu specific files
 "$HOME/.profile"
 "$HOME/.latexmkrc"
-
-# /
-"/etc/apt"
 )
 

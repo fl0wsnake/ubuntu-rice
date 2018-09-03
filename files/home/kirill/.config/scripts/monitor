@@ -1,4 +1,15 @@
 #!/bin/bash
 
-xrandr --output HDMI1 --auto --left-of eDP1
-# xrandr --output HDMI1 --auto --right-of eDP1
+first_monitor=$(get-first-monitor)
+second_monitor=$(get-second-monitor)
+third_monitor=$(get-third-monitor)
+cmd="xrandr --output $first_monitor --auto"
+if [[ -n $second_monitor ]]; then
+    cmd="$cmd --right-of $second_monitor"
+fi
+
+if [[ -n $third_monitor ]]; then
+    cmd="$cmd --left-of $third_monitor"
+fi
+
+eval $cmd

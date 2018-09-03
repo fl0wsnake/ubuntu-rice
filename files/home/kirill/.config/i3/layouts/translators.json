@@ -1,0 +1,28 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 3 children
+    "border": "none",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": null,
+    "type": "con",
+    "nodes": [{
+        "border": "pixel",
+        "current_border_width": 3,
+        "floating": "auto_off",
+        "geometry": {
+            "height": 550,
+            "width": 600,
+            "x": 383,
+            "y": 109
+        },
+        "name": "",
+        "percent": 0.333333333333333,
+        "swallows": [{
+            "class": "^st-256color$",
+            "instance": "^st-256color$",
+            "transient_for": "^$"
+        }],
+        "type": "con"
+    }]
+}
