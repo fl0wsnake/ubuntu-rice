@@ -12,4 +12,5 @@ if [[ -n $third_monitor ]]; then
     cmd="$cmd --left-of $third_monitor"
 fi
 
+echo $cmd
 eval $cmd
