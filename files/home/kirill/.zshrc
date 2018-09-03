@@ -123,16 +123,21 @@ alias g='git'
 alias go='git open'
 alias gs='git status'
 alias gch='git checkout'
-# alias gcl='git clone'
 alias gcm='git commit -m .'
 alias gca='git commit --amend --no-edit'
 alias gcan='git commit --amend --no-edit --no-verify'
 alias gco='git commit -m'
 alias gcon='git commit --no-verify -m'
+alias gdc='git diff --cached'
+alias gbc='git rev-parse --abbrev-ref HEAD'
+alias gbb='git show-branch | grep "*" | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed "s/.*\[\(.*\)\].*/\1/" | sed "s/[\^~].*//"'
+alias grlb='git rev-list --boundary ...`gbb`'
+alias grb='grlb | grep "^-" | cut -c2-'
+alias gdb='gd `gcb`'
 # git pull all branches
 alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done; git fetch --all && git pull --all'
 # Delete local branches that squash-merged to `master`. Forked from https://github.com/not-an-aardvark/git-delete-squashed
-alias gbd='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
+alias gbde='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
 # other utilities
 alias nm='nodemon'
 alias nr='npm run'
@@ -144,7 +149,7 @@ alias es='edit-script'
 alias pj='gc|jq .|sc'
 alias debug-zsh='time  zsh -i -c exit'
 # python
-alias pua='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
+alias pua="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U"
 
 bindkey '^ ' forward-word
 bindkey '^o' end-of-line
