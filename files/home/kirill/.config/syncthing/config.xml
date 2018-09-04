@@ -69,10 +69,10 @@
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
     </device>
-    <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" name="redmi-note4" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+    <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" name="redmi-note4" compression="metadata" introducer="true" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
-        <autoAcceptFolders>true</autoAcceptFolders>
+        <autoAcceptFolders>false</autoAcceptFolders>
     </device>
     <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" name="kirill-N501VW" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>

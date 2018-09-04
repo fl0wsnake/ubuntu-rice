@@ -1,9 +1,14 @@
 #!/bin/bash
 
-trash_dir=~/trash
-time=$(dmy)-$(hms)
-dmy_dir=$trash_dir/$(dmy)
-mkdir -p "$dmy_dir"
-hms_dir=$dmy_dir/$(hms)
-mkdir -p "$hms_dir"
-mv -t "$hms_dir" $@
+if [[ -n "$@" ]]; then
+  trash_dir=~/trash
+  time=$(dmy)-$(hms)
+  dmy_dir=$trash_dir/$(dmy)
+  mkdir -p "$dmy_dir"
+  hms_dir=$dmy_dir/$(hms)
+  mkdir -p "$hms_dir"
+  mv -t "$hms_dir" "$@"
+  echo "Moved $@ to $hms_dir"
+else
+  echo 'No arguments supplied'
+fi
