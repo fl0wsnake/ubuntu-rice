@@ -8,6 +8,14 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+export BROWSER="/usr/bin/firefox"
+export EDITOR="/usr/bin/nvim"
+export TERMINAL="/usr/local/bin/st"
+export VISUAL="/usr/bin/nvim"
+export APPDATA_SYNC="$HOME/sync/data/appdata"
+export TEXMFDIR="/usr/local/share/texmf"
+export ANDROID_HOME="/usr/lib/android-sdk"
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
   # include .bashrc if it exists
@@ -52,14 +60,7 @@ if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
 fi
 
 # android
-if [ -d "/usr/lib/android-sdk/" ] ; then
-  ANDROID_HOME="/usr/lib/android-sdk/"
-  PATH="${ANDROID_HOME}tools:${ANDROID_HOME}platform-tools:${PATH}"
+if [ -d "$ANDROID_HOME" ] ; then
+  PATH="$ANDROID_HOME/tools:$PATH"
+  PATH="$ANDROID_HOME/platform-tools:$PATH"
 fi
-
-export BROWSER=/usr/bin/firefox
-export EDITOR=/usr/bin/nvim
-export TERMINAL=/usr/local/bin/st
-export VISUAL=/usr/bin/nvim
-export APPDATA_SYNC=$HOME/sync/data/appdata
-export TEXMFDIR=/usr/local/share/texmf
