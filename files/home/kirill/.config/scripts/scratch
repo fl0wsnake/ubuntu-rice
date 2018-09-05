@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ -n "$@" ]]; then
+  scratch_dir="$APPDATA_SYNC/scratches"
+  time=$(dmy)-$(hms)
+  dmy_dir=$scratch_dir/$(dmy)
+  mkdir -p "$dmy_dir"
+  hms_dir=$dmy_dir/$(hms)
+  mkdir -p "$hms_dir"
+  mv -t "$hms_dir" "$@"
+  echo "$hms_dir"
+else
+  echo 'No arguments supplied'
+fi

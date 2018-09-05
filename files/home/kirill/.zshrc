@@ -153,6 +153,7 @@ alias es='edit-script'
 alias pj='gc|jq .|sc'
 alias debug-zsh='time  zsh -i -c exit'
 alias tra='trash'
+alias scr='scratch'
 alias pgp='pcregrep -M'
 # python
 alias pua="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U"

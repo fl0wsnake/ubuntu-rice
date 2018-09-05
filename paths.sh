@@ -26,7 +26,6 @@ declare -a paths=(
 
 "$HOME/.bashrc"
 "$HOME/.zshrc"
-"$HOME/.bash_profile"
 "$HOME/.latexmkrc"
 "$HOME/.oh-my-zsh/themes/my.zsh-theme"
 "$HOME/.oh-my-zsh/custom"
