@@ -15,6 +15,7 @@ declare -a paths=(
 
 "$HOME/.config/transmission/settings.json"
 "$HOME/.config/syncthing/config.xml"
+"$HOME/.config/vis/config"
 "$HOME/.config/xylosper/bomi/pref.json"
 "$HOME/.config/compton.conf"
 "$HOME/.config/keymap"
