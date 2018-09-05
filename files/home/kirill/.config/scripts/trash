@@ -8,7 +8,7 @@ if [[ -n "$@" ]]; then
   hms_dir=$dmy_dir/$(hms)
   mkdir -p "$hms_dir"
   mv -t "$hms_dir" "$@"
-  echo "Moved $@ to $hms_dir"
+  echo "$hms_dir"
 else
   echo 'No arguments supplied'
 fi

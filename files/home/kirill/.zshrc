@@ -119,7 +119,7 @@ alias i='noh sxiv .; exit'
 # git
 alias gbm='git branch -m'
 alias gbD='git branch -D'
-alias gtree='git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"'
+alias gtree='git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset"'
 alias g='git'
 alias go='git open'
 alias gs='git status'
@@ -152,6 +152,8 @@ alias plw='pdflatexwatch'
 alias es='edit-script'
 alias pj='gc|jq .|sc'
 alias debug-zsh='time  zsh -i -c exit'
+alias tra='trash'
+alias tra='trash'
 # python
 alias pua="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U"
 

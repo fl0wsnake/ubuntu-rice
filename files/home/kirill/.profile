@@ -51,6 +51,12 @@ if [ -x "$HOME/apps/arcanist/bin/arc" ] ; then
   PATH="$HOME/apps/arcanist/bin:$PATH"
 fi
 
+# android
+if [ -d "/usr/lib/android-sdk/" ] ; then
+  ANDROID_HOME="/usr/lib/android-sdk/"
+  PATH="${ANDROID_HOME}tools:${ANDROID_HOME}platform-tools:${PATH}"
+fi
+
 export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/nvim
 export TERMINAL=/usr/local/bin/st
