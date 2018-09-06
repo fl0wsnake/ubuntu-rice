@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xrandr --query | grep " connected" | cut -d" " -f1 | sed -n 1p

@@ -1,15 +1,21 @@
 #!/bin/bash
 
-first_monitor=$(get-first-monitor)
-second_monitor=$(get-second-monitor)
-third_monitor=$(get-third-monitor)
-cmd="xrandr --output $first_monitor --auto"
-if [[ -n $second_monitor ]]; then
-    cmd="$cmd --right-of $second_monitor"
+first_display=$(get-first-display)
+second_display=$(get-second-display)
+third_display=$(get-third-display)
+
+cmd="xrandr"
+
+if [[ -n $first_display ]]; then
+    cmd="$cmd --output $first_display --auto"
 fi
 
-if [[ -n $third_monitor ]]; then
-    cmd="$cmd --left-of $third_monitor"
+if [[ -n $second_display ]]; then
+    cmd="$cmd --output $second_display --auto --left-of $first_display"
+fi
+
+if [[ -n $third_display ]]; then
+    cmd="$cmd --output $third_display --auto --right-of $first_display"
 fi
 
 echo $cmd

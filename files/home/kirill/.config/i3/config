@@ -184,9 +184,8 @@ assign [class="discord"] $x_workspace
 assign [class="Telegram"] $x_workspace
 assign [class="Skype"] $x_workspace
 # monitors/screens
-workspace $1_workspace output $first_monitor
-workspace $q_workspace output $second_monitor
-workspace $w_workspace output $third_monitor
+workspace $q_workspace output HDMI-0
+workspace $1_workspace output eDP
 exec --no-startup-id monitor
 # cycle workspaces
 # bindsym Mod1+Tab workspace next
