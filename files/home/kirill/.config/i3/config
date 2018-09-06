@@ -183,9 +183,14 @@ assign [class="Slack"] $x_workspace
 assign [class="discord"] $x_workspace
 assign [class="Telegram"] $x_workspace
 assign [class="Skype"] $x_workspace
-# monitors/screens
+# display outputs
+# lenovo
 workspace $q_workspace output HDMI-0
 workspace $1_workspace output eDP
+workspace $w_workspace output VGA-0
+# asus
+workspace $q_workspace output HDMI1
+workspace $1_workspace output eDP1
 exec --no-startup-id monitor
 # cycle workspaces
 # bindsym Mod1+Tab workspace next
