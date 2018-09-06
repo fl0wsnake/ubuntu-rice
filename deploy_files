@@ -5,6 +5,7 @@ source ./paths.sh
 for i in "${paths[@]}"
 do
   mkdir -p $(dirname "$i")
+  trash "$i"
   cp -r $(realpath "$backupdir/$i") $(dirname "$i")
 done
 
