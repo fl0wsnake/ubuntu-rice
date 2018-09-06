@@ -99,6 +99,7 @@ alias bins='ls -t /usr/bin | head -n 16'
 alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 
 # flags
+alias du='du -csh'
 alias ls='ls -a1tr --color=always'
 alias ag="ag --color-match '1;37'"
 # everyday stuff
