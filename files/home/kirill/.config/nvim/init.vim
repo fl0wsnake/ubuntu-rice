@@ -178,7 +178,7 @@ function! DeleteFileAndBuffer()
 endfunction
 
 noremap <silent> <leader>fd :call delete(expand('%'))<cr>:set modified<cr>
-noremap <silent> <leader>fm :Rename<space>
+noremap <silent> <leader>fm :exe 'Rename' input('New name: ', expand('%'))<cr>
 noremap <silent> <M-h> :bprevious<cr>
 noremap <silent> <M-l> :bnext<cr>
 noremap <silent> <leader>gs :MagitOnly<cr>
