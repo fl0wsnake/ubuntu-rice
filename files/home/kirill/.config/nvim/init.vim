@@ -554,7 +554,6 @@ let g:vdiary.diary_header = 'Diary'
 let g:vdiary.template_path = g:vimwiki_template_path
 let g:vdiary.template_ext = g:vimwiki_template_ext
 let g:vimwiki_list = [g:vjournal, g:vdiary]
-nmap <silent> <leader>at :exe 'e' g:trans_index<cr>
 nmap <silent> <leader>aw <plug>VimwikiIndex
 nmap <silent> <leader>ow <plug>VimwikiIndex
 nmap <silent> <leader>oW <plug>VimwikiTabIndex
