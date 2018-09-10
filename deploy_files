@@ -11,5 +11,5 @@ do
 done
 
 # create directories per ranger bookmarks
-ranger_bookmarks=./files/.config/ranger/bookmarks
+ranger_bookmarks=./files/home/kirill/.config/ranger/bookmarks
 cat "$ranger_bookmarks" | sed 's/^.://' | xargs -L1 mkdir -p
