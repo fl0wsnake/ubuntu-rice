@@ -184,6 +184,7 @@ noremap <silent> <M-h> :bprevious<cr>
 noremap <silent> <M-l> :bnext<cr>
 noremap <silent> <leader>gs :MagitOnly<cr>
 noremap <silent> <leader>gb :Gblame<cr>
+noremap <silent> <leader>gd :exe 'Gdiff' input('Commit hash: ')<cr>
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
