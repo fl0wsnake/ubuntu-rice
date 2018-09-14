@@ -1,3 +1,9 @@
 #!/bin/bash
 
-xrandr -q | grep -E " (dis)?connected" | cut -d" " -f1 | sed -n 2p
+displays=`xrandr -q | grep -E " (dis)?connected" | cut -d" " -f1`
+hdmi=`grep HDMI <<< $displays`
+if [ -n "$hdmi" ]; then
+  echo $hdmi
+else
+  echo "$displays" | sed -n 2p
+fi
