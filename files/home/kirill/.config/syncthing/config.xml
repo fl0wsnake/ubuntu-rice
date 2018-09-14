@@ -64,6 +64,29 @@
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
     </folder>
+    <folder id="zrmid-mkkcj" label="workspace" path="/home/kirill/ws" type="readwrite" rescanIntervalS="60" fsWatcherEnabled="false" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+        <filesystemType>basic</filesystemType>
+        <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
+        <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
+        <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
+        <minDiskFree unit="%">1</minDiskFree>
+        <versioning type="trashcan">
+            <param key="cleanoutDays" val="0"></param>
+        </versioning>
+        <copiers>0</copiers>
+        <pullers>0</pullers>
+        <hashers>0</hashers>
+        <order>random</order>
+        <ignoreDelete>false</ignoreDelete>
+        <scanProgressIntervalS>0</scanProgressIntervalS>
+        <pullerPauseS>0</pullerPauseS>
+        <maxConflicts>10</maxConflicts>
+        <disableSparseFiles>false</disableSparseFiles>
+        <disableTempIndexes>false</disableTempIndexes>
+        <paused>false</paused>
+        <weakHashThresholdPct>25</weakHashThresholdPct>
+        <markerName>.stfolder</markerName>
+    </folder>
     <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" name="kirill-Lenovo-G50-45" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>

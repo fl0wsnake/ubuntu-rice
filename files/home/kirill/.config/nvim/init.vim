@@ -9,6 +9,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 " syntax
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/echodoc.vim'
@@ -559,7 +560,6 @@ nmap <silent> <leader>ow <plug>VimwikiIndex
 nmap <silent> <leader>oW <plug>VimwikiTabIndex
 nmap <silent> <leader>os <plug>VimwikiUISelect
 nmap <silent> <leader>oi <plug>VimwikiDiaryIndex
-
 function! VimwikiMakeDiaryNoteFixed(count)
   if a:count == 2
     set spell
@@ -575,9 +575,18 @@ nmap <silent> <leader>og <plug>VimwikiDiaryGenerateLinks
 nmap <silent> <leader>or <plug>VimwikiRenameLink
 nmap <silent> <leader>oq <plug>VimwikiDeleteLink
 nmap <silent> <leader>ot :VimwikiTOC<cr>
+
 " markdown
 set conceallevel=2
 let g:vim_markdown_folding_disabled = 1
+
+" easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+" a for asterisk
+xmap <leader>aaa :EasyAlign<cr>*&
+" c for character
+xmap <leader>aac :EasyAlign<cr>*
 
 " calculator
 nnoremap <silent> <leader>ac :,Crunch!<cr>
