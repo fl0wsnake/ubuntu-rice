@@ -587,7 +587,7 @@ nmap ga <Plug>(EasyAlign)
 " a for asterisk
 xmap <leader>aaa :EasyAlign<cr>*&
 " c for character
-xmap <leader>aac :EasyAlign<cr>*
+xmap <leader>aa :EasyAlign<cr>*
 
 " calculator
 nnoremap <silent> <leader>ac :,Crunch!<cr>
