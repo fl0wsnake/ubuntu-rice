@@ -376,9 +376,10 @@ set spelllang=en
 au FileType text setl spell
 nnoremap <silent> <leader>mc :call ToggleVar(&spell, 'spellchecker')<cr>:set spell!<cr>
 " show interface mode
-let showInterfaceMode = 1
-function! ToggleInterface(if_show)
-  if a:if_show == 0
+let g:showInterfaceMode = 1
+function! ToggleInterface()
+  let g:showInterfaceMode=ToggleVar(g:showInterfaceMode, '')
+  if g:showInterfaceMode == 0
     set nonumber
     set norelativenumber
     let s:hidden_all = 1
@@ -397,7 +398,7 @@ function! ToggleInterface(if_show)
   endif
 endfunction
 
-nnoremap <silent> <leader>mi :let showInterfaceMode=ToggleVar(showInterfaceMode, '')<cr>:call ToggleInterface(g:showInterfaceMode)<cr>
+nnoremap <silent> <leader>mi :call ToggleInterface()<cr>
 " toggle table mode
 let g:table_mode_map_prefix = '<Leader>T'
 nnoremap <silent> <leader>mt :TableModeToggle<cr>

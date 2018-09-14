@@ -120,6 +120,7 @@ alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'
 # git
+alias gam='git ls-files --modified | xargs git add'
 alias gbm='git branch -m'
 alias gbD='git branch -D'
 alias gtree='git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset"'
