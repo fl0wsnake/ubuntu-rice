@@ -30,6 +30,7 @@ Plug 'tpope/vim-endwise'
 Plug 'Yggdroot/indentLine'
 Plug 'michaeljsmith/vim-indent-object'
 " javascript
+Plug 'Galooshi/import-js'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
@@ -579,7 +580,6 @@ nmap <silent> <leader>oq <plug>VimwikiDeleteLink
 nmap <silent> <leader>ot :VimwikiTOC<cr>
 
 " markdown
-set conceallevel=2
 let g:vim_markdown_folding_disabled = 1
 
 " easy-align
@@ -619,6 +619,8 @@ let g:ale_set_highlights = 0
 
 " languages
 " javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
 " let g:formatters_javascript = ['my_prettier']
 " let g:formatters_typescript = ['my_prettier', 'tsfmt']
 " let g:formatters_json = ['my_prettier']
