@@ -64,3 +64,7 @@ if [ -d "$ANDROID_HOME" ] ; then
   PATH="$ANDROID_HOME/tools:$PATH"
   PATH="$ANDROID_HOME/platform-tools:$PATH"
 fi
+
+if [ -x $(which fzf) ] ; then
+  FZF_DEFAULT_COMMAND='fzf --color hl:27,hl+:27'
+fi

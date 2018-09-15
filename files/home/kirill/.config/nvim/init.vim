@@ -462,44 +462,58 @@ function! s:with_git_root()
   return v:shell_error ? {} : {'dir': root}
 endfunction
 
+" remove these
+let g:fzf_colors = {
+      \ 'hl': ['fg', 'Keyword'],
+      \ 'hl+': ['fg', 'Keyword']
+      \ }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-command! -nargs=* Ag
+command! -nargs=* AgContents
       \ call fzf#vim#grep(
       \ 'ag --hidden --ignore .git --nogroup --color --color-match "1;37" .+',
       \ 0,
       \ {
-      \ 'options': '--delimiter : --nth 3..',
-      \ 'dir': <q-args>
+      \ 'options': [
+        \ '--color', 'hl:27,hl+:27',
+        \ '--delimiter', ':',
+        \ '--nth', '3..'
+      \ ]
+      \ },
+      \ 1
+      \ )
+command! -nargs=* AgFilenamesAndContents
+      \ call fzf#vim#grep(
+      \ 'ag --hidden --ignore .git --nogroup --color --color-match "1;37" .+',
+      \ 0,
+      \ {
+      \ 'dir': <q-args>,
+      \ 'options': [
+        \ '--color', 'hl:196,hl+:196',
+      \ ]
       \ },
       \ 1
       \ )
 command! -nargs=* AgFilenames
       \ call fzf#vim#grep(
-      \ 'ag --hidden --ignore .git --nogroup --color --color-match "1;37" .+',
-      \ 0,
-      \ {
-      \ 'dir': <q-args>
-      \ },
-      \ 1
-      \ )
-command! -nargs=* AgFiles
-      \ call fzf#vim#grep(
       \ 'ag --hidden --ignore .git -g .',
       \ 1,
       \ {
       \ 'dir': <q-args>,
-      \ 'sink': 'e'
+      \ 'sink': 'e',
+      \ 'options': [
+        \ '--color', 'hl:196,hl+:196',
+      \ ]
       \ },
       \ 1
       \ )
 noremap <silent> <leader>ww :Windows!<cr>
-noremap <silent> <leader>pf :exe 'AgFiles' FindRootDirectory()<cr>
-noremap <silent> <leader>ff :exe 'AgFiles' '.'<cr>
-noremap <silent> <leader>sf :exe 'Ag' '.'<cr>
-noremap <silent> <leader>sF :exe 'AgFilenames' '.'<cr>
+noremap <silent> <leader>pf :exe 'AgFilenames' FindRootDirectory()<cr>
+noremap <silent> <leader>ff :exe 'AgFilenames' '.'<cr>
+noremap <silent> <leader>sf :exe 'AgContents' '.'<cr>
+noremap <silent> <leader>sF :exe 'AgFilenamesAndContents' '.'<cr>
 nmap <silent> <leader>fs <leader>ff
-noremap <silent> <leader>sp :exe 'Ag' FindRootDirectory()<cr>
-noremap <silent> <leader>sP :exe 'AgFilenames' FindRootDirectory()<cr>
+noremap <silent> <leader>sp :exe 'AgContents' FindRootDirectory()<cr>
+noremap <silent> <leader>sP :exe 'AgFilenamesAndContents' FindRootDirectory()<cr>
 noremap <silent> <leader>fa :FZF! -x ~<cr>
 noremap <silent> <leader>ss :BLines!<cr>
 nmap <silent> <leader>sl <leader>ss
