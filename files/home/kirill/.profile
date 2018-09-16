@@ -15,7 +15,8 @@ export VISUAL="/usr/bin/nvim"
 export APPDATA_SYNC="$HOME/sync/data/appdata"
 export TEXMFDIR="/usr/local/share/texmf"
 export ANDROID_HOME="/usr/lib/android-sdk"
-export FZF_DEFAULT_OPTS='--color hl:27,hl+:27'
+export SEARCH_COLORS='hl:33,hl+:33'
+export FZF_DEFAULT_OPTS="--color $SEARCH_COLORS"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then

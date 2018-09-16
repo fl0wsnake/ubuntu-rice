@@ -5,11 +5,6 @@ set $leader Mod4
 set $explorer ranger
 set_from_resource $editor echo "${EDITOR:=nvim}"
 set_from_resource $browser echo "${BROWSER:=firefox}"
-set_from_resource $first_monitor echo `get-first-monitor`
-set_from_resource $second_monitor echo `get-second-monitor`
-set_from_resource $third_monitor echo `get-third-monitor`
-# set $first_monitor eDP
-# set $second_monitor HDMI-0
 # default tab layout
 workspace_layout default
 # font
@@ -38,9 +33,9 @@ bindsym $leader+p mode "$mode_system"
 # terminal
 bindsym $leader+Shift+m exec --no-startup-id $term -e $shell
 # terminal here
-bindsym $leader+Return exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $shell"
+bindsym $leader+Return exec --no-startup-id i3-terminal-here
 # editor
-bindsym $leader+Shift+o exec --no-startup-id $term -e $shell -c "cd \\\"`xcwd`\\\" && $editor"
+bindsym $leader+Shift+o exec --no-startup-id i3-editor-here
 # program launching and window selection
 bindsym $leader+Shift+i exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
 # program launching
@@ -239,6 +234,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # startup commands
+exec --no-startup-id copyq
 exec_always --no-startup-id ~/.config/scripts/poly
 # no beep
 exec_always --no-startup-id xset -b
@@ -251,7 +247,6 @@ exec --no-startup-id udiskie
 exec --no-startup-id transmission-daemon
 exec --no-startup-id syncthing -no-browser
 exec --no-startup-id blueman-applet
-exec --no-startup-id copyq
 # exec --no-startup-id sudo dockerd
 
 exec i3-msg workspace $1_workspace

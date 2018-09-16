@@ -23,6 +23,7 @@ declare -a paths=(
 "$HOME/.config/copyq/copyq.conf"
 "$HOME/.mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
 "$HOME/.config/activities.txt"
+"$HOME/.config/vlc/vlcrc"
 
 "$HOME/.bashrc"
 "$HOME/.zshrc"

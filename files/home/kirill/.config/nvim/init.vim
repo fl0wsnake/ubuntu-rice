@@ -461,12 +461,6 @@ function! s:with_git_root()
   let root = systemlist('git rev-parse --show-toplevel')[0]
   return v:shell_error ? {} : {'dir': root}
 endfunction
-
-" remove these
-let g:fzf_colors = {
-      \ 'hl': ['fg', 'Keyword'],
-      \ 'hl+': ['fg', 'Keyword']
-      \ }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 command! -nargs=* AgContents
       \ call fzf#vim#grep(
@@ -474,7 +468,7 @@ command! -nargs=* AgContents
       \ 0,
       \ {
       \ 'options': [
-        \ '--color', 'hl:27,hl+:27',
+        \ '--color', $SEARCH_COLORS,
         \ '--delimiter', ':',
         \ '--nth', '3..'
       \ ]
@@ -488,7 +482,7 @@ command! -nargs=* AgFilenamesAndContents
       \ {
       \ 'dir': <q-args>,
       \ 'options': [
-        \ '--color', 'hl:196,hl+:196',
+        \ '--color', $SEARCH_COLORS,
       \ ]
       \ },
       \ 1
@@ -501,7 +495,7 @@ command! -nargs=* AgFilenames
       \ 'dir': <q-args>,
       \ 'sink': 'e',
       \ 'options': [
-        \ '--color', 'hl:196,hl+:196',
+        \ '--color', $SEARCH_COLORS,
       \ ]
       \ },
       \ 1
