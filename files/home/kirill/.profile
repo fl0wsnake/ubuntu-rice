@@ -15,6 +15,7 @@ export VISUAL="/usr/bin/nvim"
 export APPDATA_SYNC="$HOME/sync/data/appdata"
 export TEXMFDIR="/usr/local/share/texmf"
 export ANDROID_HOME="/usr/lib/android-sdk"
+export FZF_DEFAULT_OPTS='--color hl:27,hl+:27'
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -63,8 +64,4 @@ fi
 if [ -d "$ANDROID_HOME" ] ; then
   PATH="$ANDROID_HOME/tools:$PATH"
   PATH="$ANDROID_HOME/platform-tools:$PATH"
-fi
-
-if [ -x $(which fzf) ] ; then
-  FZF_DEFAULT_COMMAND='fzf --color hl:27,hl+:27'
 fi

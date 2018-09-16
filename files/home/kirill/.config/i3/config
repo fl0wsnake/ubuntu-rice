@@ -207,8 +207,7 @@ bindsym $leader+u resize grow height 10 px or 10 ppt
 bindsym $leader+i resize shrink height 10 px or 10 ppt
 bindsym $leader+o resize grow width 10 px or 10 ppt
 # keyboard layout (input languages)
-# exec --no-startup-id xmodmap ~/.config/keymap
-exec --no-startup-id setxkbmap -option grp:switch,grp:caps_toggle,grp_led:caps us,ru
+exec --no-startup-id setxkbmap -option grp:caps_toggle -option grp_led:caps us,ru
 bindsym $leader+Shift+comma exec --no-startup-id "setxkbmap us,ru"
 bindsym $leader+Shift+period exec --no-startup-id "setxkbmap us,ua"
 # screenshots
