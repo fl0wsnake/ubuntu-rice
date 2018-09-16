@@ -231,12 +231,12 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # startup commands
+# keyboard speed
+exec --no-startup-id xset r rate 250 25
 # no beep
 exec_always --no-startup-id xset -b
-# keyboard speed
 exec_always --no-startup-id ~/.config/scripts/poly
 exec --no-startup-id copyq
-exec --no-startup-id xset r rate 250 25
 exec_always --no-startup-id monitor
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/.config/scripts/touchpad-disable
