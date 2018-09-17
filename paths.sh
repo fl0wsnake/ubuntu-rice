@@ -31,6 +31,7 @@ declare -a paths=(
 "$HOME/.oh-my-zsh/themes/my.zsh-theme"
 "$HOME/.oh-my-zsh/custom"
 "$HOME/.shutter/profiles"
+"$HOME/.config/Dharkael/flameshot.ini"
 
 "$HOME/.config/nvim/autoload"
 "$HOME/.config/nvim/UltiSnips"

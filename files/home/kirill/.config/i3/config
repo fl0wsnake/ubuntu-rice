@@ -203,8 +203,8 @@ exec --no-startup-id setxkbmap -option grp:caps_toggle -option grp_led:caps us,r
 bindsym $leader+Shift+comma exec --no-startup-id "setxkbmap us,ru"
 bindsym $leader+Shift+period exec --no-startup-id "setxkbmap us,ua"
 # screenshots
-bindsym Print exec --no-startup-id shutter -f
-bindsym Shift+Print exec --no-startup-id shutter -s
+bindsym Print exec --no-startup-id flameshot gui -p ~/stuff/images/screenshots
+bindsym Shift+Print exec --no-startup-id flameshot full -c -p ~/stuff/images/screenshots
 bindsym Control+Print exec --no-startup-id shutter -a
 # laptop fn key bindings
 # pulse Audio controls
@@ -237,6 +237,7 @@ exec --no-startup-id xset r rate 250 25
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id ~/.config/scripts/poly
 exec --no-startup-id copyq
+exec --no-startup-id flameshot
 exec_always --no-startup-id monitor
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/.config/scripts/touchpad-disable
