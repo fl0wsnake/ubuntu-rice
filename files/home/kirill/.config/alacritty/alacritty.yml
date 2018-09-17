@@ -139,7 +139,7 @@ colors:
   # Default colors
   primary:
     background: '0x000000'
-    foreground: '0xeaeaea'
+    foreground: '0xbbbbbb'
 
     # (Optional) Bright and Dim foreground colors
     #
