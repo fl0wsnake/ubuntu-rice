@@ -1,5 +1,5 @@
 /home/kirill/apps
-/home/kirill/sync/data/
+/home/kirill/sync
 /home/kirill/.config/
 /home/kirill/Downloads/
 /media/kirill/
