@@ -32,6 +32,7 @@ declare -a paths=(
 "$HOME/.oh-my-zsh/custom"
 "$HOME/.shutter/profiles"
 "$HOME/.config/Dharkael/flameshot.ini"
+"$HOME/.config/alacritty/alacritty.yml"
 
 "$HOME/.config/nvim/autoload"
 "$HOME/.config/nvim/UltiSnips"

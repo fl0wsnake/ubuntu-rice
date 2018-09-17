@@ -8,10 +8,37 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-export BROWSER="/usr/bin/firefox"
-export EDITOR="/usr/bin/nvim"
-export TERMINAL="/usr/local/bin/st"
-export VISUAL="/usr/bin/nvim"
+# BROWSER
+if [ -x '/usr/bin/firefox' ]; then
+  export BROWSER="/usr/bin/firefox"
+elif [ -x '/usr/bin/chromium-browser' ]; then
+  export BROWSER="/usr/bin/google-chrome"
+else
+  export BROWSER="/usr/bin/chromium-browser"
+fi
+
+# EDITOR
+if [ -x '/usr/bin/nvim' ]; then
+  export EDITOR="/usr/bin/nvim"
+  export VISUAL="/usr/bin/nvim"
+elif [ -x '/usr/bin/vim' ]; then
+  export EDITOR="/usr/bin/vim"
+  export VISUAL="/usr/bin/vim"
+else
+  export EDITOR="/usr/bin/nano"
+  export VISUAL="/usr/bin/nano"
+fi
+
+# TERMINAL
+if [ -x '/usr/local/bin/alacritty' ]; then
+  export TERMINAL="/usr/local/bin/alacritty"
+elif [ -x '/usr/local/bin/st' ]; then
+  export TERMINAL="/usr/local/bin/st"
+else
+  export TERMINAL="/usr/bin/gnome-terminal"
+fi
+
+# others
 export APPDATA_SYNC="$HOME/sync/data/appdata"
 export TEXMFDIR="/usr/local/share/texmf"
 export ANDROID_HOME="/usr/lib/android-sdk"
