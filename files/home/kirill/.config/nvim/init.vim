@@ -131,6 +131,7 @@ else
 endif
 
 " keymaps
+nnoremap <silent> <leader>ao z=1<cr><cr>
 nnoremap <silent> <C-c> :Commentary<cr>j
 nnoremap <silent> <leader>at a<C-R>=strftime('%Y-%m-%d')<cr><esc>
 vnoremap <silent> <leader>at c<C-R>=strftime('%Y-%m-%d')<cr><esc>
