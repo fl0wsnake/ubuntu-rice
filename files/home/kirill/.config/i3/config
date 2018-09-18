@@ -1,4 +1,4 @@
-set $i3dir ~/.config/i3/
+set $i3dir ~/.config/i3
 set $term st
 set $shell zsh
 set $leader Mod4
@@ -31,9 +31,9 @@ mode "$mode_system" {
 }
 bindsym $leader+p mode "$mode_system"
 # terminal here
-bindsym $leader+Return exec --no-startup-id ~/.config/scripts/i3-terminal-here
+bindsym $leader+Return exec --no-startup-id $i3dir/terminal-here
 # editor
-bindsym $leader+Shift+o exec --no-startup-id ~/.config/scripts/i3-editor-here
+bindsym $leader+Shift+o exec --no-startup-id $i3dir/editor-here
 # program launching and window selection
 bindsym $leader+Shift+i exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
 # program launching
