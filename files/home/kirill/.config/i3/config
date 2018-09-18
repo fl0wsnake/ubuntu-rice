@@ -1,10 +1,10 @@
 set $i3dir ~/.config/i3
-set $term st
+set_from_resource $term echo $TERMINAL
 set $shell zsh
 set $leader Mod4
 set $explorer ranger
-set_from_resource $editor echo "${EDITOR:=nvim}"
-set_from_resource $browser echo "${BROWSER:=firefox}"
+set_from_resource $editor echo $EDITOR
+set_from_resource $browser echo $BROWSER
 # default tab layout
 workspace_layout default
 # font
