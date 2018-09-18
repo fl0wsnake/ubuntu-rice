@@ -120,12 +120,8 @@ set number
 set relativenumber
 set scrolloff=3
 set autoread
-" for termite/st
+" for termite/st/alacritty
 set termguicolors
-" different cursors for different modes for VTE compatible terminals (urxvt, st, xterm, gnome-terminal 3.x and others)
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
 
 " no ShaDa error
 if !has('nvim')

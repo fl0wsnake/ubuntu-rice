@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 alias sc='xclip -selection c'
 alias gc='xclip -selection c -o'
 alias bins='ls -t /usr/bin | head -n 16'
-alias watchtime='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
+alias watches='while true; do echo -ne "$(date +%H:%M:%S:%2N)\r"; done'
 
 # flags
 alias du='du -csh'
@@ -111,10 +111,7 @@ alias activities='cat /home/kirill/.config/activities.txt | paste -sd " " -'
 alias s='shot'
 alias f='target=$(shot); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
 alias F='target=$(shotIgnored); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
-alias Fe='target=$(shotIgnored); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi; exit'
-alias fe='target=$(fd -Hi -t f . | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias a='target=$(shot $(activities)); echo $target; if [ -d "$target" ]; then cd "$target"; elif [ -e "$target" ]; then rifle "$target"; fi'
-alias ae='target=$(fd -Hi -t f . $(activities) | fzf); echo $target; if [ -e "$target" ]; then rifle "$target"; fi; exit'
 alias e="$EDITOR"
 alias x='ranger'
 alias c='clear'
