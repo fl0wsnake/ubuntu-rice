@@ -463,6 +463,7 @@ command! -nargs=* AgContents
       \ 'ag --hidden --ignore .git --nogroup --color --color-match "1;37" .+',
       \ 0,
       \ {
+      \ 'dir': <q-args>,
       \ 'options': [
         \ '--color', $SEARCH_COLORS,
         \ '--delimiter', ':',
