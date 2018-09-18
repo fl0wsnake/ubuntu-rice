@@ -591,7 +591,10 @@ let g:vim_markdown_folding_disabled = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " a for asterisk
+nmap <leader>aaa :EasyAlign<cr>ap*&
 xmap <leader>aaa :EasyAlign<cr>*&
+nmap <leader>aae :EasyAlign<cr>ap*=
+xmap <leader>aae :EasyAlign<cr>*=
 " c for character
 xmap <leader>aa :EasyAlign<cr>*
 
