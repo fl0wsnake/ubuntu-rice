@@ -1,3 +1,0 @@
-#!/bin/bash
-
-fd -iH --no-ignore-vcs -E .git -t f -t d . ${@:1} | fzf

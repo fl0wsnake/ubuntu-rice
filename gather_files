@@ -1,7 +1,11 @@
 #!/bin/bash
 
 source ./paths.sh
-rm -rf $backupdir
+if [ -x trash ]; then
+  trash $backupdir
+else
+  rm -rf $backupdir
+fi
 
 for i in "${paths[@]}"
 do

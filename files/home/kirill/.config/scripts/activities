@@ -1,0 +1,12 @@
+#!/bin/bash
+
+find_command="$@"
+
+while read pathAndDepth; do
+  arr=(${pathAndDepth// / })
+  if [[ -n ${arr[1]} ]]; then
+    $find_command "${arr[0]}" -d ${arr[1]} &
+  else
+    $find_command "${arr[0]}" &
+  fi
+done < /home/kirill/.config/activities.txt

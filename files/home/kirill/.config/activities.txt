@@ -1,3 +1,4 @@
+/home/kirill 1
 /home/kirill/apps
 /home/kirill/sync
 /home/kirill/.config/

@@ -199,7 +199,9 @@ noremap <silent> <leader>hb :map<space>
 noremap <silent> <leader>as :Snippets<cr>
 noremap <silent> <leader>hc :Commands<cr>
 noremap <silent> <leader><tab> :silent b#<cr>
-noremap Y y$
+noremap <silent> Y y$
+noremap <silent> yY :let @+ = getline('.')<cr>
+noremap <silent> dD :let @+ = getline('.')<cr>"_dd
 noremap <silent> gf gf:silent cd .<cr>
 
 for i in range(1, 9)

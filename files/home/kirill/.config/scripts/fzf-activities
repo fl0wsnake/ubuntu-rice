@@ -1,0 +1,3 @@
+#!/bin/bash
+
+activities 'fd . -iH -E .git -t d -t f' | fzf

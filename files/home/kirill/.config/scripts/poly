@@ -7,8 +7,7 @@ sleep 1
 
 bar='simple-bar'
 
-for i in $(xrandr --query | grep " connected" | cut -d" " -f1 | head -1);
-do
+for i in $(xrandr --query | grep " connected" | cut -d" " -f1 | head -1); do
     MONITOR=$i polybar $bar &
 done
 

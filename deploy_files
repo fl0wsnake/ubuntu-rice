@@ -2,7 +2,11 @@
 
 source ./paths.sh
 
-trash "${paths[@]}"
+if [ -x trash ]; then
+  trash $backupdir
+else
+  rm -rf $backupdir
+fi
 
 for i in "${paths[@]}"
 do

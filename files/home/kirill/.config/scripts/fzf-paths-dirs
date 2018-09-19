@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fd . ${@:1} -iH -E .git -t d | fzf

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ext="${@##*.}"
+
+if [ $ext == 'png' ]; then
+    xclip -selection clipboard -t image/png -i $@
+fi
