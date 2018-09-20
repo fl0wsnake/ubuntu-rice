@@ -7,7 +7,7 @@ Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'lyokha/vim-xkbswitch'
+Plug 'fl0wsnake/vim-xkbswitch'
 " syntax
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
@@ -85,13 +85,13 @@ Plug 'stephpy/vim-yaml'
 Plug 'ashisha/image.vim'
 call plug#end()
 
-
-" if $DISPLAY == "" 
-"   let g:XkbSwitchEnabled = 0
-" else
-"   let g:XkbSwitchEnabled = 1
-"   let g:XkbSwitchIMappings = ['ru']
-" endif 
+" auto layout switching
+if $DISPLAY == ""
+  let g:XkbSwitchEnabled = 0
+else
+  let g:XkbSwitchEnabled = 1
+  let g:XkbSwitchIMappings = ['ru']
+endif
 " leaders
 let mapleader="\<Space>"
 let maplocalleader=","
