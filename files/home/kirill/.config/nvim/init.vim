@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'neomake/neomake'
 Plug 'Shougo/vimproc', {'do': 'make'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -8,6 +7,7 @@ Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'lyokha/vim-xkbswitch'
 " syntax
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
@@ -85,6 +85,13 @@ Plug 'stephpy/vim-yaml'
 Plug 'ashisha/image.vim'
 call plug#end()
 
+
+" if $DISPLAY == "" 
+"   let g:XkbSwitchEnabled = 0
+" else
+"   let g:XkbSwitchEnabled = 1
+"   let g:XkbSwitchIMappings = ['ru']
+" endif 
 " leaders
 let mapleader="\<Space>"
 let maplocalleader=","
@@ -193,15 +200,15 @@ nnoremap <silent> <A-l> :bprevious<cr>
 nnoremap <silent> <leader>V ggvG$<cr>
 noremap <silent> <leader>au :MundoToggle<cr>
 noremap <silent> <leader>r :reg<cr>
-noremap <silent> <leader>hh :tab h<space>
+noremap <silent> <leader>hh :exe 'tab h' input('Help with what? ')<cr>
 noremap <silent> <leader>hH :exe 'tab h '.expand("<cword>")<cr>
 noremap <silent> <leader>hb :map<space>
 noremap <silent> <leader>as :Snippets<cr>
 noremap <silent> <leader>hc :Commands<cr>
 noremap <silent> <leader><tab> :silent b#<cr>
-noremap <silent> Y y$
-noremap <silent> yY :let @+ = getline('.')<cr>
-noremap <silent> dD :let @+ = getline('.')<cr>"_dd
+nnoremap <silent> Y y$
+nnoremap <silent> yY :let @+ = getline('.')<cr>
+nnoremap <silent> dD :let @+ = getline('.')<cr>"_dd
 noremap <silent> gf gf:silent cd .<cr>
 
 for i in range(1, 9)
@@ -468,9 +475,9 @@ command! -nargs=* AgContents
       \ {
       \ 'dir': <q-args>,
       \ 'options': [
-        \ '--color', $SEARCH_COLORS,
-        \ '--delimiter', ':',
-        \ '--nth', '3..'
+      \ '--color', $SEARCH_COLORS,
+      \ '--delimiter', ':',
+      \ '--nth', '3..'
       \ ]
       \ },
       \ 1
@@ -482,7 +489,7 @@ command! -nargs=* AgFilenamesAndContents
       \ {
       \ 'dir': <q-args>,
       \ 'options': [
-        \ '--color', $SEARCH_COLORS,
+      \ '--color', $SEARCH_COLORS,
       \ ]
       \ },
       \ 1
@@ -495,7 +502,7 @@ command! -nargs=* AgFilenames
       \ 'dir': <q-args>,
       \ 'sink': 'e',
       \ 'options': [
-        \ '--color', $SEARCH_COLORS,
+      \ '--color', $SEARCH_COLORS,
       \ ]
       \ },
       \ 1
@@ -510,7 +517,7 @@ noremap <silent> <leader>sp :exe 'AgContents' FindRootDirectory()<cr>
 noremap <silent> <leader>sP :exe 'AgFilenamesAndContents' FindRootDirectory()<cr>
 noremap <silent> <leader>fa :FZF! -x ~<cr>
 noremap <silent> <leader>ss :BLines!<cr>
-nmap <silent> <leader>sl <leader>ss
+noremap <silent> <leader>sl :BLines!<cr>
 noremap <silent> <leader>s: :History:!<cr>
 noremap <silent> <leader>sc :History:!<cr>
 noremap <silent> <leader>s/ :History/!<cr>
