@@ -16,7 +16,7 @@ focus_follows_mouse no
 # use Mouse+$leader to drag floating windows to their wanted position
 floating_modifier $leader
 # system mode
-set $mode_system (c)reload, (C)restart, Exit, Shutdown, Reboot, Suspend, Hibernate
+set $mode_system (c)reload, (C)restart, Exit, Shutdown, Reboot, Suspend, Hibernate, Monitor
 mode "$mode_system" {
   bindsym d [class=".*"] kill
     bindsym c reload
@@ -26,6 +26,7 @@ mode "$mode_system" {
     bindsym r exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym m exec --no-startup-id monitor, mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
