@@ -606,6 +606,7 @@ xmap <leader>aaa :EasyAlign<cr>*&
 nmap <leader>aae  <Plug>(EasyAlign)ap*=
 xmap <leader>aae :EasyAlign<cr>*=
 " c for character
+nmap <leader>aa  <Plug>(EasyAlign)ap*
 xmap <leader>aa :EasyAlign<cr>*
 
 " calculator
