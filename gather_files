@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ./paths.sh
+
 if [ -x trash ]; then
   trash $backupdir
 else
