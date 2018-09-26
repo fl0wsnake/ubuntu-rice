@@ -143,10 +143,10 @@ endif
 " keymaps
 nnoremap <silent> <leader>ao z=1<cr><cr>
 nnoremap <silent> <C-c> :Commentary<cr>j
-nnoremap <silent> <leader>at a<C-R>=strftime('%Y-%m-%d')<cr><esc>
-vnoremap <silent> <leader>at c<C-R>=strftime('%Y-%m-%d')<cr><esc>
-nnoremap <silent> <leader>aT a<C-R>=strftime('%Y-%m-%dT%T%z')<cr><esc>
-vnoremap <silent> <leader>aT c<C-R>=strftime('%Y-%m-%dT%T%z')<cr><esc>
+nnoremap <silent> <leader>at a<C-R>=strftime('%Y-%m-%d %a')<cr><esc>
+vnoremap <silent> <leader>at c<C-R>=strftime('%Y-%m-%d %a')<cr><esc>
+nnoremap <silent> <leader>aT a<C-R>=strftime('%Y-%m-%d %a %T(%Z)')<cr><esc>
+vnoremap <silent> <leader>aT c<C-R>=strftime('%Y-%m-%d %a %T(%z)')<cr><esc>
 noremap <silent> <leader>bd :bd!<cr>
 " noremap <silent> <leader>bD :silent! w \| %bd \| e#<cr>
 noremap <silent> <leader>bD :bufdo bd!<cr>
