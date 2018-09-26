@@ -14,7 +14,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -29,6 +28,10 @@ Plug 'arecarn/vim-crunch'
 Plug 'tpope/vim-endwise'
 Plug 'Yggdroot/indentLine'
 Plug 'michaeljsmith/vim-indent-object'
+" ultisnips
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 " javascript
 Plug 'Galooshi/import-js'
 Plug 'w0rp/ale'
@@ -81,9 +84,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'udalov/kotlin-vim'
 " yaml
 Plug 'stephpy/vim-yaml'
-" images preview
-Plug 'ashisha/image.vim'
 call plug#end()
+
+let g:UltiSnipsUsePythonVersion = 3
 
 " auto layout switching
 if $DISPLAY == ""
@@ -235,18 +238,25 @@ noremap g$ $
 noremap ^ g^
 noremap g^ ^
 
-" completion tab behaviour
-inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" completion selection keys
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" " completion tab behaviour
+" inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" " completion selection keys
+" inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <C-o> pumvisible() ? deoplete#mappings#close_popup() : "\<S-Tab>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 " completion enter behaviour
 inoremap <silent> <cr> <C-r>=<SID>my_cr_function()<cr>
 function! s:my_cr_function() abort
   return deoplete#mappings#smart_close_popup()."\<cr>"
 endfunction
+" ultisnips
+" let g:UltiSnipsExpandTrigger = "\<C-o>"
+" let g:UltiSnipsListSnippets = <c-tab>
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'
 
 " apps
 let g:appdata_sync = $APPDATA_SYNC
@@ -425,6 +435,7 @@ let g:rooter_silent_chdir = 1
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('around', 'rank', 20)
 call deoplete#custom#source('buffer', 'rank', 32)
+call deoplete#custom#source('ultisnips', 'rank', 40)
 au FileType markdown,tex,vimwiki,text let b:deoplete_disable_auto_complete = 1
 
 " airline
@@ -598,16 +609,21 @@ nmap <silent> <leader>ot :VimwikiTOC<cr>
 let g:vim_markdown_folding_disabled = 1
 
 " easy-align
-xmap ga <Plug>(EasyAlign)
+" normal mode
 nmap ga <Plug>(EasyAlign)
-" a for asterisk
-nmap <leader>aaa <Plug>(EasyAlign)ap*&
-xmap <leader>aaa :EasyAlign<cr>*&
-nmap <leader>aae  <Plug>(EasyAlign)ap*=
-xmap <leader>aae :EasyAlign<cr>*=
-" c for character
-nmap <leader>aa  <Plug>(EasyAlign)ap*
-xmap <leader>aa :EasyAlign<cr>*
+" align a paragraph
+nmap <leader>aap <Plug>(EasyAlign)ap*
+nmap <leader>aapa <Plug>(EasyAlign)ap*&
+nmap <leader>aape  <Plug>(EasyAlign)ap*=
+" align buffer
+nmap <leader>aao :exe '%EasyAlign*' input(char: )<cr>
+nmap <leader>aaoa :%EasyAlign*&<cr>
+nmap <leader>aaoe :%EasyAlign*=<cr>
+" visual mode
+xmap ga <Plug>(EasyAlign)
+xmap <leader>a :EasyAlign<cr>*
+xmap <leader>aa :EasyAlign<cr>*&
+xmap <leader>ae :EasyAlign<cr>*=
 
 " calculator
 nnoremap <silent> <leader>ac :,Crunch!<cr>

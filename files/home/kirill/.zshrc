@@ -114,6 +114,7 @@ alias e="$EDITOR"
 alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'
+alias j='jrnl'
 # git
 alias gam='git ls-files --modified | xargs git add'
 alias gbm='git branch -m'
