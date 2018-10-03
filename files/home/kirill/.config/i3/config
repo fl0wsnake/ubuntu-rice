@@ -16,9 +16,9 @@ focus_follows_mouse no
 # use Mouse+$leader to drag floating windows to their wanted position
 floating_modifier $leader
 # system mode
-set $mode_system (c)reload, (C)restart, Exit, Shutdown, Reboot, Suspend, Hibernate, Monitor
+set $mode_system (c)reload|(C)restart|Exit|Shutdown|Reboot|Suspend|Hibernate|Monitor
 mode "$mode_system" {
-  bindsym d [class=".*"] kill
+    bindsym d [class=".*"] kill
     bindsym c reload
     bindsym Shift+c restart
     bindsym e exec [class=".*"] kill, exit, mode "default"
@@ -42,7 +42,7 @@ bindsym $leader+Shift+Return exec --no-startup-id "rofi -show run"
 # toggle touchpad
 bindsym $leader+z exec --no-startup-id touchpad-toggle, mode "default"
 # show clipboard manager
-bindsym $leader+Shift+m exec --no-startup-id copyq show
+bindsym $leader+Shift+z exec --no-startup-id copyq show
 # process manager
 bindsym $leader+Shift+p exec --no-startup-id $term -e htop
 # kill focused window
@@ -178,6 +178,18 @@ assign [class="discord"] $x_workspace
 assign [class="Telegram"] $x_workspace
 assign [class="Skype"] $x_workspace
 # display outputs
+set $mode_move_workspace_to_output (l)eft|(r)ight|(d)own|(u)p|(c)urrent|(p)rimary
+mode "$mode_move_workspace_to_output" {
+    bindsym l move workspace to output left, mode "default"
+    bindsym r move workspace to output right, mode "default"
+    bindsym d move workspace to output down, mode "default"
+    bindsym u move workspace to output up, mode "default"
+    bindsym c move workspace to output current, mode "default"
+    bindsym p move workspace to output primary, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $leader+Shift+m mode "$mode_move_workspace_to_output" 
 # lenovo
 workspace $1_workspace output eDP
 workspace $q_workspace output HDMI-0
@@ -189,8 +201,8 @@ workspace $w_workspace output DP1
 workspace $e_workspace output DP2
 workspace $r_workspace output VIRTUAL1
 # cycle workspaces
-# bindsym Mod1+Tab workspace next
-# bindsym Mod1+Shift+Tab workspace prev
+bindsym $leader+Ctrl+Tab workspace next
+bindsym $leader+Ctrl+Shift+Tab workspace prev
 # workspace back and forth
 bindsym $leader+Tab workspace back_and_forth
 bindsym $leader+Shift+Tab move container to workspace back_and_forth
