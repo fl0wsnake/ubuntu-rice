@@ -93,3 +93,5 @@ if [ -d "$ANDROID_HOME" ] ; then
   PATH="$ANDROID_HOME/tools:$PATH"
   PATH="$ANDROID_HOME/platform-tools:$PATH"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
