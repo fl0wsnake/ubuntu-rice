@@ -4,4 +4,6 @@ ext="${@##*.}"
 
 if [ $ext == 'png' ]; then
     xclip -selection clipboard -t image/png -i $@
+elif [ $ext == 'jpg' ]; then
+    xclip -selection clipboard -t image/jpg -i $@
 fi

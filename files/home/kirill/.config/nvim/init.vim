@@ -123,7 +123,6 @@ set noshowmode
 set hidden
 set t_8f=^[[38;2;%lu;%lu;%lum        " set foreground color
 set t_8b=^[[48;2;%lu;%lu;%lum        " set background color
-set t_Co=256
 colorscheme gruvbox
 set background=dark
 set number
@@ -132,6 +131,7 @@ set scrolloff=3
 set autoread
 " for termite/st/alacritty
 set termguicolors
+set t_Co=256
 
 " no ShaDa error
 if !has('nvim')
