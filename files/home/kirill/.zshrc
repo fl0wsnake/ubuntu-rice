@@ -110,7 +110,7 @@ alias w='which'
 alias f='p=$(fzf-paths); echo $p; if [ -d "$p" ]; then; cd "$p"; elif [ -e "$p" ]; then; rifle "$p"; fi'
 alias F='p=$(fzf-paths-ignored); echo $p; if [ -d "$p" ]; then; cd "$p"; elif [ -e "$p" ]; then; rifle "$p"; fi'
 alias a='p=$(fzf-activities); echo $p; if [ -d "$p" ]; then; cd "$p"; elif [ -e "$p" ]; then; rifle "$p"; fi'
-alias e="$EDITOR"
+alias e="nvim"
 alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'

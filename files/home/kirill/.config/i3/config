@@ -177,7 +177,7 @@ assign [class="discord"] $x_workspace
 assign [class="Telegram"] $x_workspace
 assign [class="Skype"] $x_workspace
 # display outputs
-set $mode_move_workspace_to_output (l)eft|(r)ight|(d)own|(u)p|(c)urrent|(p)rimary
+set $mode_move_workspace_to_output (m)onitor|(l)eft|(r)ight|(d)own|(u)p|(c)urrent|(p)rimary
 mode "$mode_move_workspace_to_output" {
     bindsym m exec --no-startup-id monitor; exec --no-startup-id poly; mode "default"
     bindsym l move workspace to output left; mode "default"

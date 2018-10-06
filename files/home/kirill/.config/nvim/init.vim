@@ -8,6 +8,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'fl0wsnake/vim-xkbswitch'
+Plug 'danro/rename.vim'
 " syntax
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
@@ -187,7 +188,7 @@ function! DeleteFileAndBuffer()
 endfunction
 
 noremap <silent> <leader>fd :call delete(expand('%'))<cr>:set modified<cr>
-noremap <silent> <leader>fm :exe 'silent!' 'Rename' input('New name: ', expand('%'))<cr>
+noremap <silent> <leader>fm :exe 'silent!' 'rename' input('New name: ', expand('%'))<cr>
 noremap <silent> <M-h> :bprevious<cr>
 noremap <silent> <M-l> :bnext<cr>
 noremap <silent> <leader>gs :MagitOnly<cr>

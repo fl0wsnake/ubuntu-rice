@@ -19,8 +19,8 @@ fi
 
 # EDITOR
 if [ -x '/usr/bin/nvim' ]; then
-  export EDITOR="/usr/bin/nvim"
-  export VISUAL="/usr/bin/nvim"
+  export EDITOR="nvim"
+  export VISUAL="nvim"
 elif [ -x '/usr/bin/vim' ]; then
   export EDITOR="/usr/bin/vim"
   export VISUAL="/usr/bin/vim"
