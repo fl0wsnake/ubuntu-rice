@@ -26,7 +26,6 @@ mode "$mode_system" {
     bindsym r exec --no-startup-id i3-msg '[class=".*"] kill' && systemctl reboot; mode "default"
     bindsym Shift+s exec --no-startup-id systemctl suspend; mode "default"
     bindsym h exec --no-startup-id systemctl hibernate; mode "default"
-    bindsym m exec --no-startup-id monitor; exec --no-startup-id poly; mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -180,6 +179,7 @@ assign [class="Skype"] $x_workspace
 # display outputs
 set $mode_move_workspace_to_output (l)eft|(r)ight|(d)own|(u)p|(c)urrent|(p)rimary
 mode "$mode_move_workspace_to_output" {
+    bindsym m exec --no-startup-id monitor; exec --no-startup-id poly; mode "default"
     bindsym l move workspace to output left; mode "default"
     bindsym r move workspace to output right; mode "default"
     bindsym d move workspace to output down; mode "default"
