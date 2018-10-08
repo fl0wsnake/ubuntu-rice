@@ -67,7 +67,7 @@ Plug 'lervag/vimtex'
 " notes
 Plug 'vimwiki/vimwiki'
 " markdown
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 " elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
@@ -554,6 +554,7 @@ nmap <silent> s <plug>SubstituteOverMotionMap
 nmap <silent> ss <plug>SubstituteLine
 nmap <silent> S s$
 vmap s S
+
 
 " vimwiki
 let g:vimwiki_global_ext = 0
