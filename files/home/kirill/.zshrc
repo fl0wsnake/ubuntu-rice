@@ -118,6 +118,7 @@ alias j='jrnl'
 # git
 alias gam='git ls-files --modified | xargs git add'
 alias gbm='git branch -m'
+alias gbd='git branch -d'
 alias gbD='git branch -D'
 alias gtree='git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset"'
 alias g='git'
