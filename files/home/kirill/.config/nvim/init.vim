@@ -14,6 +14,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fszymanski/deoplete-emoji'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -86,8 +87,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'stephpy/vim-yaml'
 call plug#end()
 
-let g:UltiSnipsUsePythonVersion = 3
+setl ft=text
 
+let g:UltiSnipsUsePythonVersion = 3
 " auto layout switching
 if $DISPLAY == ""
   let g:XkbSwitchEnabled = 0
@@ -213,6 +215,7 @@ nnoremap <silent> Y y$
 nnoremap <silent> yY :let @+ = getline('.')<cr>
 nnoremap <silent> dD :let @+ = getline('.')<cr>"_dd
 noremap <silent> gf gf:silent cd .<cr>
+nnoremap <silent> <leader>ff :Autoformat<cr>
 
 for i in range(1, 9)
   " <leader>{n} for window switching
@@ -520,10 +523,9 @@ command! -nargs=* AgFilenames
       \ )
 noremap <silent> <leader>ww :Windows!<cr>
 noremap <silent> <leader>pf :exe 'AgFilenames' FindRootDirectory()<cr>
-noremap <silent> <leader>ff :exe 'AgFilenames' '.'<cr>
+noremap <silent> <leader>fs :exe 'AgFilenames' '.'<cr>
 noremap <silent> <leader>sf :exe 'AgContents' '.'<cr>
 noremap <silent> <leader>sF :exe 'AgFilenamesAndContents' '.'<cr>
-nmap <silent> <leader>fs <leader>ff
 noremap <silent> <leader>sp :exe 'AgContents' FindRootDirectory()<cr>
 noremap <silent> <leader>sP :exe 'AgFilenamesAndContents' FindRootDirectory()<cr>
 noremap <silent> <leader>fa :FZF! -x ~<cr>
@@ -654,13 +656,15 @@ let g:ale_lint_on_enter = 0
 let g:ale_set_highlights = 0
 
 " languages
+" emoji
+ call deoplete#custom#source('emoji', 'filetypes', ['gitcommit', 'markdown', 'text'])
 " javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
-" let g:formatters_javascript = ['my_prettier']
-" let g:formatters_typescript = ['my_prettier', 'tsfmt']
-" let g:formatters_json = ['my_prettier']
-" let g:formatdef_my_prettier = '"prettier --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")'
+let g:formatters_javascript = ['prettier']
+let g:formatters_typescript = ['prettier', 'tsfmt']
+let g:formatters_json = ['my_prettier']
+" let g:formatdef_my_prettier = '"prettier --single-quote --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")'
 " typescript
 " let g:nvim_typescript#type_info_on_hold=1
 au FileType typescript noremap <buffer> K :TSDoc<cr>
