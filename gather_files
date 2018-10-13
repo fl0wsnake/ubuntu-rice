@@ -19,8 +19,8 @@ find ./files \( -type f -o -type d \) -name '*history*' -exec rm -rf {} +
 find ./files \( -type f -o -type d \) -name '*tagged*' -exec rm -rf {} +
 find ./files \( -type f -o -type d \) -name '*cache*' -exec rm -rf {} +
 
-# no ` and 0-9 bookmarks synced
-ranger_bookmarks=./files/.config/ranger/bookmarks
+# no ` and 0-9 and ' bookmarks synced
+ranger_bookmarks="$backupdir/home/$USER/.config/ranger/bookmarks"
 if [ -f "$ranger_bookmarks" ]; then
-  grep '^[^0-9]' <"$ranger_bookmarks" > "$ranger_bookmarks.tmp" && mv "$ranger_bookmarks.tmp" "$ranger_bookmarks"
+  grep "^[^0-9']" <"$ranger_bookmarks" > "$ranger_bookmarks.tmp" && mv "$ranger_bookmarks.tmp" "$ranger_bookmarks"
 fi
