@@ -103,6 +103,10 @@ let maplocalleader=","
 " sets
 filetype plugin on
 syntax on
+set title 
+" set titlestring=%<%F%=%l/%L-%P 
+set titlestring=%{ProjectPath(expand('%:p'))}
+set titlelen=70
 set expandtab
 set breakindent
 set mouse=a
