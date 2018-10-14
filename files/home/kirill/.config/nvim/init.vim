@@ -667,7 +667,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:formatters_javascript = ['prettier']
 let g:formatters_typescript = ['prettier', 'tsfmt']
-let g:formatters_json = ['my_prettier']
+let g:formatters_json = ['prettier']
 " let g:formatdef_my_prettier = '"prettier --single-quote --stdin --stdin-filepath ".expand("%:p").(&textwidth ? " --print-width ".&textwidth : "")'
 " typescript
 " let g:nvim_typescript#type_info_on_hold=1
