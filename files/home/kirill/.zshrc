@@ -103,6 +103,7 @@ alias du='du -csh'
 alias ls='ls -a1tr --color=always'
 alias ag="ag --color-match '1;37'"
 # everyday stuff
+alias cal='cal -y'
 alias t='touch'
 alias e='echo'
 alias md='mkdir'
@@ -128,6 +129,7 @@ alias g='git'
 alias go='git open'
 alias gs='git status'
 alias grb='git rebase'
+alias grbnv='git rebase --no-verify'
 alias gch='git checkout'
 alias gchd='git checkout --detach HEAD'
 alias gcoa='git commit --amend -m'
@@ -194,3 +196,10 @@ if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '
 autoload bashcompinit
 bashcompinit
 source ${HOME}/.config/scripts/completions
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

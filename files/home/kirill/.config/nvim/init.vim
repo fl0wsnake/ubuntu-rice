@@ -11,6 +11,7 @@ Plug 'fl0wsnake/vim-xkbswitch'
 " syntax
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
+" Plug 'ciaranm/detectindent'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -88,7 +89,9 @@ Plug 'stephpy/vim-yaml'
 call plug#end()
 
 setl ft=text
-
+set tabstop=4
+set shiftwidth=4
+set expandtab
 let g:UltiSnipsUsePythonVersion = 3
 " auto layout switching
 if $DISPLAY == ""
@@ -217,7 +220,7 @@ noremap <silent> <leader>hc :Commands<cr>
 noremap <silent> <leader><tab> :silent b#<cr>
 nnoremap <silent> Y y$
 nnoremap <silent> yY :let @+ = getline('.')<cr>
-nnoremap <silent> dD :let @+ = getline('.')<cr>"_dd
+nnoremap <silent> <leader>dD :let @+ = getline('.')<cr>"_dd
 noremap <silent> gf gf:silent cd .<cr>
 nnoremap <silent> <leader>ff :Autoformat<cr>
 

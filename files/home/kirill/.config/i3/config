@@ -35,7 +35,7 @@ bindsym $leader+Return exec --no-startup-id $i3dir/terminal-here
 # editor
 bindsym $leader+Shift+o exec --no-startup-id $i3dir/editor-here
 # program launching and window selection
-bindsym $leader+Shift+i exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
+bindsym $leader+Control+Shift+Return exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi"
 # program launching
 bindsym $leader+Shift+Return exec --no-startup-id "rofi -show run"
 # toggle touchpad
@@ -110,10 +110,10 @@ set $browser_workspace 102:
 bindsym $leader+s exec --no-startup-id $i3dir/init-layout $browser_workspace browser $browser
 bindsym $leader+Shift+s move container to workspace $browser_workspace
 bindsym $leader+Control+Shift+s exec $i3dir/move-workspace `$i3dir/get-current-workspace-name` $browser_workspace
-set $music_workspace 104:♫
-bindsym $leader+g exec --no-startup-id $i3dir/music-init $music_workspace music $term $shell
-bindsym $leader+Shift+g move container to workspace $music_workspace
-bindsym $leader+Control+Shift+g exec $i3dir/move-workspace `$i3dir/get-current-workspace-name` $music_workspace
+set $g_workspace 104:G
+bindsym $leader+g workspace $g_workspace
+bindsym $leader+Shift+g move container to workspace $g_workspace
+bindsym $leader+Control+Shift+g exec $i3dir/move-workspace `$i3dir/get-current-workspace-name` $g_workspace
 set $x_workspace 171:X
 bindsym $leader+x exec --no-startup-id $i3dir/init-layout $x_workspace apps franz slack
 bindsym $leader+Shift+x move container to workspace $x_workspace
