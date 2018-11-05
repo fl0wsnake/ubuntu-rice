@@ -8,6 +8,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'fl0wsnake/vim-xkbswitch'
+Plug 'wellle/targets.vim'
 " syntax
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
@@ -202,12 +203,12 @@ noremap <silent> <M-l> :bnext<cr>
 noremap <silent> <leader>gs :MagitOnly<cr>
 noremap <silent> <leader>gb :Gblame<cr>
 noremap <silent> <leader>gd :exe 'Gdiff' input('Commit hash: ')<cr>
-noremap <A-j> :m .+1<CR>
-noremap <A-k> :m .-2<CR>
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gvnnoremap <silent> <A-h> :bnext<cr>
+noremap <silent> <A-j> :m .+1<CR>
+noremap <silent> <A-k> :m .-2<CR>
+inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
+inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <A-k> :m '<-2<CR>gv=gvnnoremap <silent> <A-h> :bnext<cr>
 nnoremap <silent> <A-l> :bprevious<cr>
 nnoremap <silent> <leader>V ggvG$<cr>
 noremap <silent> <leader>au :MundoToggle<cr>
