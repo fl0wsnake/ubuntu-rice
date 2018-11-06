@@ -135,23 +135,23 @@ colors:
   # Default colors
   primary:
     background: '0x000000'
-    foreground: '0xeaeaea'
+    foreground: '0xbbbbbb'
 
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not present.
     # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
     # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
+    # dim_foreground: '0x9a9a9a'
+    # bright_foreground: '0xffffff'
 
   # Cursor colors
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
   cursor:
-   text: '0x000000'
-   cursor: '0xffffff'
+   # text: '0x000000'
+   # cursor: '0xffffff'
 
   # Normal colors
   normal:
@@ -300,7 +300,7 @@ live_config_reload: true
 #
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
 # Entries in `shell.args` are passed unmodified as arguments to the shell.
-#shell:
+# shell:
 #  program: /bin/bash
 #  args:
 #    - --login
