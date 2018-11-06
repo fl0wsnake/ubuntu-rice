@@ -5,7 +5,7 @@ paths_to_delete="${@:2}"
 if [[ -n "$paths_to_delete" ]]; then
   dmy_hms_dir="$1/$(dmy)/$(hms)"
   mkdir -p "$dmy_hms_dir"
-  mv -t "$dmy_hms_dir" "$paths_to_delete"
+  mv -t "$dmy_hms_dir" $paths_to_delete
   echo "$dmy_hms_dir"
 else
   echo 'No arguments supplied'
