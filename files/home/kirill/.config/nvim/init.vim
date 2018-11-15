@@ -240,8 +240,10 @@ nnoremap <cr> i<cr><esc>
 " long lines
 noremap k gk
 noremap gk k
+noremap <c-k> k
 noremap j gj
 noremap gj j
+noremap <c-j> j
 noremap 0 g0
 noremap g0 0
 noremap $ g$
