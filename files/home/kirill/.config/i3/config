@@ -192,11 +192,11 @@ mode "$mode_move_workspace_to_output" {
 bindsym $leader+Shift+m mode "$mode_move_workspace_to_output" 
 # lenovo
 workspace $1_workspace output eDP
-workspace $q_workspace output HDMI-0
+workspace $g_workspace output HDMI-0
 workspace $w_workspace output VGA-0
 # asus
 workspace $1_workspace output eDP1
-workspace $q_workspace output HDMI1
+workspace $g_workspace output HDMI1
 workspace $w_workspace output DP1
 workspace $e_workspace output DP2
 workspace $r_workspace output VIRTUAL1

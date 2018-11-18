@@ -8,6 +8,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# scale with dpi
+export WINIT_HIDPI_FACTOR=1.0 alacritty
+
 # BROWSER
 if [ -x '/usr/bin/firefox' ]; then
   export BROWSER="/usr/bin/firefox"
