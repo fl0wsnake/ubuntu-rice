@@ -8,7 +8,6 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'fl0wsnake/vim-xkbswitch'
-Plug 'wellle/targets.vim'
 " syntax
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-sleuth'
@@ -403,7 +402,6 @@ nnoremap <silent> <leader>mh :call ToggleVar(&hlsearch, 'hlsearch')<cr>:set hlse
 " spellchecker mode
 set spellcapcheck=
 set spelllang=en
-au FileType text setl spell
 nnoremap <silent> <leader>mc :call ToggleVar(&spell, 'spellchecker')<cr>:set spell!<cr>
 " show interface mode
 let g:showInterfaceMode = 1

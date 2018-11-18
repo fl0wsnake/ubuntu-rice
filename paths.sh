@@ -42,5 +42,8 @@ declare -a paths=(
 # ubuntu specific files
 "$HOME/.profile"
 "$HOME/.latexmkrc"
+
+# cron jobs
+"/etc/cron.hourly/journal"
 )
 
