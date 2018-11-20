@@ -45,5 +45,9 @@ declare -a paths=(
 
 # cron jobs
 "/etc/cron.hourly/journal"
+
+# code
+"/home/kirill/ws/.prettierrc.yaml"
+"/home/kirill/ws/.stignore"
 )
 
