@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd /home/kirill/sync/data/appdata/myJournal
-/usr/bin/git add .
-/usr/bin/git commit -m .

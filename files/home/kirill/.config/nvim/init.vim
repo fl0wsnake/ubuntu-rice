@@ -223,6 +223,8 @@ nnoremap <silent> yY :let @+ = getline('.')<cr>
 nnoremap <silent> <leader>dD :let @+ = getline('.')<cr>"_dd
 noremap <silent> gf gf:silent cd .<cr>
 nnoremap <silent> <leader>ff :Autoformat<cr>
+nnoremap <silent> [ :lprevious<cr>
+nnoremap <silent> ] :lnext<cr>
 
 for i in range(1, 9)
   " <leader>{n} for window switching

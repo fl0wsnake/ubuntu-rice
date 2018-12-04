@@ -1,6 +1,7 @@
 import os
 from ranger.api.commands import *
 from ranger.core.loader import CommandLoader
+from subprocess import PIPE
 
 class extracthere(Command):
     def execute(self):
@@ -32,3 +33,20 @@ class extracthere(Command):
 
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
+
+
+class fzf_activities(Command):
+    def execute(self):
+        command="fzf-activities"
+        fzf = self.fm.execute_command(command, stdout=PIPE)
+        stdout, stderr = fzf.communicate()
+        directory = stdout.decode('utf-8').rstrip('\n')
+        self.fm.cd(directory)
+
+class fzf_paths(Command):
+    def execute(self):
+        command="fzf-paths"
+        fzf = self.fm.execute_command(command, stdout=PIPE)
+        stdout, stderr = fzf.communicate()
+        directory = stdout.decode('utf-8').rstrip('\n')
+        self.fm.cd(directory)
