@@ -41,6 +41,15 @@ else
   export TERMINAL="/usr/bin/gnome-terminal"
 fi
 
+# EXPLORER
+if [ -x '/usr/bin/ranger' ]; then
+  export EXPLORER="/usr/bin/ranger"
+elif [ -x '/usr/bin/nnn' ]; then
+  export EXPLORER="/usr/bin/nnn"
+else
+  export EXPLORER="nvim"
+fi
+
 # others
 export APPDATA_SYNC="$HOME/sync/data/appdata"
 export TEXMFDIR="/usr/local/share/texmf"

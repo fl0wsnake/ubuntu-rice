@@ -37,15 +37,19 @@ class extracthere(Command):
 
 class fzf_activities(Command):
     def execute(self):
-        command="fzf-activities"
+        command="dirname $(fzf-activities)"
         fzf = self.fm.execute_command(command, stdout=PIPE)
         stdout, stderr = fzf.communicate()
         directory = stdout.decode('utf-8').rstrip('\n')
-        self.fm.cd(directory)
+        if os.path.isdir(directory):
+            self.fm.cd(directory)
+        else:
+            self.fm.cd(os.path.abspath(os.path.join(directory, os.pardir)))
+
 
 class fzf_paths(Command):
     def execute(self):
-        command="fzf-paths"
+        command="dirname $(fzf-paths)"
         fzf = self.fm.execute_command(command, stdout=PIPE)
         stdout, stderr = fzf.communicate()
         directory = stdout.decode('utf-8').rstrip('\n')

@@ -249,6 +249,7 @@ noremap 0 g0
 noremap g0 0
 noremap $ g$
 noremap g$ $
+noremap <c-$> $
 noremap ^ g^
 noremap g^ ^
 

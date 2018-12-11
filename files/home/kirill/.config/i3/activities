@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# a='$TERMINAL -e $SHELL -c '"'"'cd "$(xcwd)"; p=$(~/.config/scripts/fzf-activities); echo $p; if [ -d "$p" ]; then; cd "$p"; elif [ -e "$p" ]; then; rifle "$p"; fi'"'"''
+# echo $a > ~/1.txt
+# `$a`
+
+$TERMINAL -e $SHELL -c 'cd "$(xcwd)"; p=$(~/.config/scripts/fzf-activities); if [ -d "$p" ]; then; cd "$p"; zsh; elif [ -e "$p" ]; then; rifle "$p"; fi'
