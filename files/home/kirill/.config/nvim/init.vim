@@ -495,7 +495,7 @@ endfunction
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 command! -nargs=* AgContents
       \ call fzf#vim#grep(
-      \ 'ag --hidden --ignore .git --nogroup --color --color-match "1;37" .+',
+      \ 'ag --hidden --ignore {.git,dist} --nogroup --color --color-match "1;37" .+',
       \ 0,
       \ {
       \ 'dir': <q-args>,
@@ -509,7 +509,7 @@ command! -nargs=* AgContents
       \ )
 command! -nargs=* AgFilenamesAndContents
       \ call fzf#vim#grep(
-      \ 'ag --hidden --ignore .git --nogroup --color --color-match "1;37" .+',
+      \ 'ag --hidden --ignore {.git,dist} --nogroup --color --color-match "1;37" .+',
       \ 0,
       \ {
       \ 'dir': <q-args>,

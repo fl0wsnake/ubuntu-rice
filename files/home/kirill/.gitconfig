@@ -1,0 +1,5 @@
+[user]
+	email = kirill.krylov09@gmail.com
+	name = Kirill Krylov
+[alias]
+	quick-stats = ! /usr/local/bin/git-quick-stats

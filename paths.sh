@@ -38,6 +38,7 @@ declare -a paths=(
 "$HOME/.config/nvim/UltiSnips"
 "$HOME/.config/nvim/init.vim"
 "$HOME/.config/nvim/ginit.vim"
+"$HOME/.gitconfig"
 
 # ubuntu specific files
 "$HOME/.profile"
