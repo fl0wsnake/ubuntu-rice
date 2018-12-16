@@ -48,7 +48,7 @@ declare -a paths=(
 "/etc/cron.hourly/journal"
 
 # code
-"/home/kirill/ws/.prettierrc.yaml"
-"/home/kirill/ws/.stignore"
+"$HOME/ws/.prettierrc.yaml"
+"$HOME/kirill/ws/.stignore"
 )
 
