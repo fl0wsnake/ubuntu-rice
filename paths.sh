@@ -9,6 +9,7 @@ declare -a paths=(
 "$HOME/.config/termite"
 "$HOME/.config/cava"
 "$HOME/.config/scripts"
+"$HOME/.config/scripts_private"
 "$HOME/.config/mps-youtube"
 "$HOME/.config/qutebrowser"
 "$HOME/.config/zathura"
