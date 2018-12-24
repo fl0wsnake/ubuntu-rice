@@ -1,0 +1,4 @@
+#!/bin/bash
+
+fd . ~/sync/data/appdata/myJournal -E .git | entr -d ./my_journal_watcher_schedule_commit
+
