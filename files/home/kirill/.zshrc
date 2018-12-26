@@ -155,6 +155,7 @@ alias gpa='git branch -r | grep -v "\->" | while read remote; do git branch --tr
 alias gbdm='git checkout -q master && git remote prune origin && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done; git prune'
 alias code-lines='git ls-files | grep -v (lock) | xargs wc -l'
 # other utilities
+alias vd='vidir'
 alias nm='nodemon'
 alias nr='npm run'
 alias nt='npm test'
