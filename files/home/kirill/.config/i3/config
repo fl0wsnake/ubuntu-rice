@@ -176,10 +176,15 @@ bindsym $leader+0 workspace $0_workspace
 bindsym $leader+Shift+0 move container to workspace $0_workspace
 bindsym $leader+Control+Shift+0 exec $i3dir/move-workspace `$i3dir/get-current-workspace-name` $0_workspace
 # workspace app assignments
+# x
 assign [class="Slack"] $x_workspace
 assign [class="discord"] $x_workspace
 assign [class="Telegram"] $x_workspace
 assign [class="Skype"] $x_workspace
+# r
+assign [class="TeamSQL"] $r_workspace
+assign [class="Postman"] $r_workspace
+assign [class="GitKraken"] $r_workspace
 # display outputs
 set $mode_move_workspace_to_output (m)onitor|(l)eft|(r)ight|(d)own|(u)p|(c)urrent|(p)rimary
 mode "$mode_move_workspace_to_output" {
