@@ -77,6 +77,8 @@ sudo pip install jrnl || true
 sudo pip2 install pynvim || true
 sudo pip3 install pynvim || true
 
+cd ..
+
 # repos
 git clone https://github.com/KoffeinFlummi/htop-vim && ./autogen.sh && ./configure && sudo make && cd ..
 
