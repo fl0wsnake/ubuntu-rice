@@ -1,0 +1,92 @@
+#!/bin/bash
+
+sudo apt update && sudo apt upgrade
+
+sudo make deploy
+
+sudo apt install \
+i3 \
+entr \
+pcregrep \
+ntp \
+awscli \
+pandoc \
+flameshot \
+zathura \
+latexmk \
+texlive \
+vlc \
+moreutils \
+texlive-fonts-extra \
+cargo \
+yapf \
+python-fontforge \
+fontforge \
+lcdf-typetools  \
+dos2unix \
+copyq \
+blueman \
+sxiv \
+transmission-gtk \
+virtualbox \
+unrar \
+xdotool \
+gimp \
+xbacklight \
+python3-pip \
+chromium-browser \
+neovim \
+git \
+ranger \
+zsh \
+curl \
+silversearcher-ag \
+nautilus-dropbox \
+jq \
+feh \
+compton \
+rofi \
+telegram-desktop \
+udiskie \
+unclutter \
+xclip \
+slack \
+i3lock-fancy \
+neofetch \
+fonts-font-awesome \
+pianobar \
+htop \
+translate-shell \
+zsh-antigen \
+libappindicator1 \
+unoconv \
+texlive-lang-cyrillic \
+inotify-tools \
+texlive-generic-recommended \
+texlive-latex-extra \
+atool
+
+# cargo
+sudo cargo install \
+cargo-deb \
+fd-find \
+ripgrep
+
+# pip
+sudo pip install jrnl || true
+sudo pip2 install pynvim || true
+sudo pip3 install pynvim || true
+
+# repos
+git clone https://github.com/KoffeinFlummi/htop-vim && ./autogen.sh && ./configure && sudo make && cd ..
+
+git clone https://github.com/meskarune/i3lock-fancy.git && cd i3lock-fancy && sudo make install && cd ..
+
+git clone https://github.com/arzzen/git-quick-stats.git && cd git-quick-stats && sudo make install && cd ..
+
+git clone https://github.com/karlch/vimiv && cd vimiv && sudo make install && cd ..
+
+git clone https://github.com/ierton/xkb-switch && cd xkb-switch && mkdir build && cd build && cmake .. && make && sudo make install && cd ..
+
+# brave browser
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add - && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-`lsb_release -sc`.list && sudo apt update && sudo apt install brave-browser brave-keyring
