@@ -118,7 +118,7 @@ alias e="nvim"
 alias x='ranger'
 alias c='clear'
 alias i='noh sxiv .; exit'
-alias j="$EDITOR /home/kirill/sync/data/appdata/myJournal"
+alias j="journal"
 # git
 alias gec="git status -s | pcregrep -o1 '\ *(?:[AM]|\?\?)\ *(.+)' | while read line; do noh $TERMINAL -e $EDITOR \$line; done"
 alias gam='git ls-files --modified | xargs git add'
