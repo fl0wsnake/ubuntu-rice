@@ -24,6 +24,7 @@ declare -a paths=(
 "$HOME/.mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
 "$HOME/.config/activities.txt"
 "$HOME/.config/vlc/vlcrc"
+"$HOME/.config/conky/conky.conf"
 
 "$HOME/.bashrc"
 "$HOME/.zshrc"

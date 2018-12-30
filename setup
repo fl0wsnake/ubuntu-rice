@@ -5,75 +5,80 @@ sudo apt update && sudo apt upgrade
 sudo make deploy
 
 sudo apt install \
-i3 \
-entr \
-pcregrep \
-ntp \
-awscli \
-pandoc \
-flameshot \
-zathura \
-latexmk \
-texlive \
-vlc \
-moreutils \
-texlive-fonts-extra \
-cargo \
-yapf \
-python-fontforge \
-fontforge \
-lcdf-typetools  \
-dos2unix \
-copyq \
-blueman \
-sxiv \
-transmission-gtk \
-virtualbox \
-unrar \
-xdotool \
-gimp \
-xbacklight \
-python3-pip \
-chromium-browser \
-neovim \
-git \
-ranger \
-zsh \
-curl \
-silversearcher-ag \
-nautilus-dropbox \
-jq \
-feh \
-compton \
-rofi \
-telegram-desktop \
-udiskie \
-unclutter \
-xclip \
-slack \
-i3lock-fancy \
-neofetch \
-fonts-font-awesome \
-pianobar \
-htop \
-translate-shell \
-zsh-antigen \
-libappindicator1 \
-unoconv \
-texlive-lang-cyrillic \
-inotify-tools \
-texlive-generic-recommended \
-texlive-latex-extra \
-atool
+    gcalcli \
+    conky \
+    i3 \
+    entr \
+    pcregrep \
+    ntp \
+    awscli \
+    pandoc \
+    flameshot \
+    zathura \
+    latexmk \
+    texlive \
+    vlc \
+    moreutils \
+    texlive-fonts-extra \
+    cargo \
+    yapf \
+    python-fontforge \
+    fontforge \
+    lcdf-typetools  \
+    dos2unix \
+    copyq \
+    blueman \
+    sxiv \
+    transmission-gtk \
+    virtualbox \
+    unrar \
+    xdotool \
+    gimp \
+    xbacklight \
+    python3-pip \
+    chromium-browser \
+    neovim \
+    git \
+    ranger \
+    zsh \
+    curl \
+    silversearcher-ag \
+    nautilus-dropbox \
+    jq \
+    feh \
+    compton \
+    rofi \
+    telegram-desktop \
+    udiskie \
+    unclutter \
+    xclip \
+    slack \
+    i3lock-fancy \
+    neofetch \
+    fonts-font-awesome \
+    pianobar \
+    htop \
+    translate-shell \
+    zsh-antigen \
+    libappindicator1 \
+    unoconv \
+    texlive-lang-cyrillic \
+    inotify-tools \
+    texlive-generic-recommended \
+    texlive-latex-extra \
+    atool
+
+# after installment commands
+conky -c ~/.config/conky/conky.conf
 
 # cargo
 curl https://sh.rustup.rs -sSf | sh
 
 sudo cargo install \
-  alacritty \
-  cargo-deb \
-  fd-find \
-  ripgrep
+    alacritty \
+    cargo-deb \
+    fd-find \
+    ripgrep
 
 # repos
 mkdir ~/repos
@@ -112,11 +117,12 @@ git clone https://github.com/ierton/xkb-switch && cd xkb-switch && mkdir build &
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add - && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-`lsb_release -sc`.list && sudo apt update && sudo apt install brave-browser brave-keyring
 
 # pip
-sudo pip install jrnl || true
-sudo pip2 install pynvim || true
-sudo pip3 install pynvim || true
-sudo pip3 install khal
+sudo pip install jrnl
+sudo pip2 install pynvim
+sudo pip3 install pynvim khal
 
 i3
+
+gcalcli calm --monday
 
 gnome-session-quit
