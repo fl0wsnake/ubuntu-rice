@@ -263,7 +263,7 @@ exec --no-startup-id flameshot
 exec_always --no-startup-id monitor
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/.config/scripts/touchpad-disable
-exec --no-startup-id ~/.config/scripts/wallp
+exec --no-startup-id ~/.config/scripts/wallpaper-setup
 exec --no-startup-id ~/.config/scripts_private/poll_display
 exec --no-startup-id unclutter
 exec --no-startup-id compton
