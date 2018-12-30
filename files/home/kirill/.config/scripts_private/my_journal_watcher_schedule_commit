@@ -1,8 +1,0 @@
-#!/bin/bash
-
-pid_file=./my_journal_pid
-if [ -e $pid_file ]; then
-    cat $pid_file &2>/dev/null | xargs kill
-fi
-sleep 300; cd ~/sync/data/appdata/myJournal && git add . && sudo git commit -m . &
-echo $! > $pid_file

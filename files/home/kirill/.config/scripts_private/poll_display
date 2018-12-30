@@ -3,6 +3,5 @@
 while true
 do
     ~/.config/scripts/monitor
-
     sleep 1s
 done

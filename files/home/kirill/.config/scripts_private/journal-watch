@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while true; do
+    echo watcher started or restarted due to directory structure changes.
+    fd . ~/sync/data/appdata/myJournal -E .git \
+        | entr -rdps "
+        echo \"[$(date)] file changed\". \
+        && sleep 300 \
+        && cd /home/kirill/sync/data/appdata/myJournal \
+        && /usr/bin/git add . \
+        && /usr/bin/git commit -m .
+        "
+done
