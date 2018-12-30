@@ -8,6 +8,10 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# for python3, instead of ASCII
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 # scale with dpi
 export WINIT_HIDPI_FACTOR=1.0 alacritty
 

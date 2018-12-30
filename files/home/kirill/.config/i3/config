@@ -267,6 +267,7 @@ exec --no-startup-id ~/.config/scripts/wallp
 exec --no-startup-id ~/.config/scripts_private/poll_display
 exec --no-startup-id unclutter
 exec --no-startup-id compton
+exec --no-startup-id conky
 exec --no-startup-id udiskie
 exec --no-startup-id transmission-daemon
 exec --no-startup-id syncthing -no-browser
