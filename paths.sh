@@ -25,6 +25,8 @@ declare -a paths=(
 "$HOME/.config/activities.txt"
 "$HOME/.config/vlc/vlcrc"
 "$HOME/.config/conky/conky.conf"
+"$HOME/.config/autokey/autokey.json"
+"$HOME/.config/autokey/data/My Phrases/Firefox.txt"
 
 "$HOME/.bashrc"
 "$HOME/.zshrc"

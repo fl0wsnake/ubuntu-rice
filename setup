@@ -5,6 +5,7 @@ sudo apt update && sudo apt upgrade
 sudo make deploy
 
 sudo apt install \
+    autokey-gtk \
     gcalcli \
     conky \
     i3 \
