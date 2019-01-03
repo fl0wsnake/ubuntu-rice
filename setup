@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# set keyboard repeat delay
+xset r rate 250 32
+
 # set swapiness
 sudo sysctl vm.swappiness=1
 
@@ -180,7 +183,7 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh |
 nvm install node
 
 ### node packages
-sudo npm install -g prettier
+sudo npm i -g prettier typescript
 
 ## alacritty
 git clone https://github.com/jwilm/alacritty \
