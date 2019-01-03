@@ -10,9 +10,9 @@ fi
 
 for i in "${paths[@]}"
 do
-  dir=$(dirname $i)
-  mkdir -p "$backupdir/$dir"
-  cp -a "$i" "$backupdir/$dir" 2>/dev/null
+  dir=$(dirname "$i")
+  mkdir -p "$backupdir$dir"
+  cp -a "$i" "$backupdir$dir"
 done
 
 find ./files \( -type f -o -type d \) -name '*history*' -exec rm -rf {} +

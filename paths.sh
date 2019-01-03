@@ -27,6 +27,7 @@ declare -a paths=(
 "$HOME/.config/conky/conky.conf"
 "$HOME/.config/autokey/autokey.json"
 "$HOME/.config/autokey/data/My Phrases/Firefox.txt"
+"$HOME/.config/autokey/data/My Phrases/.Firefox.json"
 
 "$HOME/.bashrc"
 "$HOME/.zshrc"
@@ -49,11 +50,8 @@ declare -a paths=(
 "$HOME/.latexmkrc"
 "$HOME/.xinitrc"
 
-# cron jobs
-"/etc/cron.hourly/journal"
-
 # code
 "$HOME/ws/.prettierrc.yaml"
-"$HOME/kirill/ws/.stignore"
+"$HOME/ws/.stignore"
 )
 

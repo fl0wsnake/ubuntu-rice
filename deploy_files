@@ -5,7 +5,7 @@ source ./paths.sh
 for i in "${paths[@]}"
 do
   mkdir -p $(dirname "$i")
-  sudo cp -r $(realpath "$backupdir/$i") $(dirname "$i")
+  sudo cp -r "$(realpath $backupdir$i)" "$(dirname $i)"
 done
 
 # create directories per ranger bookmarks
