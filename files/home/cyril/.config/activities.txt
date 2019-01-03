@@ -1,0 +1,8 @@
+/home/cyril 1
+/home/cyril/apps
+/home/cyril/sync
+/home/cyril/.config/
+/home/cyril/Downloads/
+/media/cyril/
+/home/cyril/stuff/
+/home/cyril/ws/

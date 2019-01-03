@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/kirill/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="my"
@@ -192,9 +192,9 @@ if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -f __init_nvm)" = function ]; then
 	for i in "${__node_commands[@]}"; do alias $i="__init_nvm 2>/dev/null && nvm use --silent 2>/dev/null; $i"; done
 fi
 
-if [ -f '/home/kirill/apps/google-cloud-sdk/path.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/apps/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/apps/google-cloud-sdk/path.zsh.inc"; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/kirill/apps/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/apps/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/apps/google-cloud-sdk/completion.zsh.inc"; fi
 
 autoload bashcompinit
 bashcompinit
@@ -202,7 +202,7 @@ source ${HOME}/.config/scripts/completions
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+[[ -f $HOME/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . $HOME/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/kirill/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -f $HOME/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . $HOME/.nvm/versions/node/v10.3.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

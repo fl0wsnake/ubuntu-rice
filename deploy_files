@@ -4,8 +4,10 @@ source ./paths.sh
 
 for i in "${paths[@]}"
 do
-  mkdir -p $(dirname "$i")
-  sudo cp -r $(realpath "$backupdir/$i") $(dirname "$i")
+  # sudo rm -rf "$i"
+  # sudo chmod -R o+rw "`dirname $i`"
+  mkdir -p "$(dirname $i)"
+  cp -r "$(realpath $backupdir/$i)" "$(dirname $i)"
 done
 
 # create directories per ranger bookmarks

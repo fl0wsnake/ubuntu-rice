@@ -199,6 +199,9 @@ mode "$mode_move_workspace_to_output" {
     bindsym Escape mode "default"
 }
 bindsym $leader+Shift+m mode "$mode_move_workspace_to_output" 
+# thinkpad t480s
+workspace $1_workspace output eDP1
+workspace $g_workspace output HDMI2
 # lenovo
 workspace $1_workspace output eDP
 workspace $g_workspace output HDMI-0

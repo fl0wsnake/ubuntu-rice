@@ -1,3 +1,0 @@
-#!/bin/bash
-
-$TERMINAL -e $SHELL -c "$EDITOR /home/kirill/sync/data/appdata/myJournal"

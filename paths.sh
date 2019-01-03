@@ -21,7 +21,6 @@ declare -a paths=(
 "$HOME/.config/wall.jpg"
 "$HOME/.config/wall.png"
 "$HOME/.config/copyq/copyq.conf"
-"$HOME/.mozilla/firefox/x1inby9a.default/chrome/userChrome.css"
 "$HOME/.config/activities.txt"
 "$HOME/.config/vlc/vlcrc"
 "$HOME/.config/conky/conky.conf"

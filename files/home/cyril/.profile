@@ -12,8 +12,8 @@
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 
-# scale with dpi
-export WINIT_HIDPI_FACTOR=1.0 alacritty
+# scale alacritty with dpi
+export WINIT_HIDPI_FACTOR=1.3125
 
 # BROWSER
 if [ -x '/usr/bin/firefox' ]; then

@@ -9,4 +9,4 @@ while read pathAndDepth; do
   else
     $find_command "${arr[0]}" &
   fi
-done < /home/kirill/.config/activities.txt
+done < ~/.config/activities.txt

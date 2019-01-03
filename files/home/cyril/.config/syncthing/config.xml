@@ -4,6 +4,7 @@
         <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
+        <device id="2COTCCJ-XHOCRQX-6LXDMQJ-YLMGTBX-TOOJO22-QWMFFUC-YDWC3AP-EWKXWQY" introducedBy=""></device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning type="trashcan">
             <param key="cleanoutDays" val="30"></param>
@@ -27,6 +28,7 @@
         <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
+        <device id="2COTCCJ-XHOCRQX-6LXDMQJ-YLMGTBX-TOOJO22-QWMFFUC-YDWC3AP-EWKXWQY" introducedBy=""></device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning></versioning>
         <copiers>0</copiers>
@@ -48,6 +50,7 @@
         <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
         <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" introducedBy=""></device>
+        <device id="2COTCCJ-XHOCRQX-6LXDMQJ-YLMGTBX-TOOJO22-QWMFFUC-YDWC3AP-EWKXWQY" introducedBy=""></device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning></versioning>
         <copiers>0</copiers>
@@ -75,6 +78,11 @@
         <autoAcceptFolders>false</autoAcceptFolders>
     </device>
     <device id="XFAJXRL-F2XNMU4-XJ2WAXJ-5MNTSE3-RFXJOS5-25FQMIA-7JYPXKY-PNIHDAO" name="kirill-N501VW" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+        <address>dynamic</address>
+        <paused>false</paused>
+        <autoAcceptFolders>false</autoAcceptFolders>
+    </device>
+    <device id="2COTCCJ-XHOCRQX-6LXDMQJ-YLMGTBX-TOOJO22-QWMFFUC-YDWC3AP-EWKXWQY" name="cyril-ThinkPad-T480s" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
