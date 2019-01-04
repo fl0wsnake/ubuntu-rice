@@ -6,7 +6,7 @@ while true; do
         | entr -rdps "
         echo \"[$(date)] file changed\". \
         && sleep 300 \
-        && cd /home/kirill/sync/data/appdata/myJournal \
+        && cd $HOME/sync/data/appdata/myJournal \
         && /usr/bin/git add . \
         && /usr/bin/git commit -m .
         "

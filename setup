@@ -243,19 +243,27 @@ sudo ln -s /opt/Postman/Postman /usr/bin/postman
 
 echo "Installation completed successfully."
 
-# git kraken
+## git kraken
 TEMP_DEB="$(mktemp)" \
     && LINK='https://release.gitkraken.com/linux/gitkraken-amd64.deb' \
     && wget -O "$TEMP_DEB" $LINK \
     && sudo dpkg -i "$TEMP_DEB" \
     && rm -f "$TEMP_DEB"
 
-# dbeaver
+## dbeaver
 TEMP_DEB="$(mktemp)" \
     && LINK='https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb' \
     && wget -O "$TEMP_DEB" $LINK \
     && sudo dpkg -i "$TEMP_DEB" \
     && rm -f "$TEMP_DEB"
+
+## docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common \
+    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
+    && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
+    && sudo apt update \
+    && apt-cache policy docker-ce \
+    && sudo apt install docker-ce \
 
 # pip
 sudo pip install jrnl
