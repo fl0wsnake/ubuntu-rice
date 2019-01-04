@@ -185,6 +185,7 @@ assign [class="Skype"] $x_workspace
 assign [class="TeamSQL"] $r_workspace
 assign [class="Postman"] $r_workspace
 assign [class="GitKraken"] $r_workspace
+assign [class="GitKraken"] $r_workspace
 # display outputs
 set $mode_move_workspace_to_output (m)onitor|(l)eft|(r)ight|(d)own|(u)p|(c)urrent|(p)rimary
 mode "$mode_move_workspace_to_output" {
