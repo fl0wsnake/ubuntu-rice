@@ -54,6 +54,6 @@ declare -a paths=(
 
 # code
 "$HOME/ws/.prettierrc.yaml"
-"$HOME/kirill/ws/.stignore"
+"$HOME/ws/.stignore"
 )
 
