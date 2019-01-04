@@ -1,5 +1,5 @@
 <configuration version="28">
-    <folder id="ruy65-pty99" label="data" path="/home/kirill/sync/data" type="readwrite" rescanIntervalS="60" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="ruy65-pty99" label="data" path="/home/cyril/sync/data" type="readwrite" rescanIntervalS="60" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
@@ -23,7 +23,7 @@
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
     </folder>
-    <folder id="oca2x-uutw9" label="redmi-note4/camera" path="/home/kirill/sync/devices/redmi-note4/camera" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="oca2x-uutw9" label="redmi-note4/camera" path="/home/cyril/sync/devices/redmi-note4/camera" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
@@ -45,7 +45,7 @@
         <weakHashThresholdPct>25</weakHashThresholdPct>
         <markerName>.stfolder</markerName>
     </folder>
-    <folder id="n5wp6-0baz3" label="redmi-note4/screenshots" path="/home/kirill/sync/devices/redmi-note4/screenshots" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="n5wp6-0baz3" label="redmi-note4/screenshots" path="/home/cyril/sync/devices/redmi-note4/screenshots" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="KIZMG2A-LPYYDFB-TJH7YNE-LHQKBUB-BUE52TT-DXIK234-EM2AUVY-ETEIPQ2" introducedBy=""></device>
         <device id="RCCGDNC-N6ALBEV-JMQXLYA-M3LE36C-IAQFXOT-ZCMN7YH-6SCZXY6-LQZXNQI" introducedBy=""></device>
