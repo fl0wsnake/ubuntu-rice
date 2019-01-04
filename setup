@@ -25,6 +25,7 @@ mkdir -p ~/sync
 mkdir -p ~/apps
 mkdir -p ~/sync/data
 mkdir -p ~/sync/devices
+mkdir -p ~/stuff/movies
 cd ~/Downloads/repos
 
 # mirrors
@@ -203,8 +204,13 @@ git clone https://github.com/fl0wsnake/st \
     && sudo make install \
     && cd ..
 
-## brave browser
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add - && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-`lsb_release -sc`.list && sudo apt update && sudo apt install brave-browser brave-keyring
+# ## brave browser
+# curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add - && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-`lsb_release -sc`.list && sudo apt update && sudo apt install brave-browser brave-keyring
+
+## opera
+wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
+sudo add-apt-repository "deb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free"
+sudo apt install opera-stable
 
 ## firefox settings
 firefox_dir=$(find ~/.mozilla/firefox/*.default -maxdepth 0 -type d)
